@@ -4,7 +4,7 @@ public class Medication {
   private String dose;
   private String time;
   
-  public Medication(String type, String dose, String Time){
+  public Medication(String type, String dose, String time){
 
   }
 }
