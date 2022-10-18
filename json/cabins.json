@@ -1,0 +1,28 @@
+{ 
+    "cabin":[
+        {
+            "UUID":"1",
+            "staffUUID":"1",
+            "children":["1", "4", "13", "22", "27", "null", "null", "null"],
+            "name":"Brown Bear",
+            "minAge":8,
+            "password":10,
+            "schedules":[
+                {
+                    "scheduleUUID":"1",
+                    "day":"MONDAY",
+                    "activities":[
+                        {
+                            "activityUUID":"1",
+                            "type":"PHYSICAL",
+                            "name":"Hiking",
+                            "time":"2:30 PM",
+                            "description":"Go hiking down the easy trail",
+                            "packingList":[]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
