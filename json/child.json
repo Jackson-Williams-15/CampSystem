@@ -1,0 +1,26 @@
+{
+    "child":[
+        {
+            "UUID":"1",
+            "firstName":"Jane",
+            "lastName":"Doe",
+            "birthday":"12/12/2012",
+            "age":9,
+            "allergies":["seasonal"],
+            "doctor":[
+                {
+                    "firstName":"Emmet",
+                    "lastName":"Brown",
+                    "email":"1-800-121-4442",
+                    "phoneNumber":""
+                }
+            ],
+            "medication":[
+                {
+                    "type":"Allergy Medicine",
+                    "dose":"1 spray in each nostril once a day"
+                }
+            ]
+        }
+    ]
+}

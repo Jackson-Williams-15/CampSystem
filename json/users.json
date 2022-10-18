@@ -1,0 +1,14 @@
+{
+    "user":[
+        {
+            "UUID":"1",
+            "type":"GuardianUser",
+            "firstName":"John",
+            "lastName":"Doe",
+            "email":"johndoe@gmail.com",
+            "phoneNumber":"500-123-9876",
+            "dateOfBirth":"1/1/1990",
+            "password":"12345"
+        }
+    ]
+}
