@@ -7,7 +7,7 @@ public class Child{
     private Date birthdate;
     private int age;
     private ArrayList<String> allergies;
-    private ArrayList<Contact> contacts;
+    private ArrayList<Contact> emergencyContacts;
     private ArrayList<Medication> medications;
     public Child(String firstName, String lastName, int age){
         this.firstName = firstName;
@@ -19,7 +19,7 @@ public class Child{
         this.medications.add(med);
     }
     public void addContact(Contact contact){
-        this.contacts.add(contact);
+        this.emergencyContacts.add(contact);
     }
     
 }
