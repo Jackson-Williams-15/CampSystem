@@ -8,10 +8,12 @@ public class StaffUser {
     private Date birthday;
 
     public ArrayList<String> getAllAllergies(){
+        return allergies;
 
     }
 
     public boolean checkAllergies(String allergies){
+        return false;
 
     } 
 
@@ -20,6 +22,7 @@ public class StaffUser {
     }
 
     public String toString(){
+        return null;
         
     }
 }
