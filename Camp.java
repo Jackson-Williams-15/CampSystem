@@ -1,7 +1,7 @@
 public class Camp 
 {
     private String name;
-    //private UserList userList;
+    private UserList userList;
     private int availability;
     private int sessions;
 
