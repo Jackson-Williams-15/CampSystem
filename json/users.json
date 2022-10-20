@@ -1,58 +1,14 @@
 {
     "user":[
         {
-            "UUID":"16c7e243-f077-4246-9695-0f9662eda176",
+            "UUID":"1",
+            "type":"GuardianUser",
             "firstName":"John",
             "lastName":"Doe",
             "email":"johndoe@gmail.com",
             "phoneNumber":"500-123-9876",
             "dateOfBirth":"1/1/1990",
-            "password":"12345",
-            "type":"GuardianUser",
-            "children":["e9bcbd0a-6338-4bdd-b4fb-82d1b104fd48"],
-            "campDuration":7,
-            "campDates":["10/24/2022"]
-        },
-        {
-            "UUID":"844b56f6-8ffa-443a-beb9-c80918378636",
-            "firstName":"Steve",
-            "lastName":"Mann",
-            "email":"smann@business.org",
-            "phoneNumber":"426-843-2677",
-            "dateOfBirth":"3/6/1989",
-            "password":"12345",
-            "type":"DirectorUser"
-        },
-        {
-            "UUID":"fa7cdb87-0440-4c51-bf70-f390eb99d99e",
-            "firstName":"Jimmy",
-            "lastName":"T",
-            "email":"jimmyt@warioware.inc",
-            "phoneNumber":"582-639-7625",
-            "dateOfBirth":"3/21/2003",
-            "password":"12345",
-            "type":"StaffUser",
-            "emergencyContacts":[
-                {
-                    "firstName":"Emmet",
-                    "lastName":"Brown",
-                    "email":"EmmBrown@outlook.com",
-                    "phoneNumber":"1-800-121-4442"
-                }
-            ],
-            "doctor":{
-                "firtsName":"Tim",
-                "lastName":"Crygor",
-                "email":"drcrygor@diamond.biz",
-                "phoneNumber":"1-800-697-6268"
-            },
-            "allergies":[],
-            "medications":[
-                {
-                    "type":"Physical Exercise",
-                    "dose":"2 to 3 hours per day"
-                }
-            ]
+            "password":"12345"
         }
     ]
 }
