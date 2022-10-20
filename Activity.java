@@ -50,4 +50,13 @@ public class Activity
     {
         this.packingList = packingList;
     }
+
+    /**
+     * Returns the Activity object as a human-readable string
+     * @return Returns the name, time, and description of the activity
+     */
+    public String toString()
+    {
+        return this.name + "\n" + this.time + "\n" + this.description + "\n";
+    }
 }
