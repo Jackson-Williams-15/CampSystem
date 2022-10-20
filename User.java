@@ -6,12 +6,17 @@ public class User {
     protected Date dateOfBirth;
     protected int phone;
     protected String password;
-    
-    public User(String Name, int number, String email, String password){
-
+    protected Contact contact;
+    public User(String name, int number, String email, String password, Date dateOfBirth){
+        this.firstName = name;
+        this.lastName = name;
+        this.phone = number;
+        this.email = email;
+        this.password = password;
+        this.dateOfBirth = dateOfBirth;
     }
 
     protected Contact getContact(){
-        return null;
+        return this.contact;
     }
 }
