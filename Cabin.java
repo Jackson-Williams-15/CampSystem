@@ -7,12 +7,13 @@ public class Cabin {
     private int minAge;
     private int maxAge;
     private Schedule[] schedule;
+    
 
     public Cabin(String name) {
         this.name = name;
     }
 
     public void addToGroup(Child child) {
-
+        this.camperGroup.add(child);
     }
 }

@@ -7,16 +7,15 @@ public class StaffUser {
     private ArrayList<Medication> medication;
     private Date birthday;
 
+
     public ArrayList<String> getAllAllergies(){
         return allergies;
 
     }
 
-    public boolean checkAllergies(String allergies){
+    public boolean checkAllergies(String allergy){
         return false;
-
-    } 
-
+    }
     public void staffSchedule(){
 
     }
