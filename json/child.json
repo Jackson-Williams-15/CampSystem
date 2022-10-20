@@ -1,20 +1,18 @@
 {
     "child":[
         {
-            "UUID":"1",
+            "UUID":"e9bcbd0a-6338-4bdd-b4fb-82d1b104fd48",
             "firstName":"Jane",
             "lastName":"Doe",
             "birthday":"12/12/2012",
             "age":9,
             "allergies":["seasonal"],
-            "doctor":[
-                {
+            "doctor":{
                     "firstName":"Emmet",
                     "lastName":"Brown",
-                    "email":"1-800-121-4442",
-                    "phoneNumber":""
-                }
-            ],
+                    "email":"EmmBrown@outlook.com",
+                    "phoneNumber":"1-800-121-4442"
+                },
             "medication":[
                 {
                     "type":"Allergy Medicine",
