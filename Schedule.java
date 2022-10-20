@@ -9,13 +9,13 @@ public class Schedule
         this.day = day;
         this.activities = activities;
     }
-    public String addActivity(String name, Type type){
-        return null;
+    public void addActivity(Activity active){
+        this.activities.add(active);
     }
-    public void removeActivity(ArrayList<Activity> activities){
-        
+    public void removeActivity(Activity active){
+        this.activities.remove(active);
     }
     public String toString(){
-        return null;
+        return "The activity is " + activities;
     }
 }
