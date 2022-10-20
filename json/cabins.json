@@ -1,19 +1,17 @@
 { 
     "cabin":[
         {
-            "UUID":"1",
-            "staffUUID":"1",
-            "children":["1", "4", "13", "22", "27", "null", "null", "null"],
+            "UUID":"dd30acc7-6e51-4174-9fd0-4f345915fbe8",
+            "staffUUID":"fa7cdb87-0440-4c51-bf70-f390eb99d99e",
+            "children":["e9bcbd0a-6338-4bdd-b4fb-82d1b104fd48"],
             "name":"Brown Bear",
             "minAge":8,
-            "password":10,
+            "maxAge":10,
             "schedules":[
                 {
-                    "scheduleUUID":"1",
                     "day":"MONDAY",
                     "activities":[
                         {
-                            "activityUUID":"1",
                             "type":"PHYSICAL",
                             "name":"Hiking",
                             "time":"2:30 PM",
