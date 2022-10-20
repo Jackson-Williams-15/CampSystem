@@ -5,6 +5,8 @@ public class Medication {
   private String time;
   
   public Medication(String type, String dose, String time){
-
+    this.type = type;
+    this.dose = dose;
+    this.time = time;
   }
 }
