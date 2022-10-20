@@ -13,6 +13,6 @@ public class Cabin {
     }
 
     public void addToGroup(Child child) {
-
+        
     }
 }
