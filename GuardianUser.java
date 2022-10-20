@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 
 public class GuardianUser{
@@ -9,11 +8,11 @@ public class GuardianUser{
     public void addChild(Child child){
         this.children.add(child);
     }
-    public Child getChild(String firstName){
-        Child theChild = void;
+    public Child getChild(String name){
+        Child theChild;
         for (Child child : children) {
-            if(child.getFirstName() == firstName)
-                theChild = new Child(child);
+            if(child.firstName = name)
+                theChild = child;
         }
         return theChild;
     }
