@@ -5,14 +5,13 @@ public class Child{
     private String firstName;
     private String lastName;
     private Date birthdate;
-    private int age;
     private ArrayList<String> allergies;
     private ArrayList<Contact> emergencyContacts;
     private ArrayList<Medication> medications;
-    public Child(String firstName, String lastName, int age){
+    public Child(String firstName, String lastName, Date birthdate){
         this.firstName = firstName;
         this.lastName = lastName;
-        this.age = age;
+        this.birthdate = birthdate;
 
     }
 
@@ -20,12 +19,10 @@ public class Child{
     public Child(Child newChild){
         this.firstName = newChild.getFirstName();
         this.lastName = newChild.getLastName();
-        this.age = newChild.getAge();
         this.emergencyContacts = newChild.getContact();
         this.birthdate = newChild.getBirth();
         this.allergies = newChild.getAllergies();
         this.medications = newChild.getMeds();
-
     }
 
     // Setters
@@ -45,9 +42,6 @@ public class Child{
     }
     public Date getBirth(){
         return this.birthdate;
-    }
-    public int getAge(){
-        return this.age;
     }
     public ArrayList<String> getAllergies(){
         return this.allergies;
