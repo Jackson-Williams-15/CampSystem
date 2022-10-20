@@ -22,7 +22,7 @@ public class Activity
         this.type = type;
         this.name = name;
         this.time = time;
-    };
+    }
 
     /**
      * Sets the description of the activity
@@ -31,7 +31,7 @@ public class Activity
     public void setDescription(String description)
     {
         this.description = description;
-    };
+    }
 
     /**
      * Adds an item to the activity's packing list
@@ -40,7 +40,7 @@ public class Activity
     public void addToPackingList(String item)
     {
         this.packingList.add(item);
-    };
+    }
 
     /**
      * Sets the entire packing list to a new list
@@ -49,5 +49,5 @@ public class Activity
     public void setPackingList(ArrayList<String> packingList)
     {
         this.packingList = packingList;
-    };
+    }
 }
