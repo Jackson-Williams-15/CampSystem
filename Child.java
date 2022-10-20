@@ -14,8 +14,6 @@ public class Child{
         this.birthdate = birthdate;
 
     }
-<<<<<<< HEAD
-=======
 
     // Copy Constructor
     public Child(Child newChild){
@@ -27,17 +25,13 @@ public class Child{
         this.medications = newChild.getMeds();
     }
     // Setters
-
->>>>>>> ea775a0ecf9be83690cef6716938b29c015d0f8c
     public void addMedication(Medication med){
         this.medications.add(med);
     }
     public void addContact(Contact contact){
         this.emergencyContacts.add(contact);
     }
-<<<<<<< HEAD
-=======
-    // Getter
+   // Getter
     public String getFirstName(){
         return this.firstName;
     }
@@ -55,7 +49,5 @@ public class Child{
     }
     public ArrayList<Medication> getMeds(){
         return this.medications;
-    }
->>>>>>> ea775a0ecf9be83690cef6716938b29c015d0f8c
-    
+    }    
 }
