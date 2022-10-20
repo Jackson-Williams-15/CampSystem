@@ -14,15 +14,8 @@ public class StaffUser {
     }
 
     public boolean checkAllergies(String allergy){
-        for(String al : allergies){
-            if(){
-                
-            }
-        }
         return false;
-
-    } 
-
+    }
     public void staffSchedule(){
 
     }
