@@ -20,7 +20,7 @@
             "email":"smann@business.org",
             "phoneNumber":"426-843-2677",
             "dateOfBirth":"3/6/1989",
-            "password":"password",
+            "password":"12345",
             "type":"DirectorUser"
         },
         {

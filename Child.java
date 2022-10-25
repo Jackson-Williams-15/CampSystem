@@ -14,6 +14,7 @@ public class Child{
         this.birthdate = birthdate;
 
     }
+
     // Copy Constructor
     public Child(Child newChild){
         this.firstName = newChild.getFirstName();
@@ -24,13 +25,14 @@ public class Child{
         this.medications = newChild.getMeds();
     }
     // Setters
+
     public void addMedication(Medication med){
         this.medications.add(med);
     }
     public void addContact(Contact contact){
         this.emergencyContacts.add(contact);
     }
-   // Getter
+    // Getter
     public String getFirstName(){
         return this.firstName;
     }
@@ -48,5 +50,6 @@ public class Child{
     }
     public ArrayList<Medication> getMeds(){
         return this.medications;
-    }    
+    }
+    
 }
