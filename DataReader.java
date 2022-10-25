@@ -14,7 +14,6 @@ public class DataReader extends DataConstants {
 
             FileReader reader = new FileReader(USER_FILE_NAME);
             JSONParser parser = new JSONParser();
-
             JSONArray peopleJSON = (JSONArray)new JSONParser().parse(reader);
 
             for(int i=0; i < peopleJSON.size(); i++) {
@@ -22,10 +21,13 @@ public class DataReader extends DataConstants {
 				UUID id = UUID.fromString((String)personJSON.get(USER_ID));
 				String firstName = (String)personJSON.get(USER_FIRST_NAME);
 				String lastName = (String)personJSON.get(USER_LAST_NAME);
+                String email = (String)personJSON.get(USER_EMAIL);
+                String password = (String)personJSON.get(USER_PASSWORD);
 				Date dateOfBirth = ((Date)personJSON.get(USER_DOB));
-				String phoneNumber = (String)personJSON.get(USER_PHONE_NUMBER);
+				int phoneNumber = (int)personJSON.get(USER_PHONE_NUMBER);
 				
-				users.add(new User(id, firstName, lastName, dateOfBirth, phoneNumber));
+                //String name, int number, String email, String password, Date dateOfBirth)
+				users.add(new User(firstName, phoneNumber, email, password, dateOfBirth));
             }
             return users;
 
