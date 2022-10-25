@@ -2,41 +2,85 @@ import java.util.Scanner;
 
 public class CampDriver {
     private Scanner in;
-    private String[] userOptions = new String[2];
-    private String[] parentOptions = new String[2];
-    private String[] counselorOptions = new String[2];
-    private String[] directorOptions = new String[2];
+    private String[] userOptions = new String[3];
+    private String[] guardianOptions = new String[3];
+    private String[] counselorOptions = new String[3];
+    private String[] directorOptions = new String[3];
 
 
 
     public CampDriver(){
         in = new Scanner(System.in);
-        userOptions[0] = "1. Log in as parent";
-        userOptions[1] = "2. Log in as Counselor";
-        userOptions[2] = "3. Log in as Director";
+        userOptions[0] = "Log in as parent";
+        userOptions[1] = "Log in as Counselor";
+        userOptions[2] = "Log in as Director";
 
-        parentOptions[0] = "1. Register Child";
-        parentOptions[1] = "2. View Camp Dates";
-        parentOptions[2] = "3. View Camp Duration";
+        guardianOptions[0] = "Register Child";
+        guardianOptions[1] = "View Camp Dates";
+        guardianOptions[2] = "View Camp Duration";
 
-        counselorOptions[0] = "1. Register Child";
-        counselorOptions[1] = "2. View Camp Dates";
-        counselorOptions[2] = "3. View Camp Duration";
+        counselorOptions[0] = "View Schedule";
+        counselorOptions[1] = "Check Allergies";
+        //counselorOptions[2] = "2. View Camp Duration";
 
-        directorOptions[0] = "1. Register Child";
-        directorOptions[1] = "2. View Camp Dates";
-        directorOptions[2] = "3. View Camp Duration";
+        directorOptions[0] = "View User Profiles";
+        directorOptions[1] = "Logout";
 
     }
     public void runDriver(){
         clear();
         System.out.println("Welcome to our Camp!");
-    }
+        displayMenu();
 
+            int choice = getNum();
+            
+            switch(choice){
+                case 0:
+                    //System.out.println("Enter Email: " + in.next() + "\n Enter Password: " + in.next());
+                    for(int i = 0; i < guardianOptions.length; i++){
+                        System.out.println((i+1) + ". " + guardianOptions[i]);
+                    }
+                    int gChoice = getNum();
+                    if(gChoice == 0){
+                        System.out.println("Holder Register child");
+                    }
+                    else if(gChoice == 1){
+                        System.out.println("Holder View Camp dates");
+                    }
+                    else if(gChoice == 2){
+                        System.out.println("Holder View Camp Duration");
+                    }
+                    break;
+                case 1:
+                    //System.out.println("Enter Email: " + in.next() + "\n Enter Password: " + in.next());
+                    for(int i = 0; i < counselorOptions.length; i++){
+                        System.out.println((i+1) + ". " + counselorOptions[i]);
+                    }
+                    int cChoice = getNum();
+                    if(cChoice == 0){
+                        System.out.println("Holder View Schedule");
+                    }
+                    else if(cChoice == 1){
+                        System.out.println("Holder Check allergies");
+                    }
+                    break;
+                case 2:
+                    //System.out.println("Enter Email: " + in.next() + "\n Enter Password: " + in.next());
+                    for(int i = 0; i < directorOptions.length; i++){
+                        System.out.println((i+1) + ". " + directorOptions[i]);
+                    }
+                    int dChoice = getNum();
+                    if(dChoice == 0){
+                        System.out.println("Holder Director");
+                    }
+
+
+            }
+    }
     private int getNum(){
         int num;
         try{
-            num = Integer.parseInt(in.nextLine()) - 1;
+            num = Integer.parseInt(in.nextLine())-1;
         } catch (Exception e) {
 			clear();
 			System.out.println("You need to enter a valid number\n");
@@ -45,15 +89,16 @@ public class CampDriver {
         clear();
 
         if (num < 0 || num > 3) {
-			System.out.println("Sorry, your option is not in the valid range.\n");
+			System.out.println("Oh no! You have chosen an invalid input.\n");
 			return -1;
 		}
         return num;
     }
+
     private void displayMenu(){
         System.out.println("What would you like to do?");
         for(int i = 0; i < userOptions.length; i++){
-            System.out.println(userOptions[i]);
+            System.out.println((i+1) + ". " + userOptions[i]);
         }
     }
 
