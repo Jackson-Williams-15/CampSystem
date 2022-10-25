@@ -13,12 +13,29 @@ public class DataWriter extends DataConstants {
 		
 		//creating all the json objects
 		for(int i=0; i< users.size(); i++) {
-			jsonUser.add(getUserJSON(users.get(i)));
+			jsonUser.add(getAllUserJSON(users.get(i)));
 		}
 
-    }
-    
-    public boolean saveCamp(){
-        return false;
-    }
+  //Write JSON file
+  try (FileWriter file = new FileWriter(USER_FILE_NAME)) {
+ 
+    file.write(jsonUser.toJSONString());
+    file.flush();
+
+} catch (IOException e) {
+    e.printStackTrace();
 }
+    }
+    public static JSONObject getAllUserJSON(User user) {
+		JSONObject userDetails = new JSONObject();
+		userDetails.put(USER_ID, user.getUserId().toString());
+		userDetails.put(USER_FIRST_NAME, user.getFirstName());
+		userDetails.put(USER_LAST_NAME, user.getLastName());
+		userDetails.put(USER_DOB, user.getDateOfBirth());
+        userDetails.put(USER_EMAIL, user.getEmail());
+		userDetails.put(USER_PHONE_NUMBER, user.getPhoneNumber());
+        
+        return userDetails;
+	}
+}
+
