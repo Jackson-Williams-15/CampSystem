@@ -42,7 +42,22 @@ public class User {
         this(firstName, lastName, number, email, password, dateOfBirth, UUID.randomUUID());
     }
 
-    protected Contact getContact(){
+    public String getFirstName()
+    {
+        return this.firstName;
+    }
+
+    public String getLastName()
+    {
+        return this.lastName;
+    }
+
+    public int getPhone()
+    {
+        return this.phone;
+    }
+
+    public Contact getContact(){
         return this.contact;
     }
 
@@ -50,7 +65,7 @@ public class User {
      * Returns this user's UUID
      * @return this user's UUID
      */
-    protected UUID getUUID()
+    public UUID getUUID()
     {
         return this.thisUUID;
     }
