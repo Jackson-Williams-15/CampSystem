@@ -9,9 +9,9 @@ public class GuardianUser{
         this.children.add(child);
     }
     public Child getChild(String name){
-        Child theChild;
+        Child theChild = null;
         for (Child child : children) {
-            if(child.firstName = name)
+            if(child.getFirstName().equals(name))
                 theChild = child;
         }
         return theChild;
