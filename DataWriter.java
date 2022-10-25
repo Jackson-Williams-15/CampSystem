@@ -12,8 +12,8 @@ public class DataWriter extends DataConstants {
 		JSONArray jsonUser = new JSONArray();
 		
 		//creating all the json objects
-		for(int i=0; i< user.size(); i++) {
-			jsonUser.add(getPersonJSON(user.get(i)));
+		for(int i=0; i< users.size(); i++) {
+			jsonUser.add(getUserJSON(users.get(i)));
 		}
 
     }
