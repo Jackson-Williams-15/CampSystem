@@ -6,9 +6,6 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;;
 public class DataReader extends DataConstants {
     public ArrayList<User> getAllUsers(){
         ArrayList<User> users = new ArrayList<User>();
@@ -30,7 +27,7 @@ public class DataReader extends DataConstants {
 				int phoneNumber = (int)personJSON.get(USER_PHONE_NUMBER);
 				
                 //String name, int number, String email, String password, Date dateOfBirth)
-				users.add(new User(firstName, phoneNumber, email, password, dateOfBirth));
+				users.add(new User(firstName, lastName, phoneNumber, email, password, dateOfBirth));
             }
             return users;
 
@@ -40,7 +37,8 @@ public class DataReader extends DataConstants {
         return null;
     }
 
-    public Camp getCamp(){
+    public ArrayList<Camp> getCamp(){
+        ArrayList<Camp> camps = new ArrayList<Camp>();
         return null;
     }
     
