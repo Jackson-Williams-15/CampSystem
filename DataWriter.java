@@ -37,5 +37,37 @@ public class DataWriter extends DataConstants {
         
         return userDetails;
 	}
+
+	public static void saveCabins(){
+        CabinList cabin = CabinList.getInstance();
+		ArrayList<Cabin> cabins = cabin.getCabins();
+		JSONArray jsonUser = new JSONArray();
+		
+		//creating all the json objects
+		for(int i=0; i< cabins.size(); i++) {
+			jsonUser.add(getAllCabinsJSON(cabins.get(i)));
+		}
+
+  //Write JSON file
+  try (FileWriter file = new FileWriter(CABIN_FILE_NAME)) {
+ 
+    file.write(jsonUser.toJSONString());
+    file.flush();
+
+} catch (IOException e) {
+    e.printStackTrace();
+}
+    }
+    public static JSONObject getAllCabinsJSON(Cabin cabin) {
+		JSONObject cabinDetails = new JSONObject();
+		cabinDetails.put(CABIN_NAME, cabin.getName().toString());
+		cabinDetails.put(CABIN_MIN_AGE, cabin.getMinAge());
+		cabinDetails.put(CABIN_MAX_AGE, cabin.getMaxAge());
+		cabinDetails.put(CABIN_STAFF_USER, cabin.getCounselor());
+        cabinDetails.put(CABIN_CAMP_GROUP, cabin.getCamperGroup());
+		cabinDetails.put(CABIN_SCHEDULE, cabin.getSchedule());
+        
+        return cabinDetails;
+	}
 }
 
