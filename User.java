@@ -1,4 +1,5 @@
 import java.util.UUID;
+import java.util.Date;
 public class User {
     protected String firstName;
     protected String lastName;
