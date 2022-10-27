@@ -64,4 +64,10 @@ public class Child{
         return this.thisUUID;
     }
     
+    public String toString()
+    {
+        return "Name: " + this.firstName + " " + this.lastName + "\n" +
+        "Birthday: " + this.birthdate.toString() + "\n" +
+        "UUID: " + this.thisUUID;
+    }
 }

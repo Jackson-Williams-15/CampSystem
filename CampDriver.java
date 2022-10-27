@@ -42,7 +42,6 @@ public class CampDriver {
                     System.out.println("Enter UserName: ");
                     userName = in.nextLine();
                     System.out.println("UserName is:" + userName);
-                    
                     System.out.println("Enter Password: ");
                     password = in.nextLine();
                     System.out.println("Password is: " + password);
