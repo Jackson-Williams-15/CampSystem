@@ -7,7 +7,7 @@ public class StaffUser extends User{
     private ArrayList<Medication> medication;
     private Schedule schedule;
     public StaffUser(String name, int number, String email, String password, Date dateOfBirth) {
-        super(name, number, email, password, dateOfBirth);
+        super(name, password, number, email, password, dateOfBirth);
     }
 
     public ArrayList<String> getAllAllergies(){
