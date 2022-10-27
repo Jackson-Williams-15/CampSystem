@@ -61,6 +61,10 @@ public class User {
         return this.contact;
     }
 
+    public Date getDateOfBirth(){
+        return this.dateOfBirth;
+    }
+
     /**
      * Returns this user's UUID
      * @return this user's UUID
