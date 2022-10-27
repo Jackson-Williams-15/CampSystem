@@ -79,4 +79,12 @@ public class User {
     {
         return this.thisUUID;
     }
+
+    public String toString()
+    {
+        return "Name: " + this.firstName + " " + this.lastName + "\n" +
+        "Email: " + this.email + " Phone: " + this.phone + "\n" +
+        "Birthday: " + this.dateOfBirth.toString() + "\n" +
+        "Password: " + this.password + " UUID: " + this.thisUUID;
+    }
 }

@@ -58,4 +58,11 @@ public class Cabin {
     {
         return this.thisUUID;
     }
+
+    public String toString()
+    {
+        return "Name: " + this.name + "\n" +
+        "Min Age: " + this.minAge + " Max Age: " + this.maxAge + "\n" +
+        "UUID: " + this.thisUUID;
+    }
 }
