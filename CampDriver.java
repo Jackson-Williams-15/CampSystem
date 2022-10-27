@@ -34,13 +34,20 @@ public class CampDriver {
         displayMenu();
             int choice = getNum();
             String userName;
+            String password;
 
             switch(choice){
                 case 0:
+        
                     System.out.println("Enter UserName: ");
                     userName = in.nextLine();
                     System.out.println("UserName is:" + userName);
+                    
+                    System.out.println("Enter Password: ");
+                    password = in.nextLine();
+                    System.out.println("Password is: " + password);
                     clear();
+
                     System.out.println("What would You like to do?");
                     for(int i = 0; i < guardianOptions.length; i++){
                         System.out.println((i+1) + ". " + guardianOptions[i]);
@@ -57,10 +64,12 @@ public class CampDriver {
                     }
                     break;
                 case 1:
+
                     System.out.println("Enter UserName: ");
                     userName = in.nextLine();
                     System.out.println("UserName is:" + userName);
                     clear();
+
                     System.out.println("What would you like to do?");
                     for(int i = 0; i < counselorOptions.length; i++){
                         System.out.println((i+1) + ". " + counselorOptions[i]);
