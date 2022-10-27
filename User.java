@@ -57,6 +57,11 @@ public class User {
         return this.phone;
     }
 
+    public String getPassword()
+    {
+        return this.password;
+    }
+
     public Contact getContact(){
         return this.contact;
     }
