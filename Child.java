@@ -1,5 +1,6 @@
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class Child{
     private String firstName;
@@ -8,11 +9,18 @@ public class Child{
     private ArrayList<String> allergies;
     private ArrayList<Contact> emergencyContacts;
     private ArrayList<Medication> medications;
-    public Child(String firstName, String lastName, Date birthdate){
+    private UUID thisUUID;
+
+    public Child(String firstName, String lastName, Date dateOfBirth, UUID UUID)
+    {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.birthdate = birthdate;
+        this.birthdate = dateOfBirth;
+        this.thisUUID = UUID;
+    }
 
+    public Child(String firstName, String lastName, Date birthdate){
+        this(firstName, lastName, birthdate, UUID.randomUUID());
     }
 
     // Copy Constructor
@@ -50,6 +58,10 @@ public class Child{
     }
     public ArrayList<Medication> getMeds(){
         return this.medications;
+    }
+    public UUID getUUID()
+    {
+        return this.thisUUID;
     }
     
 }
