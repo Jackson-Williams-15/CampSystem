@@ -49,13 +49,16 @@ public class UserList
         return null;
     }
 
+    public ArrayList<User> getUsers(){
+        return users;
+    }
     /**
      * Replaces the user item in the list with a new version
      * @param user The new version of the user
      */
     public void saveUser(User user)
     {
-
+            DataWriter.saveUsers();
     }
 
 }
