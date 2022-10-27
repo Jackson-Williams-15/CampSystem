@@ -8,7 +8,7 @@ public class CampDriver {
     private String[] directorOptions = new String[3];
 
 
-
+//Constructor adding in arrays of possible options between users
     public CampDriver(){
         in = new Scanner(System.in);
         userOptions[0] = "Log in as parent";
@@ -27,6 +27,7 @@ public class CampDriver {
         directorOptions[1] = "Logout";
 
     }
+    //Code to run the driver that takes in all possible choices of user input
     public void runDriver(){
         clear();
         System.out.println("Welcome to our Camp!");
@@ -37,6 +38,7 @@ public class CampDriver {
             switch(choice){
                 case 0:
                     //System.out.println("Enter Email: " + in.next() + "\n Enter Password: " + in.next());
+                    System.out.println("What would You like to do?");
                     for(int i = 0; i < guardianOptions.length; i++){
                         System.out.println((i+1) + ". " + guardianOptions[i]);
                     }
@@ -53,6 +55,7 @@ public class CampDriver {
                     break;
                 case 1:
                     //System.out.println("Enter Email: " + in.next() + "\n Enter Password: " + in.next());
+                    System.out.println("What would you like to do?");
                     for(int i = 0; i < counselorOptions.length; i++){
                         System.out.println((i+1) + ". " + counselorOptions[i]);
                     }
@@ -66,6 +69,7 @@ public class CampDriver {
                     break;
                 case 2:
                     //System.out.println("Enter Email: " + in.next() + "\n Enter Password: " + in.next());
+                    System.out.println("What would you like to do?");
                     for(int i = 0; i < directorOptions.length; i++){
                         System.out.println((i+1) + ". " + directorOptions[i]);
                     }
@@ -77,6 +81,7 @@ public class CampDriver {
 
             }
     }
+    //Gets the number inputed by the user
     private int getNum(){
         int num;
         try{
@@ -94,17 +99,18 @@ public class CampDriver {
 		}
         return num;
     }
-
+    //Displays the options from the UserOption array at the beginning of the run
     private void displayMenu(){
         System.out.println("What would you like to do?");
         for(int i = 0; i < userOptions.length; i++){
             System.out.println((i+1) + ". " + userOptions[i]);
         }
     }
-
+    //Clears Program
     private void clear() {
 		System.out.print("\033[H\033[2J");
 	}
+    //Tests Program
     public static void main(String[] args){
         CampDriver driver = new CampDriver();
         driver.runDriver();
