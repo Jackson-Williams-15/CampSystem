@@ -33,14 +33,10 @@ public class CampDriver {
         System.out.println("Welcome to our Camp!");
         displayMenu();
             int choice = getNum();
-            String userName;
 
             switch(choice){
                 case 0:
-                    System.out.println("Enter UserName: ");
-                    userName = in.nextLine();
-                    System.out.println("UserName is:" + userName);
-                    clear();
+                    userPass();
                     System.out.println("What would You like to do?");
                     for(int i = 0; i < guardianOptions.length; i++){
                         System.out.println((i+1) + ". " + guardianOptions[i]);
@@ -57,10 +53,7 @@ public class CampDriver {
                     }
                     break;
                 case 1:
-                    System.out.println("Enter UserName: ");
-                    userName = in.nextLine();
-                    System.out.println("UserName is:" + userName);
-                    clear();
+                    userPass();
                     System.out.println("What would you like to do?");
                     for(int i = 0; i < counselorOptions.length; i++){
                         System.out.println((i+1) + ". " + counselorOptions[i]);
@@ -74,10 +67,7 @@ public class CampDriver {
                     }
                     break;
                 case 2:
-                    System.out.println("Enter UserName: ");
-                    userName = in.nextLine();
-                    System.out.println("UserName is:" + userName);
-                    clear();
+                    userPass();
                     System.out.println("What would you like to do?");
                     for(int i = 0; i < directorOptions.length; i++){
                         System.out.println((i+1) + ". " + directorOptions[i]);
@@ -86,10 +76,30 @@ public class CampDriver {
                     if(dChoice == 0){
                         System.out.println("Holder Director");
                     }
+                    else if(dChoice == 1){
+                        System.out.println("You Have Successfully Logged Out.");
+                        clear();
+                    }
 
 
             }
+
     }
+    //Allows User input on passwords and usernames
+    public void userPass(){
+        String userName;
+        String password;
+
+        System.out.println("Enter UserName: ");
+        userName = in.nextLine();
+        System.out.println("UserName is:" + userName);
+        System.out.println("Enter Password: ");
+        password = in.nextLine();
+        System.out.println("Password is: " + password);
+        clear();
+    }
+
+
     //Gets the number inputed by the user
     private int getNum(){
         int num;
