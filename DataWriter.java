@@ -29,11 +29,12 @@ public class DataWriter extends DataConstants {
     public static JSONObject getAllUserJSON(User user) {
 		JSONObject userDetails = new JSONObject();
 		userDetails.put(USER_ID, user.getUUID().toString());
-		userDetails.put(USER_FIRST_NAME, user.getFirstName());
-		userDetails.put(USER_LAST_NAME, user.getLastName());
+		userDetails.put(USER_FIRST_NAME, user.getFirstName().toString());
+		userDetails.put(USER_LAST_NAME, user.getLastName().toString());
 		userDetails.put(USER_PHONE_NUMBER, user.getPhone());
         userDetails.put(USER_CONTACT, user.getContact());
 		userDetails.put(USER_DOB, user.getDateOfBirth());
+		userDetails.put(USER_PASSWORD, user.getPassword().toString());
         
         return userDetails;
 	}
@@ -60,7 +61,8 @@ public class DataWriter extends DataConstants {
     }
     public static JSONObject getAllCabinsJSON(Cabin cabin) {
 		JSONObject cabinDetails = new JSONObject();
-		cabinDetails.put(CABIN_NAME, cabin.getName().toString());
+		cabinDetails.put(CABIN_ID, cabin.getUUID().toString());
+		cabinDetails.put(CABIN_NAME, cabin.getName());
 		cabinDetails.put(CABIN_MIN_AGE, cabin.getMinAge());
 		cabinDetails.put(CABIN_MAX_AGE, cabin.getMaxAge());
 		cabinDetails.put(CABIN_STAFF_USER, cabin.getCounselor());
@@ -69,5 +71,39 @@ public class DataWriter extends DataConstants {
         
         return cabinDetails;
 	}
+
+	public static void saveChild(){
+        ChildList child = ChildList.getInstance();
+		ArrayList<Child> children = child.getChildren();
+		JSONArray jsonUser = new JSONArray();
+		
+		//creating all the json objects
+		for(int i=0; i< children.size(); i++) {
+			jsonUser.add(getAllChildJSON(children.get(i)));
+		}
+
+  //Write JSON file
+  try (FileWriter file = new FileWriter(CHILD_FILE_NAME)) {
+ 
+    file.write(jsonUser.toJSONString());
+    file.flush();
+
+} catch (IOException e) {
+    e.printStackTrace();
+}
+    }
+    public static JSONObject getAllChildJSON(Child child) {
+		JSONObject childDetails = new JSONObject();
+		childDetails.put(CHILD_ID, child.getUUID().toString());
+		childDetails.put(CHILD_FIRST_NAME, child.getFirstName());
+		childDetails.put(CHILD_LAST_NAME, child.getLastName());
+		childDetails.put(CHILD_DOB, child.getBirth());
+		childDetails.put(CHILD_ALLERGIES, child.getAllergies());
+        childDetails.put(CHILD_MEDS, child.getMeds());
+		childDetails.put(CHILD_CONTACT, child.getContact());
+        
+        return childDetails;
+	}
+
 }
 
