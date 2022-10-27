@@ -6,9 +6,9 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 public class DataWriter extends DataConstants {
-    public void saveAllUsers(){
+    public static void saveUsers(){
         UserList user = UserList.getInstance();
-		ArrayList<UserList> users = user.getUser();
+		ArrayList<User> users = user.getUsers();
 		JSONArray jsonUser = new JSONArray();
 		
 		//creating all the json objects
@@ -28,12 +28,12 @@ public class DataWriter extends DataConstants {
     }
     public static JSONObject getAllUserJSON(User user) {
 		JSONObject userDetails = new JSONObject();
-		userDetails.put(USER_ID, user.getUserId().toString());
+		userDetails.put(USER_ID, user.getUUID().toString());
 		userDetails.put(USER_FIRST_NAME, user.getFirstName());
 		userDetails.put(USER_LAST_NAME, user.getLastName());
+		userDetails.put(USER_PHONE_NUMBER, user.getPhone());
+        userDetails.put(USER_CONTACT, user.getContact());
 		userDetails.put(USER_DOB, user.getDateOfBirth());
-        userDetails.put(USER_EMAIL, user.getEmail());
-		userDetails.put(USER_PHONE_NUMBER, user.getPhoneNumber());
         
         return userDetails;
 	}
