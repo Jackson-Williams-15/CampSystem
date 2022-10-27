@@ -21,7 +21,7 @@ public class CampDriver {
 
         counselorOptions[0] = "View Schedule";
         counselorOptions[1] = "Check Allergies";
-        //counselorOptions[2] = "2. View Camp Duration";
+        counselorOptions[2] = "Logout";
 
         directorOptions[0] = "View User Profiles";
         directorOptions[1] = "Logout";
@@ -32,12 +32,15 @@ public class CampDriver {
         clear();
         System.out.println("Welcome to our Camp!");
         displayMenu();
-
             int choice = getNum();
-            
+            String userName;
+
             switch(choice){
                 case 0:
-                    //System.out.println("Enter Email: " + in.next() + "\n Enter Password: " + in.next());
+                    System.out.println("Enter UserName: ");
+                    userName = in.nextLine();
+                    System.out.println("UserName is:" + userName);
+                    clear();
                     System.out.println("What would You like to do?");
                     for(int i = 0; i < guardianOptions.length; i++){
                         System.out.println((i+1) + ". " + guardianOptions[i]);
@@ -54,7 +57,10 @@ public class CampDriver {
                     }
                     break;
                 case 1:
-                    //System.out.println("Enter Email: " + in.next() + "\n Enter Password: " + in.next());
+                    System.out.println("Enter UserName: ");
+                    userName = in.nextLine();
+                    System.out.println("UserName is:" + userName);
+                    clear();
                     System.out.println("What would you like to do?");
                     for(int i = 0; i < counselorOptions.length; i++){
                         System.out.println((i+1) + ". " + counselorOptions[i]);
@@ -68,7 +74,10 @@ public class CampDriver {
                     }
                     break;
                 case 2:
-                    //System.out.println("Enter Email: " + in.next() + "\n Enter Password: " + in.next());
+                    System.out.println("Enter UserName: ");
+                    userName = in.nextLine();
+                    System.out.println("UserName is:" + userName);
+                    clear();
                     System.out.println("What would you like to do?");
                     for(int i = 0; i < directorOptions.length; i++){
                         System.out.println((i+1) + ". " + directorOptions[i]);
