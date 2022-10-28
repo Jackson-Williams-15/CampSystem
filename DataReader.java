@@ -8,7 +8,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;;
 
 public class DataReader extends DataConstants {
-    public ArrayList<User> getAllUsers(){
+    public ArrayList<User> getAllUsers() {
         ArrayList<User> users = new ArrayList<User>();
 
         try {
@@ -27,7 +27,6 @@ public class DataReader extends DataConstants {
 				Date dateOfBirth = ((Date)personJSON.get(USER_DOB));
 				int phoneNumber = (int)personJSON.get(USER_PHONE_NUMBER);
 				
-                //String name, int number, String email, String password, Date dateOfBirth)
 				users.add(new User(firstName, lastName, phoneNumber, email, password, dateOfBirth));
             }
             return users;
@@ -38,8 +37,53 @@ public class DataReader extends DataConstants {
         return null;
     }
 
-    public ArrayList<Camp> getCamp(){
-        ArrayList<Camp> camps = new ArrayList<Camp>();
+    public ArrayList<Child> getChildren() {
+        ArrayList<Child> children = new ArrayList<Child>();
+
+        try {
+
+            FileReader reader = new FileReader(CHILD_FILE_NAME);
+            JSONParser parser = new JSONParser();
+            JSONArray peopleJSON = (JSONArray)new JSONParser().parse(reader);
+
+            for(int i=0; i < peopleJSON.size(); i++) {
+                JSONObject personJSON = (JSONObject)peopleJSON.get(i);
+				String firstName = (String)personJSON.get(CHILD_FIRST_NAME);
+				String lastName = (String)personJSON.get(CHILD_LAST_NAME);
+                Date dateOfBirth = (Date)personJSON.get(CHILD_DOB);
+                UUID id = UUID.fromString((String)personJSON.get(CHILD_ID));
+
+				children.add(new Child(firstName, lastName, dateOfBirth, id));
+            }
+            return children;
+
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ArrayList<Cabin> getCabins() {
+        ArrayList<Cabin> cabins = new ArrayList<Cabin>();
+
+        try {
+
+            FileReader reader = new FileReader(CABIN_FILE_NAME);
+            JSONParser parser = new JSONParser();
+            JSONArray peopleJSON = (JSONArray)new JSONParser().parse(reader);
+
+            for(int i=0; i < peopleJSON.size(); i++) {
+                JSONObject personJSON = (JSONObject)peopleJSON.get(i);
+				UUID id = UUID.fromString((String)personJSON.get(CABIN_ID));
+				String name = (String)personJSON.get(CABIN_NAME);
+
+				cabins.add(new Cabin(name, id));
+            }
+            return cabins;
+
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
         return null;
     }
     
