@@ -31,6 +31,9 @@ public class CampDriver {
 
     }
     //Code to run the driver that takes in all possible choices of user input
+    //The values gChoice dChoice and cChoice relates to counselor director and guardian users
+    //The system.out.println Holders are simply temporary print statements i added
+    
     public void runDriver(){
         clear();
         System.out.println("Welcome to our Camp!");
