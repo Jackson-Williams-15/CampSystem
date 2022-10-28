@@ -21,12 +21,13 @@ public class CampDriver {
         guardianOptions[1] = "View Camp Dates";
         guardianOptions[2] = "View Camp Duration";
 
-        counselorOptions[0] = "Create Schedule";
+        counselorOptions[0] = "View Schedule";
         counselorOptions[1] = "Check Allergies";
         counselorOptions[2] = "Logout";
 
         directorOptions[0] = "View User Profiles";
-        directorOptions[1] = "Logout";
+        directorOptions[1] = "Create Schedule";
+        directorOptions[2] = "Logout";
 
     }
     //Code to run the driver that takes in all possible choices of user input
@@ -83,10 +84,7 @@ public class CampDriver {
                         System.out.println("You Have Successfully Logged Out.");
                         clear();
                     }
-
-
             }
-
     }
     //Allows User input on passwords and usernames
     public void userPass(){
@@ -101,21 +99,23 @@ public class CampDriver {
         System.out.println("Password is: " + password);
         clear();
     }
-    //Create Sessions for counselor
+
+    //Create Sessions for Director
     public void sessionSetUp(){
         session = new ArrayList<String>();
+        
         System.out.println("What Sessions do you wish to create?");
         System.out.println("Type 'Done' when you are finished creating your session.");
 
         String play = in.nextLine();
-        
-            session.add(in.nextLine());
+            while(in.hasNextLine()){
+                session.add(in.nextLine());
             if(play.equalsIgnoreCase("Done")){
-                System.out.println(session);
+                System.out.println(session);     
+            }
+            }
             
-        }
     }
-
 
 
     //Gets the number inputed by the user
@@ -136,6 +136,7 @@ public class CampDriver {
 		}
         return num;
     }
+
     //Displays the options from the UserOption array at the beginning of the run
     private void displayMenu(){
         System.out.println("What would you like to do?");
@@ -143,10 +144,12 @@ public class CampDriver {
             System.out.println((i+1) + ". " + userOptions[i]);
         }
     }
+
     //Clears Program
     private void clear() {
 		System.out.print("\033[H\033[2J");
 	}
+
     //Tests Program
     public static void main(String[] args){
         CampDriver driver = new CampDriver();
