@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CampDriver {
@@ -6,6 +7,7 @@ public class CampDriver {
     private String[] guardianOptions = new String[3];
     private String[] counselorOptions = new String[3];
     private String[] directorOptions = new String[3];
+    private ArrayList<String> session;
 
 
 //Constructor adding in arrays of possible options between users
@@ -19,7 +21,7 @@ public class CampDriver {
         guardianOptions[1] = "View Camp Dates";
         guardianOptions[2] = "View Camp Duration";
 
-        counselorOptions[0] = "View Schedule";
+        counselorOptions[0] = "Create Schedule";
         counselorOptions[1] = "Check Allergies";
         counselorOptions[2] = "Logout";
 
@@ -60,6 +62,7 @@ public class CampDriver {
                     }
                     int cChoice = getNum();
                     if(cChoice == 0){
+                        sessionSetUp();
                         System.out.println("Holder View Schedule");
                     }
                     else if(cChoice == 1){
@@ -98,6 +101,21 @@ public class CampDriver {
         System.out.println("Password is: " + password);
         clear();
     }
+    //Create Sessions for counselor
+    public void sessionSetUp(){
+        session = new ArrayList<String>();
+        System.out.println("What Sessions do you wish to create?");
+        System.out.println("Type 'Done' when you are finished creating your session.");
+
+        String play = in.nextLine();
+        
+            session.add(in.nextLine());
+            if(play.equalsIgnoreCase("Done")){
+                System.out.println(session);
+            
+        }
+    }
+
 
 
     //Gets the number inputed by the user
