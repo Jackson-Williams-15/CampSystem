@@ -33,7 +33,7 @@ public class CampDriver {
     //Code to run the driver that takes in all possible choices of user input
     //The values gChoice dChoice and cChoice relates to counselor director and guardian users
     //The system.out.println Holders are simply temporary print statements i added
-    
+
     public void runDriver(){
         clear();
         System.out.println("Welcome to our Camp!");
@@ -103,7 +103,15 @@ public class CampDriver {
         clear();
     }
 
+    //Keep All Guardian Methods together
+    public void registerChild(){
+        
+    }
+
+   
+    //Keep all Director Methods together
     //Create Sessions for Director
+
     public void sessionSetUp(){
         session = new ArrayList<String>();
         
@@ -158,5 +166,4 @@ public class CampDriver {
         CampDriver driver = new CampDriver();
         driver.runDriver();
     }
-
 }
