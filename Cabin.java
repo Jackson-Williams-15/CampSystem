@@ -16,6 +16,16 @@ public class Cabin {
         this.thisUUID = UUID;
     }
 
+    public Cabin(String name, UUID UUID, StaffUser counselor, ArrayList<Child> camperGroup, int minAge, int maxAge, Schedule[] schedule) {
+        this.name = name;
+        this.thisUUID = UUID;
+        this.counselor = counselor;
+        this.camperGroup = camperGroup;
+        this.minAge = minAge;
+        this.maxAge = maxAge;
+        this.schedule = schedule;
+    }
+
     public Cabin(String name) {
         this(name, UUID.randomUUID());
     }

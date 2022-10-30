@@ -19,6 +19,16 @@ public class Child{
         this.thisUUID = UUID;
     }
 
+    public Child(String firstName, String lastName, Date dateOfBirth, UUID UUID, ArrayList<String> allergies, ArrayList<Contact> emergencyContacts, ArrayList<Medication> medications) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthdate = dateOfBirth;
+        this.thisUUID = UUID;
+        this.allergies = allergies;
+        this.emergencyContacts = emergencyContacts;
+        this.medications = medications;
+    }
+
     public Child(String firstName, String lastName, Date birthdate){
         this(firstName, lastName, birthdate, UUID.randomUUID());
     }

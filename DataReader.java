@@ -27,7 +27,7 @@ public class DataReader extends DataConstants {
 				Date dateOfBirth = ((Date)personJSON.get(USER_DOB));
 				int phoneNumber = (int)personJSON.get(USER_PHONE_NUMBER);
 				
-				users.add(new User(firstName, lastName, phoneNumber, email, password, dateOfBirth));
+				users.add(new User(firstName, lastName, phoneNumber, email, password, dateOfBirth, id));
             }
             return users;
 
@@ -52,8 +52,11 @@ public class DataReader extends DataConstants {
 				String lastName = (String)personJSON.get(CHILD_LAST_NAME);
                 Date dateOfBirth = (Date)personJSON.get(CHILD_DOB);
                 UUID id = UUID.fromString((String)personJSON.get(CHILD_ID));
+                ArrayList<Medication> medications = (ArrayList<Medication>)personJSON.get(CHILD_MEDS);
+                ArrayList<Contact> emergencyContacts = (ArrayList<Contact>)personJSON.get(CHILD_CONTACT);
+                ArrayList<String> allergies = (ArrayList<String>)personJSON.get(CHILD_ALLERGIES);
 
-				children.add(new Child(firstName, lastName, dateOfBirth, id));
+				children.add(new Child(firstName, lastName, dateOfBirth, id, allergies, emergencyContacts, medications));
             }
             return children;
 
@@ -74,10 +77,15 @@ public class DataReader extends DataConstants {
 
             for(int i=0; i < peopleJSON.size(); i++) {
                 JSONObject personJSON = (JSONObject)peopleJSON.get(i);
+                String name = (String)personJSON.get(CABIN_NAME);
 				UUID id = UUID.fromString((String)personJSON.get(CABIN_ID));
-				String name = (String)personJSON.get(CABIN_NAME);
+                ArrayList<Child> camperGroup = (ArrayList<Child>)personJSON.get(CABIN_CAMP_GROUP);
+                StaffUser staffUser = (StaffUser)personJSON.get(CABIN_STAFF_USER);
+                int minAge = (int)personJSON.get(CABIN_MIN_AGE);
+                int maxAge = (int)personJSON.get(CABIN_MAX_AGE);
+                Schedule[] schedule = (Schedule[])personJSON.get(CABIN_SCHEDULE);
 
-				cabins.add(new Cabin(name, id));
+				cabins.add(new Cabin(name, id, staffUser, camperGroup, minAge, maxAge, schedule));
             }
             return cabins;
 
