@@ -20,7 +20,8 @@ public class CabinList
      */
     public static CabinList getInstance()
     {
-        return cabinList = new CabinList();
+        if(cabinList == null) return cabinList = new CabinList();
+        return cabinList;
     }
 
     /**

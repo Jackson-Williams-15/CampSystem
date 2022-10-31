@@ -18,8 +18,8 @@ public class UserList
      */
     public static UserList getInstance()
     {
-        return userList = new UserList();
-
+        if(userList == null) return userList = new UserList();
+        return userList;
     }
 
     /**

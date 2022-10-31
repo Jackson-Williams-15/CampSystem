@@ -14,7 +14,8 @@ public class ChildList
 
     public static ChildList getInstance()
     {
-        return childList = new ChildList();
+        if(childList == null) return childList = new ChildList();
+        return childList;
     }
 
     public void addChild(String firstName, String lastName, Date birthdate)
