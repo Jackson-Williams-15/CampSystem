@@ -10,7 +10,10 @@ public class UserList
     /**
      * Calls the data reader to write in the users from the JSON
      */
-    private UserList(){}
+    private UserList()
+    {
+        users = DataReader.getAllUsers();
+    }
 
     /**
      * Constructs the UserList for the program

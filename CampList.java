@@ -6,7 +6,7 @@ public class CampList {
 
     private CampList()
     {
-
+        camps = DataReader.getCamps();
     }
 
     public static CampList getInstance()

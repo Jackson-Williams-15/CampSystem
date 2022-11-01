@@ -9,7 +9,7 @@ public class ChildList
 
     private ChildList()
     {
-
+        children = DataReader.getChildren();
     }
 
     public static ChildList getInstance()

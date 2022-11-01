@@ -11,7 +11,7 @@ public class CabinList
      */
     private CabinList()
     {
-
+        cabins = DataReader.getCabins();
     }
 
     /**
