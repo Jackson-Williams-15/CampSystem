@@ -35,4 +35,12 @@ public class DataConstants {
     protected static final String CHILD_ALLERGIES = "allergies";
     protected static final String CHILD_MEDS = "medication";
     protected static final String CHILD_CONTACT = "doctor";
+
+    /**
+     * Camp Constants
+     */
+    protected static final String CAMP_FILE_NAME = "json/camp.json";
+    protected static final String CAMP_NAME = "name";
+    protected static final String CAMP_THEME = "theme";
+    protected static final String CAMP_CABINS = "cabins";
 }
