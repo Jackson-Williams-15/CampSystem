@@ -10,9 +10,12 @@ public class DataConstants {
     protected static final String USER_DOB = "dateOfBirth";
     protected static final String USER_PHONE_NUMBER = "phoneNumber";
     protected static final String USER_PASSWORD = "password";
-    protected static final String USER_CONTACT = "contact";
+    protected static final String USER_CONTACT = "emergencyContact";
     protected static final String USER_TYPE = "type";
     protected static final String USER_CAMP_DURATION = "campDuration";
+    protected static final String USER_CAMP_DATES = "campDates";
+    protected static final String USER_CHILDREN = "children";
+    protected static final String USER_DOCTOR = "doctor";
 /**
  * Cabin Constants
  */
@@ -23,6 +26,8 @@ public class DataConstants {
     protected static final String CABIN_MAX_AGE = "maxAge";
     protected static final String CABIN_STAFF_USER = "staffUUID";
     protected static final String CABIN_CAMP_GROUP = "children";
+    protected static final String CABIN_DAY = "day";
+    protected static final String CABIN_ACTIVITIES = "activities";
     protected static final String CABIN_SCHEDULE = "schedules";
 /**
  * Child Constants

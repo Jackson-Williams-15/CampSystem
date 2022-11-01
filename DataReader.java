@@ -182,9 +182,8 @@ public class DataReader extends DataConstants {
                 JSONObject campJSON = (JSONObject)new JSONParser().parse(reader);
                 //name session theme cabins
                 String name = (String)campJSON.get(CAMP_NAME);
-                String theme = (String)campJSON.get(CAMP_NAME);
 
-                camps.add(new Camp(name, theme));
+                camps.add(new Camp(name));
             }
             return camps;
         }catch(Exception e) {
