@@ -20,6 +20,10 @@ public class Camp
         return this.name;
     }
     
+    public UUID getUUID(){
+        return this.thisUUID;
+    }
+
     public Child findChild(String name, int age){
         return null;
     }
