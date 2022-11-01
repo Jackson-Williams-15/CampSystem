@@ -56,8 +56,8 @@ public class CabinList
      * 
      * @param cabin
      */
-    public void saveCabin(Cabin cabin)
+    public void saveCabin()
     {
-
+        DataWriter.saveCabins();
     }
 }
