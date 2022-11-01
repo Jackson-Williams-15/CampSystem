@@ -125,7 +125,6 @@ public class CampDriver {
                 System.out.println(session);     
             }
             }
-            
     }
 
 
@@ -161,9 +160,17 @@ public class CampDriver {
 		System.out.print("\033[H\033[2J");
 	}
 
+
     //Tests Program
     public static void main(String[] args){
         CampDriver driver = new CampDriver();
+        //Children, Users, Cabins, Camp
+        ChildList childList = ChildList.getInstance();
+        UserList userList = UserList.getInstance();
+        CabinList cabinList = CabinList.getInstance();
+
         driver.runDriver();
+        
+        //childList.saveChildren
     }
 }
