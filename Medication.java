@@ -9,4 +9,9 @@ public class Medication {
     this.dose = dose;
     this.time = time;
   }
+
+  public String toString()
+  {
+    return "Type: " + this.type + "\nDose: " + this.dose + "\nTime: " + this.time;
+  }
 }

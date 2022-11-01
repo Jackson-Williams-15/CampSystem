@@ -17,4 +17,9 @@ public class GuardianUser{
         }
         return theChild;
     }
+
+    public String toString()
+    {
+        return super.toString();
+    }
 }
