@@ -13,6 +13,14 @@
                     "email":"EmmBrown@outlook.com",
                     "phoneNumber":"1-800-121-4442"
                 },
+            "emergencyContacts":[
+                {
+                    "firstName":"John",
+                    "lastName":"Doe",
+                    "email":"johndoe@gmail.com",
+                    "phoneNumber":"500-123-9876"
+                }
+            ],
             "medication":[
                 {
                     "type":"Allergy Medicine",
