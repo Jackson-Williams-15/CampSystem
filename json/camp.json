@@ -1,11 +1,11 @@
 {
     "camp":[
         {
-            "name":"",
-            "UUID":"",
+            "name":"Congaree",
+            "UUID":"7482f947-4900-4b0c-9064-f8039aa02456",
             "sessions":[
                 {
-                    "theme":"",
+                    "theme":"None",
                     "cabins":["dd30acc7-6e51-4174-9fd0-4f345915fbe8"]
                 }
             ]
