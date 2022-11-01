@@ -128,7 +128,7 @@ public class DataWriter extends DataConstants {
     public static JSONObject getAllCampJSON(Camp camp) {
 		JSONObject campDetails = new JSONObject();
 		campDetails.put(CAMP_NAME, camp.getName());
-        campDetails.put(CAMP_UUID, camp.getUUID());
+        //campDetails.put(CAMP_UUID, camp.getUUID()); Should be able to be removed
         return campDetails;
 	}
 
