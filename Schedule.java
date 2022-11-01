@@ -15,6 +15,16 @@ public class Schedule
     public void removeActivity(Activity active){
         this.activities.remove(active);
     }
+
+    public Day getDay()
+    {
+        return this.day;
+    }
+    public ArrayList<Activity> getActivities()
+    {
+        return this.activities;
+    }
+
     public String toString(){
         return "The activity is " + activities;
     }

@@ -51,6 +51,27 @@ public class Activity
         this.packingList = packingList;
     }
 
+    public Type getType()
+    {
+        return this.type;
+    }
+    public String getName()
+    {
+        return this.name;
+    }
+    public String getTime()
+    {
+        return this.time;
+    }
+    public String getDescription()
+    {
+        return this.description;
+    }
+    public ArrayList<String> getPackingList()
+    {
+        return this.packingList;
+    }
+
     /**
      * Returns the Activity object as a human-readable string
      * @return Returns the name, time, and description of the activity on separate lines
