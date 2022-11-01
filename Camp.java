@@ -5,7 +5,6 @@ public class Camp
 {
     private String name;
     private int availability;
-    private UUID thisUUID;
     private ArrayList<Session> sessions;
 
     public Camp(String name){
@@ -18,10 +17,6 @@ public class Camp
 
     public String getName(){
         return this.name;
-    }
-    
-    public UUID getUUID(){
-        return this.thisUUID;
     }
 
     public Child findChild(String name, int age){

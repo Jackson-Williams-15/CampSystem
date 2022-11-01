@@ -1,8 +1,6 @@
 {
-    "camp":[
-        {
+    "camp":{
             "name":"Congaree",
-            "UUID":"7482f947-4900-4b0c-9064-f8039aa02456",
             "sessions":[
                 {
                     "theme":"None",
@@ -10,5 +8,4 @@
                 }
             ]
         }
-    ]
 }
