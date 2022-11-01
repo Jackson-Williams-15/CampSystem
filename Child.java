@@ -7,6 +7,7 @@ public class Child{
     private String lastName;
     private Date birthdate;
     private ArrayList<String> allergies;
+    private Contact doctor;
     private ArrayList<Contact> emergencyContacts;
     private ArrayList<Medication> medications;
     private UUID thisUUID;
@@ -19,12 +20,13 @@ public class Child{
         this.thisUUID = UUID;
     }
 
-    public Child(String firstName, String lastName, Date dateOfBirth, UUID UUID, ArrayList<String> allergies, ArrayList<Contact> emergencyContacts, ArrayList<Medication> medications) {
+    public Child(String firstName, String lastName, Date dateOfBirth, UUID UUID, ArrayList<String> allergies, Contact doctor, ArrayList<Contact> emergencyContacts, ArrayList<Medication> medications) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthdate = dateOfBirth;
         this.thisUUID = UUID;
         this.allergies = allergies;
+        this.doctor = doctor;
         this.emergencyContacts = emergencyContacts;
         this.medications = medications;
     }

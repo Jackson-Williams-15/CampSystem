@@ -29,7 +29,7 @@ public class DataReader extends DataConstants {
 				int phoneNumber = (int)personJSON.get(USER_PHONE_NUMBER);
                 String type = (String)personJSON.get(USER_TYPE);
                 
-                if(type == "GuardianUser") {
+                if(type.equals("GuardianUser")) {
                     int campDuration = (int)personJSON.get(USER_CAMP_DURATION);
                     Date campDates = (Date)personJSON.get(USER_CAMP_DATES);
 
@@ -44,12 +44,23 @@ public class DataReader extends DataConstants {
                     }
                     users.add(new GuardianUser(firstName, lastName, phoneNumber, email, password, dateOfBirth, id, children, campDuration, campDates));
                 }
-                else if(type == "DirectorUser") {
+                else if(type.equals("DirectorUser")) {
                     users.add(new DirectorUser(firstName, lastName, phoneNumber, email, password, dateOfBirth, id));
                 }
-                else if(type == "StaffUser") {
+                else if(type.equals("StaffUser")) {
                     Contact doctor = (Contact)personJSON.get(USER_DOCTOR);
 
+                    JSONArray emergencyContactsJSON = (JSONArray)personJSON.get(USER_CONTACT);
+                    ArrayList<Contact> emergencyContacts = new ArrayList<Contact>();
+                    for(int j=0; j < emergencyContactsJSON.size(); j++) {
+                        JSONObject emergencyContactJSON = (JSONObject)emergencyContactsJSON.get(j);
+                        //string name string int string
+                        String contactFirstName = (String)emergencyContactJSON.get("firstName");
+                        String contactLastName = (String)emergencyContactJSON.get("lastName");
+                        int contactPhoneNumber = (int)emergencyContactJSON.get("phoneNumber");
+                        String contactEmail = (String)emergencyContactJSON.get("email");
+                        emergencyContacts.add(new Contact(contactFirstName, contactLastName, contactPhoneNumber, contactEmail));
+                    }
                     JSONArray medicationsJSON = (JSONArray)personJSON.get(CHILD_MEDS);
                     ArrayList<Medication> medications = new ArrayList<Medication>();
                     for(int j=0; j < medicationsJSON.size(); j++) {
@@ -67,7 +78,7 @@ public class DataReader extends DataConstants {
                         allergies.add(allergy);
                     }
 
-                    users.add(new StaffUser(firstName, lastName, phoneNumber, email, password, dateOfBirth, id, doctor, medications, allergies));
+                    users.add(new StaffUser(firstName, lastName, phoneNumber, email, password, dateOfBirth, id, doctor, emergencyContacts, medications, allergies));
                 }
             }
             return users;
@@ -93,7 +104,19 @@ public class DataReader extends DataConstants {
 				String lastName = (String)personJSON.get(CHILD_LAST_NAME);
                 Date dateOfBirth = (Date)personJSON.get(CHILD_DOB);
                 UUID id = UUID.fromString((String)personJSON.get(CHILD_ID));
-                ArrayList<Contact> emergencyContacts = (ArrayList<Contact>)personJSON.get(CHILD_CONTACT);
+                Contact doctor = (Contact)personJSON.get(CHILD_DOCTOR);
+                
+                JSONArray emergencyContactsJSON = (JSONArray)personJSON.get(CHILD_CONTACTS);
+                ArrayList<Contact> emergencyContacts = new ArrayList<Contact>();
+                for(int j=0; j < emergencyContactsJSON.size(); j++) {
+                    JSONObject emergencyContactJSON = (JSONObject)emergencyContactsJSON.get(j);
+                    //string name string int string
+                    String contactFirstName = (String)emergencyContactJSON.get("firstName");
+                    String contactLastName = (String)emergencyContactJSON.get("lastName");
+                    int contactPhoneNumber = (int)emergencyContactJSON.get("phoneNumber");
+                    String contactEmail = (String)emergencyContactJSON.get("email");
+                    emergencyContacts.add(new Contact(contactFirstName, contactLastName, contactPhoneNumber, contactEmail));
+                }
 
                 JSONArray medicationsJSON = (JSONArray)personJSON.get(CHILD_MEDS);
                 ArrayList<Medication> medications = new ArrayList<Medication>();
@@ -112,7 +135,7 @@ public class DataReader extends DataConstants {
                     String allergy = (String)allergyJSON.get(CHILD_ALLERGIES);
                     allergies.add(allergy);
                 }
-				children.add(new Child(firstName, lastName, dateOfBirth, id, allergies, emergencyContacts, medications));
+				children.add(new Child(firstName, lastName, dateOfBirth, id, allergies, doctor, emergencyContacts, medications));
             }
             return children;
 
@@ -154,10 +177,8 @@ public class DataReader extends DataConstants {
                         String time = (String)activityJSON.get("time");
                         activities.add(new Activity(type, activityName, time));
                     }
-
                     schedule[j] = new Schedule(activities, day);
                 }
-
 				cabins.add(new Cabin(name, id, staffUser, camperGroup, minAge, maxAge, schedule));
             }
             return cabins;
@@ -176,11 +197,19 @@ public class DataReader extends DataConstants {
             FileReader reader = new FileReader(CAMP_FILE_NAME);
             JSONParser parser = new JSONParser();
             JSONArray campsJSON = (JSONArray)new JSONParser().parse(reader);
-            JSONObject campJSON = (JSONObject)new JSONParser().parse(reader);
-            String name = (String)campJSON.get(CAMP_NAME);
+            ArrayList<Cabin> cabinsList = getCabins();
+            
             for(int i=0; i < campsJSON.size(); i++) {
-                
-                
+                JSONObject campJSON = (JSONObject)new JSONParser().parse(reader);
+                String name = (String)campJSON.get(CAMP_NAME);
+                UUID UUID = (UUID)campJSON.get(CAMP_UUID);
+
+                JSONArray sessionsJSON = (JSONArray)campJSON.get(CAMP_SESSIONS);
+                for(int j=0; j<sessionsJSON.size(); j++) {
+                    JSONObject sessionJSON = (JSONObject)new JSONParser().parse(reader);
+                    String theme = (String)sessionJSON.get(CAMP_SESSION_THEME);
+
+                }
 
                 camps.add(new Camp(name));
             }

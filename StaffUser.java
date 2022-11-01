@@ -3,15 +3,16 @@ import java.util.Date;
 import java.util.UUID;
 
 public class StaffUser extends User{
-    private ArrayList<Contact> emergencyContact;
+    private ArrayList<Contact> emergencyContacts;
     private Contact doctor;
     public ArrayList<String> allergies;
     private ArrayList<Medication> medication;
     private Schedule schedule;
 
-    public StaffUser(String firstName, String lastName, int number, String email, String password, Date dateOfBirth, UUID id, Contact doctor, ArrayList<Medication> medication, ArrayList<String> allergies) {
+    public StaffUser(String firstName, String lastName, int number, String email, String password, Date dateOfBirth, UUID id, Contact doctor, ArrayList<Contact> emergencyContacts, ArrayList<Medication> medication, ArrayList<String> allergies) {
         super(firstName, lastName, number, email, password, dateOfBirth, id);
         this.doctor = doctor;
+        this.emergencyContacts = emergencyContacts;
         this.medication = medication;
         this.allergies = allergies;
     }
@@ -25,7 +26,7 @@ public class StaffUser extends User{
     }
 
     public ArrayList<Contact> getEmergencyContact(){
-        return this.emergencyContact;
+        return this.emergencyContacts;
     }
 
     public boolean checkAllergies(String allergy){
@@ -38,6 +39,6 @@ public class StaffUser extends User{
         return this.schedule;
     }
     public String toString(){
-        return emergencyContact.toString() + allergies.toString() + medication.toString() + schedule;
+        return emergencyContacts.toString() + allergies.toString() + medication.toString() + schedule;
     }
 }

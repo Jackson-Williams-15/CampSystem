@@ -10,7 +10,7 @@ public class DataConstants {
     protected static final String USER_DOB = "dateOfBirth";
     protected static final String USER_PHONE_NUMBER = "phoneNumber";
     protected static final String USER_PASSWORD = "password";
-    protected static final String USER_CONTACT = "emergencyContact";
+    protected static final String USER_CONTACT = "emergencyContacts";
     protected static final String USER_TYPE = "type";
     protected static final String USER_CAMP_DURATION = "campDuration";
     protected static final String USER_CAMP_DATES = "campDates";
@@ -39,7 +39,8 @@ public class DataConstants {
     protected static final String CHILD_DOB = "birthday";
     protected static final String CHILD_ALLERGIES = "allergies";
     protected static final String CHILD_MEDS = "medication";
-    protected static final String CHILD_CONTACT = "doctor";
+    protected static final String CHILD_DOCTOR = "doctor";
+    protected static final String CHILD_CONTACTS = "emergencyContacts";
 
     /**
      * Camp Constants
@@ -47,4 +48,6 @@ public class DataConstants {
     protected static final String CAMP_FILE_NAME = "json/camp.json";
     protected static final String CAMP_NAME = "name";
     protected static final String CAMP_UUID = "UUID";
+    protected static final String CAMP_SESSIONS = "sessions";
+    protected static final String CAMP_SESSION_THEME = "theme";
 }
