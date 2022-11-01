@@ -26,17 +26,11 @@ public class UserList
     }
 
     /**
-     * Creates a new user and adds it to the list
-     * @param firstName The user's first name
-     * @param lastName The user's last name
-     * @param number The user's phone number
-     * @param email The user's email address
-     * @param password The user's password
-     * @param dateOfBirth The user's DOB
+     * Adds a new user to the list
      */
-    public void addUser(String firstName, String lastName, int number, String email, String password, Date dateOfBirth)
+    public void addUser(User user)
     {
-        userList.users.add(new User(firstName, lastName, number, email, password, dateOfBirth));
+        userList.users.add(user);
     }
     
     /**
@@ -57,10 +51,9 @@ public class UserList
         return users;
     }
     /**
-     * Replaces the user item in the list with a new version
-     * @param user The new version of the user
+     * Calls the DataWriter to save all users
      */
-    public void saveUser(User user)
+    public void saveUser()
     {
             DataWriter.saveUsers();
     }
