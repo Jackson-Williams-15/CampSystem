@@ -44,7 +44,7 @@ public class DataWriter extends DataConstants {
 		ArrayList<Cabin> cabins = cabin.getCabins();
 		JSONArray jsonUser = new JSONArray();
 		
-		//creating all the json objects
+		//creating all the cabin json objects
 		for(int i=0; i< cabins.size(); i++) {
 			jsonUser.add(getAllCabinsJSON(cabins.get(i)));
 		}
