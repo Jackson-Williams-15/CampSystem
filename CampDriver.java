@@ -55,7 +55,7 @@ public class CampDriver {
                     }
                     int gChoice = getNum();
                     if(gChoice == 0){
-                        System.out.println("Holder Register child");
+                        registerChild();
                     }
                     else if(gChoice == 1){
                         System.out.println("Holder View Camp dates");
@@ -90,8 +90,7 @@ public class CampDriver {
                     }
                     else if(dChoice == 1){
                         sessionSetUp();
-                        System.out.println("Sessions");
-                        clear();
+                        
                     }
             }
     }
@@ -112,8 +111,18 @@ public class CampDriver {
     //Keep All Guardian Methods together
     public void registerChild(){
         registerChild = new ArrayList<String>();
+        while(in.hasNextLine()){
+            String input = in.nextLine();
 
+            if(input.equalsIgnoreCase("Done")){
+                break;
+            }
+            registerChild.add(input);    
+        }
+        System.out.println(registerChild);
     }
+
+    
 
    
     //Keep all Director Methods together
@@ -122,28 +131,26 @@ public class CampDriver {
     public void sessionSetUp(){
         session = new ArrayList<String>();
         
-        System.out.println("What Sessions do you wish to create?");
-        System.out.println("Type 'Done' when you are finished creating your session.");
+        System.out.println("Type 'Done' when you are finished signing up your children.");
 
-        String play = in.nextLine();
-            while(in.hasNextLine()){
-                session.add(in.nextLine());
-            if(play.equalsIgnoreCase("Done")){
-                System.out.println(session);     
+        while(in.hasNextLine()){
+            String input = in.nextLine();
+
+            if(input.equalsIgnoreCase("Done")){
+                break;
             }
-            }
+            session.add(input);    
+        }
+        System.out.println(session);
     }
 
     //Confused on how to take in session arraylist and randomly assign them to differen cabins.
     public void cabinSchedule(){
-        
+
         session = new ArrayList<String>();
         Random rand = new Random();
 
         int choice = rand.nextInt(3);
-
-
-
     }
 
 
@@ -196,4 +203,5 @@ public class CampDriver {
         //childList.saveChildren
 
     }
+
 }
