@@ -46,7 +46,7 @@ public class DataWriter extends DataConstants {
 		
 		//creating all the cabin json objects
 		for(int i=0; i< cabins.size(); i++) {
-			jsonUser.add(getAllCabinsJSON(cabins.get(i), null));
+			jsonUser.add(getAllCabinsJSON(cabins.get(i)));
 		}
 
   //Write cabin JSON file
@@ -59,7 +59,7 @@ public class DataWriter extends DataConstants {
     e.printStackTrace();
 }
     }
-    public static JSONObject getAllCabinsJSON(Cabin cabin, Activity activity) {
+    public static JSONObject getAllCabinsJSON(Cabin cabin) {
 		JSONObject cabinDetails = new JSONObject();
 		cabinDetails.put(CABIN_ID, cabin.getUUID().toString());
 		cabinDetails.put(CABIN_NAME, cabin.getName());
