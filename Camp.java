@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Camp 
 {
     private String name;
@@ -5,7 +7,7 @@ public class Camp
     private String cabin;
     private UserList userList;
     private int availability;
-    private int sessions;
+    private ArrayList<Session> sessions;
 
     public Camp(String name, String theme){
         this.name = name;
