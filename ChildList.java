@@ -39,6 +39,6 @@ public class ChildList
 
     public void saveChildren()
     {
-        
+        DataWriter.saveChild();
     }
 }
