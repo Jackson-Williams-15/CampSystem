@@ -11,12 +11,12 @@ public class DataWriter extends DataConstants {
 		ArrayList<User> users = user.getUsers();
 		JSONArray jsonUser = new JSONArray();
 		
-		//creating all the json objects
+		//creating all the user json objects
 		for(int i=0; i< users.size(); i++) {
 			jsonUser.add(getAllUserJSON(users.get(i)));
 		}
 
-  //Write JSON file
+  //Write user JSON file
   try (FileWriter file = new FileWriter(USER_FILE_NAME)) {
  
     file.write(jsonUser.toJSONString());
@@ -49,7 +49,7 @@ public class DataWriter extends DataConstants {
 			jsonUser.add(getAllCabinsJSON(cabins.get(i)));
 		}
 
-  //Write JSON file
+  //Write cabin JSON file
   try (FileWriter file = new FileWriter(CABIN_FILE_NAME)) {
  
     file.write(jsonUser.toJSONString());
@@ -77,12 +77,12 @@ public class DataWriter extends DataConstants {
 		ArrayList<Child> children = child.getChildren();
 		JSONArray jsonUser = new JSONArray();
 		
-		//creating all the json objects
+		//creating the child json objects
 		for(int i=0; i< children.size(); i++) {
 			jsonUser.add(getAllChildJSON(children.get(i)));
 		}
 
-  //Write JSON file
+  //Write child JSON file
   try (FileWriter file = new FileWriter(CHILD_FILE_NAME)) {
  
     file.write(jsonUser.toJSONString());
@@ -105,5 +105,35 @@ public class DataWriter extends DataConstants {
         return childDetails;
 	}
 
+	public static void saveCamp(){
+        CampList camp = CampList.getInstance();
+		ArrayList<Camp> camps = camp.getCamps();
+		JSONArray jsonUser = new JSONArray();
+		
+		//creating Camp the json objects
+		for(int i=0; i< camps.size(); i++) {
+			jsonUser.add(getAllCampJSON(camps.get(i)));
+		}
+
+  //Write Camp JSON file
+  try (FileWriter file = new FileWriter(CAMP_FILE_NAME)) {
+ 
+    file.write(jsonUser.toJSONString());
+    file.flush();
+
+} catch (IOException e) {
+    e.printStackTrace();
 }
+    }
+    public static JSONObject getAllCampJSON(Camp camp) {
+		JSONObject campDetails = new JSONObject();
+		campDetails.put(CAMP_NAME, camp.getName());
+		campDetails.put(CAMP_THEME, camp.getTheme());
+        campDetails.put(CAMP_CABINS, camp.getCabins());
+        
+        return campDetails;
+	}
+
+}
+
 
