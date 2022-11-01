@@ -4,7 +4,7 @@ import java.util.UUID;
 
 public class ChildList
 {
-    private ArrayList<Child> children;
+    private static ArrayList<Child> children;
     private static ChildList childList;
 
     private ChildList()
@@ -23,7 +23,7 @@ public class ChildList
         childList.children.add(new Child(firstName, lastName, birthdate));
     }
 
-    public Child getChild(UUID UUID)
+    public static Child getChild(UUID UUID)
     {
         for(Child child : children)
         {

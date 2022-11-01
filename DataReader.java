@@ -2,7 +2,6 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.UUID;
 import java.util.Date;
-import java.util.HashMap;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -39,7 +38,7 @@ public class DataReader extends DataConstants {
                     for(int j=0; j<childrenList.size(); j++) {
                         UUID childUUID = (UUID)childrenJSON.get(j);
                         if(childrenList.get(j).getUUID() == childUUID) {
-                            children.add(childrenList.getChild(childUUID));
+                            children.add(ChildList.getChild(childUUID));
                             break;
                         }
                     }
@@ -177,11 +176,11 @@ public class DataReader extends DataConstants {
             FileReader reader = new FileReader(CAMP_FILE_NAME);
             JSONParser parser = new JSONParser();
             JSONArray campsJSON = (JSONArray)new JSONParser().parse(reader);
-
+            JSONObject campJSON = (JSONObject)new JSONParser().parse(reader);
+            String name = (String)campJSON.get(CAMP_NAME);
             for(int i=0; i < campsJSON.size(); i++) {
-                JSONObject campJSON = (JSONObject)new JSONParser().parse(reader);
-                //name session theme cabins
-                String name = (String)campJSON.get(CAMP_NAME);
+                
+                
 
                 camps.add(new Camp(name));
             }
