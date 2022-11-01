@@ -128,7 +128,6 @@ public class DataWriter extends DataConstants {
     public static JSONObject getAllCampJSON(Camp camp) {
 		JSONObject campDetails = new JSONObject();
 		campDetails.put(CAMP_NAME, camp.getName());
-        campDetails.put(CAMP_CABINS, camp.getCabins());
         
         return campDetails;
 	}

@@ -41,5 +41,5 @@ public class DataConstants {
      */
     protected static final String CAMP_FILE_NAME = "json/camp.json";
     protected static final String CAMP_NAME = "name";
-    protected static final String CAMP_CABINS = "cabins";
+    protected static final String CAMP_UUID = "UUID";
 }

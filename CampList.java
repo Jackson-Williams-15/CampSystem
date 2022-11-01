@@ -15,9 +15,9 @@ public class CampList {
         return campList;
     }
 
-    public void addCamp(String name, String theme)
+    public void addCamp(String name)
     {
-        campList.camps.add(new Camp(name, theme));
+        campList.camps.add(new Camp(name));
     }
 
     public ArrayList<Camp> getCamps()
