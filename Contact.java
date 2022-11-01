@@ -11,4 +11,10 @@ public class Contact {
         this.phoneNumber = phoneNumber;
         this.email = email;
     }
+
+    public String toString()
+    {
+        return "Name: " + this.firstName + " " + this.lastName + "\n" +
+        "Email: " + this.email + " Phone: " + this.phoneNumber + "\n";
+    }
 }
