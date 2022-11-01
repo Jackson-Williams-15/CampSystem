@@ -193,12 +193,12 @@ public class CampDriver {
     //Tests Program
     public static void main(String[] args){
         CampDriver driver = new CampDriver();
-        driver.runDriver();
-        //Children, Users, Cabins, Camp
-        /*ChildList childList = ChildList.getInstance();
+        ChildList childList = ChildList.getInstance();
         UserList userList = UserList.getInstance();
         CabinList cabinList = CabinList.getInstance();
-        */
+        driver.runDriver();
+        //Children, Users, Cabins, Camp
+        
         
         //childList.saveChildren
 
