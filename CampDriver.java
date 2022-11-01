@@ -111,6 +111,7 @@ public class CampDriver {
     //Keep All Guardian Methods together
     public void registerChild(){
         registerChild = new ArrayList<String>();
+
         while(in.hasNextLine()){
             String input = in.nextLine();
 
@@ -119,7 +120,6 @@ public class CampDriver {
             }
             registerChild.add(input);    
         }
-        System.out.println(registerChild);
     }
 
     
@@ -145,12 +145,14 @@ public class CampDriver {
     }
 
     //Confused on how to take in session arraylist and randomly assign them to differen cabins.
+    //Used to assign the sessions inputed by director user to random cabins
     public void cabinSchedule(){
 
         session = new ArrayList<String>();
         Random rand = new Random();
-
-        int choice = rand.nextInt(3);
+        for(int i =0; i<session.size();i++){
+            int index = (int)(Math.random() * session.size());
+        }
     }
 
 
