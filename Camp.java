@@ -7,6 +7,11 @@ public class Camp
     private int availability;
     private int sessions;
 
+    public Camp(String name, String theme){
+        this.name = name;
+        this.theme = theme;
+    }
+
     public Camp(Camp newCamp){
         this.name = newCamp.getName();
         this.theme = newCamp.getTheme();
@@ -34,5 +39,12 @@ public class Camp
     }
     private int availableSessions(int sessions, int availability){
         return availability;
+    }
+
+    public String toString()
+    {
+        return "Name: " + this.name + " " + "\n" +
+        "theme: " + this.theme+ "\n" +
+        "Cabins: " + this.cabin;
     }
 }
