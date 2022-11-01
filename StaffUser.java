@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.UUID;
 
 public class StaffUser extends User{
     private ArrayList<Contact> emergencyContact;
@@ -7,8 +8,12 @@ public class StaffUser extends User{
     public ArrayList<String> allergies;
     private ArrayList<Medication> medication;
     private Schedule schedule;
-    public StaffUser(String name, int number, String email, String password, Date dateOfBirth) {
-        super(name, password, number, email, password, dateOfBirth);
+
+    public StaffUser(String firstName, String lastName, int number, String email, String password, Date dateOfBirth, UUID id, Contact doctor, ArrayList<Medication> medication, ArrayList<String> allergies) {
+        super(firstName, lastName, number, email, password, dateOfBirth, id);
+        this.doctor = doctor;
+        this.medication = medication;
+        this.allergies = allergies;
     }
 
     public ArrayList<String> getAllAllergies(){
