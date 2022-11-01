@@ -1,13 +1,15 @@
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class CampDriver {
     private Scanner in;
-    private String[] userOptions = new String[3];
-    private String[] guardianOptions = new String[3];
-    private String[] counselorOptions = new String[3];
-    private String[] directorOptions = new String[3];
+    private String[] userOptions = new String[4];
+    private String[] guardianOptions = new String[4];
+    private String[] counselorOptions = new String[4];
+    private String[] directorOptions = new String[4];
     private ArrayList<String> session;
+    private ArrayList<String> registerChild;
 
 
 //Constructor adding in arrays of possible options between users
@@ -16,18 +18,22 @@ public class CampDriver {
         userOptions[0] = "Log in as parent";
         userOptions[1] = "Log in as Counselor";
         userOptions[2] = "Log in as Director";
+        userOptions[3] = "Logout";
 
         guardianOptions[0] = "Register Child";
         guardianOptions[1] = "View Camp Dates";
         guardianOptions[2] = "View Camp Duration";
+        guardianOptions[3] = "Logout";
 
         counselorOptions[0] = "View Schedule";
         counselorOptions[1] = "Check Allergies";
         counselorOptions[2] = "Logout";
+        counselorOptions[3] = "Logout";
 
         directorOptions[0] = "View User Profiles";
         directorOptions[1] = "Create Schedule";
         directorOptions[2] = "Logout";
+        directorOptions[3] = "Logout";
 
     }
     //Code to run the driver that takes in all possible choices of user input
@@ -66,7 +72,6 @@ public class CampDriver {
                     }
                     int cChoice = getNum();
                     if(cChoice == 0){
-                        sessionSetUp();
                         System.out.println("Holder View Schedule");
                     }
                     else if(cChoice == 1){
@@ -84,7 +89,8 @@ public class CampDriver {
                         System.out.println("Holder Director");
                     }
                     else if(dChoice == 1){
-                        System.out.println("You Have Successfully Logged Out.");
+                        sessionSetUp();
+                        System.out.println("Sessions");
                         clear();
                     }
             }
@@ -105,7 +111,8 @@ public class CampDriver {
 
     //Keep All Guardian Methods together
     public void registerChild(){
-        
+        registerChild = new ArrayList<String>();
+
     }
 
    
@@ -127,6 +134,18 @@ public class CampDriver {
             }
     }
 
+    //Confused on how to take in session arraylist and randomly assign them to differen cabins.
+    public void cabinSchedule(){
+        
+        session = new ArrayList<String>();
+        Random rand = new Random();
+
+        int choice = rand.nextInt(3);
+
+
+
+    }
+
 
     //Gets the number inputed by the user
     private int getNum(){
@@ -140,10 +159,13 @@ public class CampDriver {
 		}
         clear();
 
-        if (num < 0 || num > 3) {
+        if (num < 0 || num > 4) {
 			System.out.println("Oh no! You have chosen an invalid input.\n");
 			return -1;
 		}
+        if(num == 4){
+            System.exit(0);
+        }
         return num;
     }
 
@@ -157,20 +179,21 @@ public class CampDriver {
 
     //Clears Program
     private void clear() {
-		System.out.print("\033[H\033[2J");
+		System.out.print("\033[H\033[2J"); 
 	}
 
 
     //Tests Program
     public static void main(String[] args){
         CampDriver driver = new CampDriver();
+        driver.runDriver();
         //Children, Users, Cabins, Camp
-        ChildList childList = ChildList.getInstance();
+        /*ChildList childList = ChildList.getInstance();
         UserList userList = UserList.getInstance();
         CabinList cabinList = CabinList.getInstance();
-
-        driver.runDriver();
+        */
         
         //childList.saveChildren
+
     }
 }
