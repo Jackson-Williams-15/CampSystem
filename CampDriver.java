@@ -23,26 +23,26 @@ public class CampDriver {
         userOptions[0] = "Log in as parent";
         userOptions[1] = "Log in as Counselor";
         userOptions[2] = "Log in as Director";
-        userOptions[3] = "Display Menu";
-        directorOptions[4] = "Logout";
+        userOptions[3] = "Hello";
+        userOptions[4] = "Quit";
 
         guardianOptions[0] = "Register Child";
         guardianOptions[1] = "View Camp Dates";
         guardianOptions[2] = "View Camp Duration";
-        guardianOptions[3] = "Display Menu";
-        directorOptions[4] = "Logout";
+        guardianOptions[3] = "Logout";
+        guardianOptions[4] = "Quit";
 
         counselorOptions[0] = "View Schedule";
         counselorOptions[1] = "Check Allergies";
         counselorOptions[2] = "Null";
-        counselorOptions[3] = "Display Menu";
-        directorOptions[4] = "Logout";
+        counselorOptions[3] = "Logout";
+        counselorOptions[4] = "Quit";
 
         directorOptions[0] = "View User Profiles";
         directorOptions[1] = "Print Schedules";
         directorOptions[2] = "Create Schedule";
-        directorOptions[3] = "Display Menu";
-        directorOptions[4] = "Logout";
+        directorOptions[3] = "Logout";
+        directorOptions[4] = "Quit";
         
 
     }
@@ -55,11 +55,13 @@ public class CampDriver {
     public void runDriver(){
         clear();
         System.out.println("Welcome to our Camp!");
-        displayMenu();
-            int choice = getNum();
-            boolean run = true;
+        int choice;
+        boolean run = true;
 
         while(run){
+            displayMenu();
+            choice = getNum();
+
             switch(choice){
                 case 0:
                     userPass();
@@ -78,7 +80,7 @@ public class CampDriver {
                         System.out.println("Holder View Camp Duration");
                     }
                     else if(gChoice == 3){
-                        displayMenu();
+
                     }
                     else if(gChoice == 4){
                         run = false;
@@ -98,7 +100,7 @@ public class CampDriver {
                         System.out.println("Holder Check allergies");
                     }
                     else if(cChoice == 3){
-                        displayMenu();
+                        
                     }
                     else if(cChoice == 4){
                         run = false;
@@ -121,13 +123,14 @@ public class CampDriver {
                         sessionSetUp();
                     }
                     else if(dChoice == 3){
-                        displayMenu();
-                    }
-                    else if(dChoice == 4){
                         
                     }
+                    else if(dChoice == 4){
+                        run = false;
+                    }
             }
             }
+        }
     }
     //Allows User input on passwords and usernames
     public void userPass(){
