@@ -131,7 +131,7 @@ public class CampDriver {
                     }
                     break;
                 case 3: 
-                    System.out.println("Hello");
+                    System.out.println("Hello!");
                     break;
                 case 4: 
                     run = false;
