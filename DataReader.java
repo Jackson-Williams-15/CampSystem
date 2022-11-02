@@ -212,7 +212,7 @@ public class DataReader extends DataConstants {
                     ArrayList<Activity> activities = new ArrayList<Activity>();
                     for(int k=0; k < activitiesJSON.size(); k++) {
                         JSONObject activityJSON = (JSONObject)activitiesJSON.get(k);
-                        Type type = (Type)activityJSON.get(ACTIVITY_TYPE);
+                        Type type = Type.valueOf((String)activityJSON.get(ACTIVITY_TYPE));
                         String activityName = (String)activityJSON.get(ACTIVITY_NAME);
                         String time = (String)activityJSON.get(ACTIVITY_TIME);
                         activities.add(new Activity(type, activityName, time));
