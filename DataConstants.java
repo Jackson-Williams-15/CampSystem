@@ -16,6 +16,9 @@ public class DataConstants {
     protected static final String USER_CAMP_DATES = "campDates";
     protected static final String USER_CHILDREN = "children";
     protected static final String USER_DOCTOR = "doctor";
+    protected static final String USER_ALLERGIES = "allergies";
+    protected static final String USER_MEDS = "medications";
+
 /**
  * Cabin Constants
  */
