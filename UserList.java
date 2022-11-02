@@ -47,6 +47,15 @@ public class UserList
         return null;
     }
 
+    public StaffUser getStaffUser(UUID UUID)
+    {
+        for(int i = 0; i < users.size(); i++)
+        {
+            if(users.get(i) instanceof StaffUser && users.get(i).getUUID() == UUID) return (StaffUser)users.get(i);
+        }
+        return null;
+    }
+
     public ArrayList<User> getUsers(){
         return users;
     }
