@@ -132,17 +132,7 @@ public class CampDriver {
                         run = false;
                         System.exit(0);
                     }
-<<<<<<< HEAD
             }
-=======
-                    break;
-                case 3: 
-                    System.out.println("Hello!");
-                    break;
-                case 4: 
-                    run = false;
-                    break;
->>>>>>> 0fc4081ad385a83464e14eb297cc17ff4fa4ffff
             }
         }
     
