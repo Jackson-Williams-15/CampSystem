@@ -85,7 +85,7 @@ public class DataReader extends DataConstants {
                     ArrayList<String> allergies = new ArrayList<String>();
                     for(int j = 0; j < allergiesJSON.size(); j++) {
                         JSONObject allergyJSON = (JSONObject)allergiesJSON.get(j);
-                        String allergy = (String)allergyJSON.get(CHILD_ALLERGIES);
+                        String allergy = allergyJSON.toString();
                         allergies.add(allergy);
                     }
 
@@ -152,7 +152,7 @@ public class DataReader extends DataConstants {
                 ArrayList<String> allergies = new ArrayList<String>();
                 for(int j = 0; j < allergiesJSON.size(); j++) {
                     JSONObject allergyJSON = (JSONObject)allergiesJSON.get(j);
-                    String allergy = (String)allergyJSON.get(CHILD_ALLERGIES);
+                    String allergy = allergyJSON.toString();
                     allergies.add(allergy);
                 }
 				children.add(new Child(firstName, lastName, dateOfBirth, id, allergies, doctor, emergencyContacts, medications));
