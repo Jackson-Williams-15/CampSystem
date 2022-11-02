@@ -35,7 +35,7 @@ public class DataReader extends DataConstants {
                 String type = (String)personJSON.get(USER_TYPE);
                 
                 if(type.equals("GuardianUser")) {
-                    int campDuration = (int)personJSON.get(USER_CAMP_DURATION);
+                    int campDuration = ((Long)personJSON.get(USER_CAMP_DURATION)).intValue();
                     Date campDates = (Date)personJSON.get(USER_CAMP_DATES);
 
                     JSONArray childrenJSON = (JSONArray)personJSON.get(USER_CHILDREN);
