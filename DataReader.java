@@ -134,9 +134,9 @@ public class DataReader extends DataConstants {
                 ArrayList<Medication> medications = new ArrayList<Medication>();
                 for(int j = 0; j < medicationsJSON.size(); j++) {
                     JSONObject medicationJSON = (JSONObject)medicationsJSON.get(j);
-                    String type = (String)medicationJSON.get("type");
-                    String dose = (String)medicationJSON.get("dose");
-                    String time = (String)medicationJSON.get("time");
+                    String type = (String)medicationJSON.get(MED_TYPE);
+                    String dose = (String)medicationJSON.get(MED_DOSE);
+                    String time = (String)medicationJSON.get(MED_TIME);
                     medications.add(new Medication(type, dose, time));
                 }
                 
@@ -176,7 +176,9 @@ public class DataReader extends DataConstants {
                 String name = (String)cabinJSON.get(CABIN_NAME);
 				UUID id = UUID.fromString((String)cabinJSON.get(CABIN_ID));
                 ArrayList<Child> camperGroup = (ArrayList<Child>)cabinJSON.get(CABIN_CAMP_GROUP);
-                StaffUser staffUser = (StaffUser)cabinJSON.get(CABIN_STAFF_USER);
+
+                UUID staffUUID = UUID.fromString((String)cabinJSON.get(CABIN_STAFF_USER));
+                StaffUser staffUser = UserList.getStaffUser(staffUUID);
                 int minAge = ((Long)cabinJSON.get(CABIN_MIN_AGE)).intValue();
                 int maxAge = ((Long)cabinJSON.get(CABIN_MAX_AGE)).intValue();
 
@@ -189,9 +191,9 @@ public class DataReader extends DataConstants {
                     ArrayList<Activity> activities = new ArrayList<Activity>();
                     for(int k=0; k < activitiesJSON.size(); k++) {
                         JSONObject activityJSON = (JSONObject)activitiesJSON.get(k);
-                        Type type = (Type)activityJSON.get("type");
-                        String activityName = (String)activityJSON.get("name");
-                        String time = (String)activityJSON.get("time");
+                        Type type = (Type)activityJSON.get(ACTIVITY_TYPE);
+                        String activityName = (String)activityJSON.get(ACTIVITY_NAME);
+                        String time = (String)activityJSON.get(ACTIVITY_TIME);
                         activities.add(new Activity(type, activityName, time));
                     }
                     schedule[j] = new Schedule(activities, day);
