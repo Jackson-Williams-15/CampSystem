@@ -11,7 +11,7 @@ public class CampDriver {
     private String[] directorOptions = new String[4];
     private ArrayList<Session> session;
     private ArrayList<String> registerChild;
-    private Camp camp;
+    private Camp camp = DataReader.getCamps().get(0);
     private ChildList childList = ChildList.getInstance();
     private UserList userList = UserList.getInstance();
     private CabinList cabinList = CabinList.getInstance();
