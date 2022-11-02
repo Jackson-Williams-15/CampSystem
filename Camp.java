@@ -19,6 +19,11 @@ public class Camp
         return this.name;
     }
 
+    public ArrayList<Session> getSessions()
+    {
+        return this.sessions;
+    }
+
     public Child findChild(String name, int age){
         return null;
     }

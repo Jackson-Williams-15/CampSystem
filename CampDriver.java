@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.UUID;
 
 public class CampDriver {
     private Scanner in;
@@ -8,8 +9,12 @@ public class CampDriver {
     private String[] guardianOptions = new String[4];
     private String[] counselorOptions = new String[4];
     private String[] directorOptions = new String[4];
-    private ArrayList<String> session;
+    private ArrayList<Session> session;
     private ArrayList<String> registerChild;
+    private Camp camp;
+    private ChildList childList = ChildList.getInstance();
+    private UserList userList = UserList.getInstance();
+    private CabinList cabinList = CabinList.getInstance();
 
 
 //Constructor adding in arrays of possible options between users
@@ -129,9 +134,9 @@ public class CampDriver {
     //Create Sessions for Director
 
     public void sessionSetUp(){
-        session = new ArrayList<String>();
+        session = camp.getSessions();
         
-        System.out.println("Type 'Done' when you are finished signing up your children.");
+        System.out.println("Enter the theme for the session. Type 'Done' if you wish to cancel.");
 
         while(in.hasNextLine()){
             String input = in.nextLine();
@@ -139,7 +144,19 @@ public class CampDriver {
             if(input.equalsIgnoreCase("Done")){
                 break;
             }
-            session.add(input);    
+
+            System.out.println("Enter the UUIDs for the cabins in this session. Type 'Done' when you are finished.");
+            ArrayList<Cabin> sessionCabins = new ArrayList<Cabin>();
+            while(in.hasNextLine())
+            {
+                String id = in.nextLine();
+
+                if(id.equalsIgnoreCase("Done")){
+                    break;
+                }
+                sessionCabins.add(cabinList.getCabin(UUID.fromString(input)));
+            }
+            session.add(new Session(input, sessionCabins));    
         }
         System.out.println(session);
     }
@@ -147,8 +164,6 @@ public class CampDriver {
     //Confused on how to take in session arraylist and randomly assign them to differen cabins.
     //Used to assign the sessions inputed by director user to random cabins
     public void cabinSchedule(){
-
-        session = new ArrayList<String>();
         Random rand = new Random();
         for(int i =0; i<session.size();i++){
             int index = (int)(Math.random() * session.size());
@@ -195,9 +210,6 @@ public class CampDriver {
     //Tests Program
     public static void main(String[] args){
         CampDriver driver = new CampDriver();
-        ChildList childList = ChildList.getInstance();
-        UserList userList = UserList.getInstance();
-        CabinList cabinList = CabinList.getInstance();
         driver.runDriver();
         //Children, Users, Cabins, Camp
         

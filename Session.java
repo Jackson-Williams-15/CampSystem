@@ -4,6 +4,12 @@ public class Session {
     private String theme;
     private ArrayList<Cabin> cabins;
 
+    public Session(String theme, ArrayList<Cabin> cabins)
+    {
+        this.theme = theme;
+        this.cabins = cabins;
+    }
+
     public String toString()
     {
         String output = "Theme: " + this.theme + "\n";
