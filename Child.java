@@ -65,6 +65,10 @@ public class Child{
     public ArrayList<String> getAllergies(){
         return this.allergies;
     }
+    public Contact getDoctor()
+    {
+        return this.doctor;
+    }
     public ArrayList<Contact> getContact(){
         return this.emergencyContacts;
     }

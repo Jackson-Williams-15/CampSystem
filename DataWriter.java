@@ -142,7 +142,7 @@ public class DataWriter extends DataConstants {
 		childDetails.put(CHILD_DOB, child.getBirth());
 		childDetails.put(CHILD_ALLERGIES, child.getAllergies());
         childDetails.put(CHILD_MEDS, child.getMeds());
-		childDetails.put(CHILD_DOCTOR, child.getContact());
+		childDetails.put(CHILD_DOCTOR, child.getDoctor());
         
 		JSONArray JSONMeds = new JSONArray();
 
