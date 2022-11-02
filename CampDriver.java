@@ -129,20 +129,10 @@ public class CampDriver {
                     else if(dChoice == 4){
                         run = false;
                     }
-<<<<<<< HEAD
             }
-=======
-                    break;
-                case 3: 
-                    System.out.println("Hello");
-                    break;
-                case 4: 
-                    run = false;
-                    break;
->>>>>>> 9643c2f4aae25cf20351e537a269e41dbb2c241b
             }
         }
-    }
+    
     //Allows User input on passwords and usernames
     public void userPass(){
         String userName;
