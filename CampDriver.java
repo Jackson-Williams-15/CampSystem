@@ -82,7 +82,7 @@ public class CampDriver {
                         displayMenu();
                     }
                     else if(gChoice == 4){
-                        run = false;
+                        choice = 0;
                     }
                 
                     break;
@@ -103,7 +103,7 @@ public class CampDriver {
                         displayMenu();
                     }
                     else if(cChoice == 4){
-                        run = false;
+                        choice = 0;
                     }
                     break;
                 case 2:
@@ -126,7 +126,7 @@ public class CampDriver {
                         displayMenu();
                     }
                     else if(dChoice == 4){
-                        
+                        choice = 0;
                     }
 
             }
