@@ -10,6 +10,15 @@ public class Session {
         this.cabins = cabins;
     }
 
+    public String getTheme()
+    {
+        return this.theme;
+    }
+    public ArrayList<Cabin> getCabins()
+    {
+        return this.cabins;
+    }
+
     public String toString()
     {
         String output = "Theme: " + this.theme + "\n";
