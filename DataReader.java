@@ -207,7 +207,7 @@ public class DataReader extends DataConstants {
                 Schedule[] schedule = new Schedule[7];
                 for(int j = 0; j < schedulesJSON.size(); j++) {
                     JSONObject scheduleJSON = (JSONObject)schedulesJSON.get(j);
-                    Day day = (Day)scheduleJSON.get(CABIN_DAY);
+                    Day day = Day.valueOf((String)scheduleJSON.get(CABIN_DAY));
                     JSONArray activitiesJSON = (JSONArray)scheduleJSON.get(CABIN_ACTIVITIES);
                     ArrayList<Activity> activities = new ArrayList<Activity>();
                     for(int k=0; k < activitiesJSON.size(); k++) {
