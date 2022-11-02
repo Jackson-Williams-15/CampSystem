@@ -60,19 +60,19 @@ public class DataReader extends DataConstants {
                     for(int j = 0; j < emergencyContactsJSON.size(); j++) {
                         JSONObject emergencyContactJSON = (JSONObject)emergencyContactsJSON.get(j);
                         //string name string int string
-                        String contactFirstName = (String)emergencyContactJSON.get("firstName");
-                        String contactLastName = (String)emergencyContactJSON.get("lastName");
-                        int contactPhoneNumber = ((Long)emergencyContactJSON.get("phoneNumber")).intValue();
-                        String contactEmail = (String)emergencyContactJSON.get("email");
+                        String contactFirstName = (String)emergencyContactJSON.get(CONTACT_FIRST_NAME);
+                        String contactLastName = (String)emergencyContactJSON.get(CONTACT_LAST_NAME);
+                        int contactPhoneNumber = ((Long)emergencyContactJSON.get(CONTACT_PHONE_NUMBER)).intValue();
+                        String contactEmail = (String)emergencyContactJSON.get(CONTACT_EMAIL);
                         emergencyContacts.add(new Contact(contactFirstName, contactLastName, contactPhoneNumber, contactEmail));
                     }
                     JSONArray medicationsJSON = (JSONArray)personJSON.get(CHILD_MEDS);
                     ArrayList<Medication> medications = new ArrayList<Medication>();
                     for(int j = 0; j < medicationsJSON.size(); j++) {
                         JSONObject medicationJSON = (JSONObject)medicationsJSON.get(j);
-                        String medType = (String)medicationJSON.get("type");
-                        String medDose = (String)medicationJSON.get("dose");
-                        String medTime = (String)medicationJSON.get("time");
+                        String medType = (String)medicationJSON.get(MED_TYPE);
+                        String medDose = (String)medicationJSON.get(MED_DOSE);
+                        String medTime = (String)medicationJSON.get(MED_TIME);
                         medications.add(new Medication(medType, medDose, medTime));
                     }
                     JSONArray allergiesJSON = (JSONArray)personJSON.get(CHILD_ALLERGIES);
@@ -119,10 +119,10 @@ public class DataReader extends DataConstants {
                 ArrayList<Contact> emergencyContacts = new ArrayList<Contact>();
                 for(int j = 0; j < emergencyContactsJSON.size(); j++) {
                     JSONObject emergencyContactJSON = (JSONObject)emergencyContactsJSON.get(j);
-                    String contactFirstName = (String)emergencyContactJSON.get("firstName");
-                    String contactLastName = (String)emergencyContactJSON.get("lastName");
-                    int contactPhoneNumber = ((Long)emergencyContactJSON.get("phoneNumber")).intValue();
-                    String contactEmail = (String)emergencyContactJSON.get("email");
+                    String contactFirstName = (String)emergencyContactJSON.get(CONTACT_FIRST_NAME);
+                    String contactLastName = (String)emergencyContactJSON.get(CONTACT_LAST_NAME);
+                    int contactPhoneNumber = ((Long)emergencyContactJSON.get(CONTACT_PHONE_NUMBER)).intValue();
+                    String contactEmail = (String)emergencyContactJSON.get(CONTACT_EMAIL);
                     emergencyContacts.add(new Contact(contactFirstName, contactLastName, contactPhoneNumber, contactEmail));
                 }
 
@@ -222,10 +222,8 @@ public class DataReader extends DataConstants {
         try {
 
             FileReader reader = new FileReader(CAMP_FILE_NAME);
-            JSONParser parser = new JSONParser();
-            ArrayList<Cabin> cabinsList = getCabins();
-
             JSONObject campJSON = (JSONObject)new JSONParser().parse(reader);
+            ArrayList<Cabin> cabinsList = getCabins();
             String name = (String)campJSON.get(CAMP_NAME);
 
             JSONArray sessionsJSON = (JSONArray)campJSON.get(CAMP_SESSIONS);
