@@ -45,7 +45,7 @@ public class DataReader extends DataConstants {
                     JSONArray childrenJSON = (JSONArray)personJSON.get(USER_CHILDREN);
                     ArrayList<Child> children = new ArrayList<Child>();
                     for(int j=0; j<childrenList.size(); j++) {
-                        UUID childUUID = (UUID)childrenJSON.get(j);
+                        UUID childUUID = UUID.fromString((String)childrenJSON.get(j));
                         if(childrenList.get(j).getUUID() == childUUID) {
                             children.add(ChildList.getChild(childUUID));
                             break;
@@ -184,7 +184,7 @@ public class DataReader extends DataConstants {
                 JSONArray childrenJSON = (JSONArray)cabinJSON.get(CABIN_CAMP_GROUP);
                 ArrayList<Child> camperGroup = new ArrayList<Child>();
                 for(int j = 0; j<childrenList.size(); j++) {
-                    UUID childUUID = (UUID)childrenJSON.get(j);
+                    UUID childUUID = UUID.fromString((String)childrenJSON.get(j));
                     if(childrenList.get(j).getUUID() == childUUID) {
                         camperGroup.add(ChildList.getChild(childUUID));
                         break;
