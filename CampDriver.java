@@ -9,7 +9,7 @@ public class CampDriver {
     private String[] guardianOptions = new String[4];
     private String[] counselorOptions = new String[4];
     private String[] directorOptions = new String[4];
-    private ArrayList<Session> session;
+    private ArrayList<String> session;
     private ArrayList<String> registerChild;
     /*private ChildList childList = ChildList.getInstance();
     private UserList userList = UserList.getInstance();
@@ -37,7 +37,7 @@ public class CampDriver {
 
         directorOptions[0] = "View User Profiles";
         directorOptions[1] = "Print Schedules";
-        directorOptions[2] = "Null";
+        directorOptions[2] = "Create Schedule";
         directorOptions[3] = "Logout";
 
     }
@@ -96,9 +96,11 @@ public class CampDriver {
                     }
                     else if(dChoice == 1){
                         System.out.println("Holder Session");
-                       // sessionSetUp();
-                        
                     }
+                    else if(dChoice == 2){
+                        sessionSetUp();
+                    }
+
             }
     }
     //Allows User input on passwords and usernames
@@ -106,13 +108,17 @@ public class CampDriver {
         String userName;
         String passWord;
 
-        System.out.println("Enter UserName: ");
+        System.out.println("Enter Email: ");
         userName = in.nextLine();
-        System.out.println("UserName is:" + userName);
+        System.out.println("Email is: " + userName);
         System.out.println("Enter PassWord: ");
         passWord = in.nextLine();
-        System.out.println("Password is:" + passWord);
+        System.out.println("Password is: " + passWord);
         clear();
+    }
+    //Keep All Counselor Methods Together
+    public void viewSchedule(){
+        
     }
 
     //Keep All Guardian Methods together
@@ -142,7 +148,22 @@ public class CampDriver {
 
     //Keep all Director Methods together
     //Create Sessions for Director
- 
+    
+    public void sessionSetUp(){
+        session = new ArrayList<String>();
+        System.out.println("Type the sessions you wish to Register.");
+        System.out.println("When you are finished Type: 'Done'");
+        while(in.hasNextLine()){
+            String input = in.nextLine();
+
+            if(input.equalsIgnoreCase("Done")){
+                break;
+            }
+            session.add(input);    
+        }
+        System.out.println(session);
+        
+    }
     /*public void sessionSetUp(){
         session = camp.getSessions();
         
