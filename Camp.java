@@ -11,6 +11,11 @@ public class Camp
         this.name = name;
     }
 
+    public Camp(String name, ArrayList<Session> sessions) {
+        this.name = name;
+        this.sessions = sessions;
+    }
+
     public Camp(Camp newCamp){
         this.name = newCamp.getName();
     }
