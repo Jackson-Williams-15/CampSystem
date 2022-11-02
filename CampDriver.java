@@ -74,7 +74,7 @@ public class CampDriver {
                         registerChild();
                     }
                     else if(gChoice == 1){
-                        sessionSetUp();
+                        viewSchedule();
                     }
                     else if(gChoice == 2){
                         System.out.println("");
@@ -84,7 +84,6 @@ public class CampDriver {
                     }
                     else if(gChoice == 4){
                         run = false;
-                        System.exit(0);
                     }
                 
                     break;
@@ -102,11 +101,10 @@ public class CampDriver {
                         System.out.println("Holder Check allergies");
                     }
                     else if(cChoice == 3){
-                        
+                        viewSchedule();
                     }
                     else if(cChoice == 4){
                         run = false;
-                        System.exit(0);
                     }
                     break;
                 case 2:
@@ -130,7 +128,6 @@ public class CampDriver {
                     }
                     else if(dChoice == 4){
                         run = false;
-                        System.exit(0);
                     }
             }
             }
@@ -151,7 +148,7 @@ public class CampDriver {
     }
     //Keep All Counselor Methods Together
     public void viewSchedule(){
-        
+        System.out.println(session);
     }
 
     //Keep All Guardian Methods together
