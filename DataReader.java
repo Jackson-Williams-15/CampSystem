@@ -38,8 +38,7 @@ public class DataReader extends DataConstants {
                     JSONArray campDatesJSON = (JSONArray)personJSON.get(USER_CAMP_DATES);
                     ArrayList<String> campDates = new ArrayList<String>();
                     for(int j = 0; j < campDatesJSON.size(); j++) {
-                        JSONObject campDateJSON = (JSONObject)campDatesJSON.get(j);
-                        String campDate = campDateJSON.toString();
+                        String campDate = campDatesJSON.get(j).toString();
                         campDates.add(campDate);
                     }
 
@@ -84,8 +83,7 @@ public class DataReader extends DataConstants {
                     JSONArray allergiesJSON = (JSONArray)personJSON.get(CHILD_ALLERGIES);
                     ArrayList<String> allergies = new ArrayList<String>();
                     for(int j = 0; j < allergiesJSON.size(); j++) {
-                        JSONObject allergyJSON = (JSONObject)allergiesJSON.get(j);
-                        String allergy = allergyJSON.toString();
+                        String allergy = allergiesJSON.get(j).toString();
                         allergies.add(allergy);
                     }
 
@@ -151,8 +149,7 @@ public class DataReader extends DataConstants {
                 JSONArray allergiesJSON = (JSONArray)personJSON.get(CHILD_ALLERGIES);
                 ArrayList<String> allergies = new ArrayList<String>();
                 for(int j = 0; j < allergiesJSON.size(); j++) {
-                    JSONObject allergyJSON = (JSONObject)allergiesJSON.get(j);
-                    String allergy = allergyJSON.toString();
+                    String allergy = allergiesJSON.get(j).toString();
                     allergies.add(allergy);
                 }
 				children.add(new Child(firstName, lastName, dateOfBirth, id, allergies, doctor, emergencyContacts, medications));
