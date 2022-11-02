@@ -32,7 +32,7 @@ public class DataReader extends DataConstants {
                 String email = (String)personJSON.get(USER_EMAIL);
                 String password = (String)personJSON.get(USER_PASSWORD);
 				String dateOfBirth = ((String)personJSON.get(USER_DOB));
-				int phoneNumber = (int)personJSON.get(USER_PHONE_NUMBER);
+				int phoneNumber = ((Long)personJSON.get(USER_PHONE_NUMBER)).intValue();
                 String type = (String)personJSON.get(USER_TYPE);
                 
                 if(type.equals("GuardianUser")) {
@@ -64,7 +64,7 @@ public class DataReader extends DataConstants {
                         //string name string int string
                         String contactFirstName = (String)emergencyContactJSON.get("firstName");
                         String contactLastName = (String)emergencyContactJSON.get("lastName");
-                        int contactPhoneNumber = (int)emergencyContactJSON.get("phoneNumber");
+                        int contactPhoneNumber = ((Long)emergencyContactJSON.get("phoneNumber")).intValue();
                         String contactEmail = (String)emergencyContactJSON.get("email");
                         emergencyContacts.add(new Contact(contactFirstName, contactLastName, contactPhoneNumber, contactEmail));
                     }
@@ -125,7 +125,7 @@ public class DataReader extends DataConstants {
                     //string name string int string
                     String contactFirstName = (String)emergencyContactJSON.get("firstName");
                     String contactLastName = (String)emergencyContactJSON.get("lastName");
-                    int contactPhoneNumber = (int)emergencyContactJSON.get("phoneNumber");
+                    int contactPhoneNumber = ((Long)emergencyContactJSON.get("phoneNumber")).intValue();
                     String contactEmail = (String)emergencyContactJSON.get("email");
                     emergencyContacts.add(new Contact(contactFirstName, contactLastName, contactPhoneNumber, contactEmail));
                 }
@@ -177,8 +177,8 @@ public class DataReader extends DataConstants {
 				UUID id = UUID.fromString((String)cabinJSON.get(CABIN_ID));
                 ArrayList<Child> camperGroup = (ArrayList<Child>)cabinJSON.get(CABIN_CAMP_GROUP);
                 StaffUser staffUser = (StaffUser)cabinJSON.get(CABIN_STAFF_USER);
-                int minAge = (int)cabinJSON.get(CABIN_MIN_AGE);
-                int maxAge = (int)cabinJSON.get(CABIN_MAX_AGE);
+                int minAge = ((Long)cabinJSON.get(CABIN_MIN_AGE)).intValue();
+                int maxAge = ((Long)cabinJSON.get(CABIN_MAX_AGE)).intValue();
 
                 //arraylist activities, day enum
                 JSONArray scheduleJSON = (JSONArray)cabinJSON.get(CABIN_SCHEDULE);
