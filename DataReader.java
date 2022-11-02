@@ -8,6 +8,12 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 public class DataReader extends DataConstants {
+
+    /**
+     * Reads in user JSON file and populates array list of users
+     * 
+     * @return Returns array list of users of type guardian, director, and staff
+     */
     public static ArrayList<User> getAllUsers() {
         ArrayList<User> users = new ArrayList<User>();
 
@@ -18,14 +24,14 @@ public class DataReader extends DataConstants {
             JSONArray peopleJSON = (JSONArray)new JSONParser().parse(reader);
             ArrayList<Child> childrenList = getChildren();
 
-            for(int i=0; i < peopleJSON.size(); i++) {
+            for(int i = 0; i < peopleJSON.size(); i++) {
                 JSONObject personJSON = (JSONObject)peopleJSON.get(i);
 				UUID id = UUID.fromString((String)personJSON.get(USER_ID));
 				String firstName = (String)personJSON.get(USER_FIRST_NAME);
 				String lastName = (String)personJSON.get(USER_LAST_NAME);
                 String email = (String)personJSON.get(USER_EMAIL);
                 String password = (String)personJSON.get(USER_PASSWORD);
-				Date dateOfBirth = ((Date)personJSON.get(USER_DOB));
+				String dateOfBirth = ((String)personJSON.get(USER_DOB));
 				int phoneNumber = (int)personJSON.get(USER_PHONE_NUMBER);
                 String type = (String)personJSON.get(USER_TYPE);
                 
@@ -42,6 +48,7 @@ public class DataReader extends DataConstants {
                             break;
                         }
                     }
+
                     users.add(new GuardianUser(firstName, lastName, phoneNumber, email, password, dateOfBirth, id, children, campDuration, campDates));
                 }
                 else if(type.equals("DirectorUser")) {
@@ -52,7 +59,7 @@ public class DataReader extends DataConstants {
 
                     JSONArray emergencyContactsJSON = (JSONArray)personJSON.get(USER_CONTACT);
                     ArrayList<Contact> emergencyContacts = new ArrayList<Contact>();
-                    for(int j=0; j < emergencyContactsJSON.size(); j++) {
+                    for(int j = 0; j < emergencyContactsJSON.size(); j++) {
                         JSONObject emergencyContactJSON = (JSONObject)emergencyContactsJSON.get(j);
                         //string name string int string
                         String contactFirstName = (String)emergencyContactJSON.get("firstName");
@@ -63,7 +70,7 @@ public class DataReader extends DataConstants {
                     }
                     JSONArray medicationsJSON = (JSONArray)personJSON.get(CHILD_MEDS);
                     ArrayList<Medication> medications = new ArrayList<Medication>();
-                    for(int j=0; j < medicationsJSON.size(); j++) {
+                    for(int j = 0; j < medicationsJSON.size(); j++) {
                         JSONObject medicationJSON = (JSONObject)medicationsJSON.get(j);
                         String medType = (String)medicationJSON.get("type");
                         String medDose = (String)medicationJSON.get("dose");
@@ -72,7 +79,7 @@ public class DataReader extends DataConstants {
                     }
                     JSONArray allergiesJSON = (JSONArray)personJSON.get(CHILD_ALLERGIES);
                     ArrayList<String> allergies = new ArrayList<String>();
-                    for(int j=0; j < allergiesJSON.size(); j++) {
+                    for(int j = 0; j < allergiesJSON.size(); j++) {
                         JSONObject allergyJSON = (JSONObject)allergiesJSON.get(j);
                         String allergy = (String)allergyJSON.get(CHILD_ALLERGIES);
                         allergies.add(allergy);
@@ -89,6 +96,11 @@ public class DataReader extends DataConstants {
         return null;
     }
 
+    /**
+     * Reads in child JSON file and populates array list of children
+     * 
+     * @return Returns array list of children
+     */
     public static ArrayList<Child> getChildren() {
         ArrayList<Child> children = new ArrayList<Child>();
 
@@ -98,17 +110,17 @@ public class DataReader extends DataConstants {
             JSONParser parser = new JSONParser();
             JSONArray peopleJSON = (JSONArray)new JSONParser().parse(reader);
 
-            for(int i=0; i < peopleJSON.size(); i++) {
+            for(int i = 0; i < peopleJSON.size(); i++) {
                 JSONObject personJSON = (JSONObject)peopleJSON.get(i);
 				String firstName = (String)personJSON.get(CHILD_FIRST_NAME);
 				String lastName = (String)personJSON.get(CHILD_LAST_NAME);
-                Date dateOfBirth = (Date)personJSON.get(CHILD_DOB);
+                String dateOfBirth = (String)personJSON.get(CHILD_DOB);
                 UUID id = UUID.fromString((String)personJSON.get(CHILD_ID));
                 Contact doctor = (Contact)personJSON.get(CHILD_DOCTOR);
                 
                 JSONArray emergencyContactsJSON = (JSONArray)personJSON.get(CHILD_CONTACTS);
                 ArrayList<Contact> emergencyContacts = new ArrayList<Contact>();
-                for(int j=0; j < emergencyContactsJSON.size(); j++) {
+                for(int j = 0; j < emergencyContactsJSON.size(); j++) {
                     JSONObject emergencyContactJSON = (JSONObject)emergencyContactsJSON.get(j);
                     //string name string int string
                     String contactFirstName = (String)emergencyContactJSON.get("firstName");
@@ -120,7 +132,7 @@ public class DataReader extends DataConstants {
 
                 JSONArray medicationsJSON = (JSONArray)personJSON.get(CHILD_MEDS);
                 ArrayList<Medication> medications = new ArrayList<Medication>();
-                for(int j=0; j < medicationsJSON.size(); j++) {
+                for(int j = 0; j < medicationsJSON.size(); j++) {
                     JSONObject medicationJSON = (JSONObject)medicationsJSON.get(j);
                     String type = (String)medicationJSON.get("type");
                     String dose = (String)medicationJSON.get("dose");
@@ -130,7 +142,7 @@ public class DataReader extends DataConstants {
                 
                 JSONArray allergiesJSON = (JSONArray)personJSON.get(CHILD_ALLERGIES);
                 ArrayList<String> allergies = new ArrayList<String>();
-                for(int j=0; j < allergiesJSON.size(); j++) {
+                for(int j = 0; j < allergiesJSON.size(); j++) {
                     JSONObject allergyJSON = (JSONObject)allergiesJSON.get(j);
                     String allergy = (String)allergyJSON.get(CHILD_ALLERGIES);
                     allergies.add(allergy);
@@ -145,6 +157,11 @@ public class DataReader extends DataConstants {
         return null;
     }
 
+    /**
+     * Reads in cabin JSON file and populates array list of cabins
+     * 
+     * @return Returns array list of cabins
+     */
     public static ArrayList<Cabin> getCabins() {
         ArrayList<Cabin> cabins = new ArrayList<Cabin>();
 
@@ -154,7 +171,7 @@ public class DataReader extends DataConstants {
             JSONParser parser = new JSONParser();
             JSONArray cabinsJSON = (JSONArray)new JSONParser().parse(reader);
 
-            for(int i=0; i < cabinsJSON.size(); i++) {
+            for(int i = 0; i < cabinsJSON.size(); i++) {
                 JSONObject cabinJSON = (JSONObject)cabinsJSON.get(i);
                 String name = (String)cabinJSON.get(CABIN_NAME);
 				UUID id = UUID.fromString((String)cabinJSON.get(CABIN_ID));
@@ -166,7 +183,7 @@ public class DataReader extends DataConstants {
                 //arraylist activities, day enum
                 JSONArray scheduleJSON = (JSONArray)cabinJSON.get(CABIN_SCHEDULE);
                 Schedule[] schedule = new Schedule[7];
-                for(int j=0; j < scheduleJSON.size() && j<7; j++) {
+                for(int j = 0; j < scheduleJSON.size(); j++) {
                     Day day = (Day)cabinJSON.get(CABIN_DAY);
                     JSONArray activitiesJSON = (JSONArray)cabinJSON.get(CABIN_ACTIVITIES);
                     ArrayList<Activity> activities = new ArrayList<Activity>();
@@ -189,44 +206,42 @@ public class DataReader extends DataConstants {
         return null;
     }
 
-    public static ArrayList<Camp> getCamps() {
-        ArrayList<Camp> camps = new ArrayList<Camp>();
-
+    /**
+     * Reads in camp JSON file
+     * 
+     * @return Returns camp
+     */
+    public static Camp getCamp() {
         try {
 
             FileReader reader = new FileReader(CAMP_FILE_NAME);
             JSONParser parser = new JSONParser();
-            JSONArray campsJSON = (JSONArray)new JSONParser().parse(reader);
             ArrayList<Cabin> cabinsList = getCabins();
-            
-            for(int i=0; i < campsJSON.size(); i++) {
-                JSONObject campJSON = (JSONObject)new JSONParser().parse(reader);
-                String name = (String)campJSON.get(CAMP_NAME);
-                UUID UUID = (UUID)campJSON.get(CAMP_UUID);
 
-                JSONArray sessionsJSON = (JSONArray)campJSON.get(CAMP_SESSIONS);
-                ArrayList<Session> sessions = new ArrayList<Session>();
-                for(int j=0; j<sessionsJSON.size(); j++) {
-                    JSONObject sessionJSON = (JSONObject)new JSONParser().parse(reader);
-                    String theme = (String)sessionJSON.get(CAMP_SESSION_THEME);
+            JSONObject campJSON = (JSONObject)new JSONParser().parse(reader);
+            String name = (String)campJSON.get(CAMP_NAME);
 
-                    JSONArray cabinsJSON = (JSONArray)new JSONParser().parse(reader);
-                    ArrayList<Cabin> cabins = new ArrayList<Cabin>();
-                    for(int k=0; k<cabinsList.size(); k++) {
-                        UUID cabinUUID = (UUID)cabinsJSON.get(j);
-                        if(cabinsList.get(j).getUUID() == cabinUUID) {
-                            cabins.add(CabinList.getCabin(cabinUUID));
-                            break;
-                        }
+            JSONArray sessionsJSON = (JSONArray)campJSON.get(CAMP_SESSIONS);
+            ArrayList<Session> sessions = new ArrayList<Session>();
+            for(int j=0; j<sessionsJSON.size(); j++) {
+                JSONObject sessionJSON = (JSONObject)new JSONParser().parse(reader);
+                String theme = (String)sessionJSON.get(CAMP_SESSION_THEME);
+
+                JSONArray cabinsJSON = (JSONArray)new JSONParser().parse(reader);
+                ArrayList<Cabin> cabins = new ArrayList<Cabin>();
+                for(int k=0; k<cabinsList.size(); k++) {
+                    UUID cabinUUID = (UUID)cabinsJSON.get(j);
+                    if(cabinsList.get(j).getUUID() == cabinUUID) {
+                        cabins.add(CabinList.getCabin(cabinUUID));
+                        break;
                     }
-                    sessions.add(new Session(theme, cabins));
                 }
-                camps.add(new Camp(name, sessions));
+                sessions.add(new Session(theme, cabins));
             }
-            return camps;
-        }catch(Exception e) {
+            return new Camp(name, sessions);
+        } catch(Exception e) {
             e.printStackTrace();
         }
         return null;
-    }   
+    }
 }
