@@ -189,6 +189,42 @@ public class DataReader extends DataConstants {
         return null;
     }
 
+    public static Camp getCamp() {
+        try {
+
+            FileReader reader = new FileReader(CAMP_FILE_NAME);
+            JSONParser parser = new JSONParser();
+            JSONArray campsJSON = (JSONArray)new JSONParser().parse(reader);
+            ArrayList<Cabin> cabinsList = getCabins();
+            
+            JSONObject campJSON = (JSONObject)new JSONParser().parse(reader);
+            String name = (String)campJSON.get(CAMP_NAME);
+            UUID UUID = (UUID)campJSON.get(CAMP_UUID);
+            JSONArray sessionsJSON = (JSONArray)campJSON.get(CAMP_SESSIONS);
+            ArrayList<Session> sessions = new ArrayList<Session>();
+            for(int j=0; j<sessionsJSON.size(); j++) {
+                JSONObject sessionJSON = (JSONObject)new JSONParser().parse(reader);
+                String theme = (String)sessionJSON.get(CAMP_SESSION_THEME);
+
+                JSONArray cabinsJSON = (JSONArray)new JSONParser().parse(reader);
+                ArrayList<Cabin> cabins = new ArrayList<Cabin>();
+                for(int k=0; k<cabinsList.size(); k++) {
+                    UUID cabinUUID = (UUID)cabinsJSON.get(j);
+                    if(cabinsList.get(j).getUUID() == cabinUUID) {
+                        cabins.add(CabinList.getCabin(cabinUUID));
+                        break;
+                    }
+                }
+                sessions.add(new Session(theme, cabins));
+            }
+            return new Camp(name, sessions);
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+/* 
     public static ArrayList<Camp> getCamps() {
         ArrayList<Camp> camps = new ArrayList<Camp>();
 
@@ -205,13 +241,23 @@ public class DataReader extends DataConstants {
                 UUID UUID = (UUID)campJSON.get(CAMP_UUID);
 
                 JSONArray sessionsJSON = (JSONArray)campJSON.get(CAMP_SESSIONS);
+                ArrayList<Session> sessions = new ArrayList<Session>();
                 for(int j=0; j<sessionsJSON.size(); j++) {
                     JSONObject sessionJSON = (JSONObject)new JSONParser().parse(reader);
                     String theme = (String)sessionJSON.get(CAMP_SESSION_THEME);
 
+                    JSONArray cabinsJSON = (JSONArray)new JSONParser().parse(reader);
+                    ArrayList<Cabin> cabins = new ArrayList<Cabin>();
+                    for(int k=0; k<cabinsList.size(); k++) {
+                        UUID cabinUUID = (UUID)cabinsJSON.get(j);
+                        if(cabinsList.get(j).getUUID() == cabinUUID) {
+                            cabins.add(CabinList.getCabin(cabinUUID));
+                            break;
+                        }
+                    }
+                    sessions.add(new Session(theme, cabins));
                 }
-
-                camps.add(new Camp(name));
+                camps.add(new Camp(name, sessions));
             }
             return camps;
         }catch(Exception e) {
@@ -219,5 +265,6 @@ public class DataReader extends DataConstants {
         }
         return null;
     }
+    */
     
 }

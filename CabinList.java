@@ -3,7 +3,7 @@ import java.util.UUID;
 
 public class CabinList
 {
-    private ArrayList<Cabin> cabins;
+    private static ArrayList<Cabin> cabins;
     private static CabinList cabinList;
 
     /**
@@ -38,7 +38,7 @@ public class CabinList
      * @param UUID
      * @return
      */
-    public Cabin getCabin(UUID UUID)
+    public static Cabin getCabin(UUID UUID)
     {
         for(Cabin theCabin : cabins)
         {
