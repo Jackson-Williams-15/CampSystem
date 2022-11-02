@@ -9,7 +9,7 @@ public class Cabin {
     private int maxAge;
     private Schedule[] schedule;
     private UUID thisUUID;
-
+    private ArrayList<Activity> activity;
     public Cabin(String name, UUID UUID)
     {
         this.name = name;
@@ -57,6 +57,10 @@ public class Cabin {
     public int getMaxAge()
     {
         return this.maxAge;
+    }
+
+    public ArrayList<Activity> getActivity(){
+        return this.activity;
     }
 
     public Schedule[] getSchedule()
