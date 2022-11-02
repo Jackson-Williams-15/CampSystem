@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class UserList
 {
-    private ArrayList<User> users;
+    private static ArrayList<User> users;
     private static UserList userList;
 
     /**
@@ -47,7 +47,7 @@ public class UserList
         return null;
     }
 
-    public StaffUser getStaffUser(UUID UUID)
+    public static StaffUser getStaffUser(UUID UUID)
     {
         for(int i = 0; i < users.size(); i++)
         {
