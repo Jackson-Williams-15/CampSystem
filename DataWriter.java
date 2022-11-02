@@ -159,7 +159,7 @@ public class DataWriter extends DataConstants {
 			contactDetails.put(CONTACT_FIRST_NAME, contact.getFirstName());
 			contactDetails.put(CONTACT_LAST_NAME, contact.getLastName());
 			contactDetails.put(CONTACT_EMAIL, contact.getEmail());
-			contactDetails.put(CONTACT_PHONE_NUMBER, contact.getphoneNumber());
+			contactDetails.put(CONTACT_PHONE_NUMBER, contact.getPhoneNumber());
 
 			JSONObject contactDetailsJSON = new JSONObject(contactDetails);
 

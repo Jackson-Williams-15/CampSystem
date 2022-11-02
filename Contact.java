@@ -12,22 +12,23 @@ public class Contact {
         this.email = email;
     }
 
-    public String getFirstName(){
+    public String getFirstName()
+    {
         return this.firstName;
     }
-
-    public String getLastName(){
+    public String getLastName()
+    {
         return this.lastName;
     }
-
-    public int getphoneNumber(){
+    public int getPhoneNumber()
+    {
         return this.phoneNumber;
     }
-
-    public String getEmail(){
+    public String getEmail()
+    {
         return this.email;
     }
-    
+
     public String toString()
     {
         return "Name: " + this.firstName + " " + this.lastName + "\n" +
