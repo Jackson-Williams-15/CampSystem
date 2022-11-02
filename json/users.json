@@ -4,7 +4,7 @@
         "firstName":"John",
         "lastName":"Doe",
         "email":"johndoe@gmail.com",
-        "phoneNumber":"500-123-9876",
+        "phoneNumber":5001239876,
         "dateOfBirth":"1/1/1990",
         "password":"12345",
         "type":"GuardianUser",
@@ -17,7 +17,7 @@
         "firstName":"Steve",
         "lastName":"Mann",
         "email":"smann@business.org",
-        "phoneNumber":"426-843-2677",
+        "phoneNumber":4268432677,
         "dateOfBirth":"3/6/1989",
         "password":"12345",
         "type":"DirectorUser"
@@ -27,7 +27,7 @@
         "firstName":"Jimmy",
         "lastName":"T",
         "email":"jimmyt@warioware.inc",
-        "phoneNumber":"582-639-7625",
+        "phoneNumber":5826397625,
         "dateOfBirth":"3/21/2003",
         "password":"12345",
         "type":"StaffUser",
@@ -36,14 +36,14 @@
                 "firstName":"Emmet",
                 "lastName":"Brown",
                 "email":"EmmBrown@outlook.com",
-                "phoneNumber":"1-800-121-4442"
+                "phoneNumber":18001214442
             }
         ],
         "doctor":{
             "firtsName":"Tim",
             "lastName":"Crygor",
             "email":"drcrygor@diamond.biz",
-            "phoneNumber":"1-800-697-6268"
+            "phoneNumber":18006976268
         },
         "allergies":[],
         "medications":[

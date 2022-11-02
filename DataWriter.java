@@ -72,6 +72,13 @@ public class DataWriter extends DataConstants {
         cabinDetails.put(CABIN_CAMP_GROUP, cabin.getCamperGroup());
 		cabinDetails.put(CABIN_SCHEDULE, cabin.getSchedule());
         
+		Schedule [] schedules = cabin.getSchedule();
+		ArrayList<Schedule> cabinSchedules = new ArrayList<Schedule>();
+		for(Schedule schedule : schedules)
+		{
+			cabinSchedules.add(schedule);
+		}
+
 		JSONArray JSONActivity = new JSONArray();
 
 		for(int i = 0; i < cabin.getActivity().size(); i++) {

@@ -2,7 +2,7 @@ public class DataConstants {
     /**
      * User Constants 
      */
-    protected static final String USER_FILE_NAME = "json/users.json";
+    protected static final String USER_FILE_NAME = "./json/users.json";
     protected static final String USER_ID = "UUID";
     protected static final String USER_FIRST_NAME = "firstName";
     protected static final String USER_LAST_NAME = "lastName";
@@ -16,10 +16,13 @@ public class DataConstants {
     protected static final String USER_CAMP_DATES = "campDates";
     protected static final String USER_CHILDREN = "children";
     protected static final String USER_DOCTOR = "doctor";
+    protected static final String USER_ALLERGIES = "allergies";
+    protected static final String USER_MEDS = "medications";
+
 /**
  * Cabin Constants
  */
-    protected static final String CABIN_FILE_NAME = "json/cabins.json";
+    protected static final String CABIN_FILE_NAME = "./json/cabins.json";
     protected static final String CABIN_ID = "UUID";
     protected static final String CABIN_NAME = "name";
     protected static final String CABIN_MIN_AGE = "minAge";
@@ -36,7 +39,7 @@ public class DataConstants {
 /**
  * Child Constants
  */
-    protected static final String CHILD_FILE_NAME = "json/cabins.json";
+    protected static final String CHILD_FILE_NAME = "./json/child.json";
     protected static final String CHILD_ID = "UUID";
     protected static final String CHILD_FIRST_NAME = "firstName";
     protected static final String CHILD_LAST_NAME = "lastName";
@@ -51,11 +54,11 @@ public class DataConstants {
     protected static final String CONTACT_FIRST_NAME = "firstName";
     protected static final String CONTACT_LAST_NAME = "lastName";
     protected static final String CONTACT_EMAIL = "email";
-    protected static final String  CONTACT_PHONE_NUMBER = "phoneNumber";
+    protected static final String CONTACT_PHONE_NUMBER = "phoneNumber";
     /**
      * Camp Constants
      */
-    protected static final String CAMP_FILE_NAME = "json/camp.json";
+    protected static final String CAMP_FILE_NAME = "./json/camp.json";
     protected static final String CAMP_UUID = "UUID";
     protected static final String CAMP_NAME = "name";
     protected static final String CAMP_SESSIONS = "sessions";

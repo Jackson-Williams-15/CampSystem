@@ -1,14 +1,13 @@
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.UUID;
 
 public class GuardianUser extends User {
 
     private ArrayList<Child> children;
     private int campDuration;
-    private Date campDates;
+    private ArrayList<String> campDates;
 
-    public GuardianUser(String firstName, String lastName, int phoneNumber, String email, String password, String dateOfBirth, UUID id, ArrayList<Child> children, int campDuration, Date campDates) {
+    public GuardianUser(String firstName, String lastName, int phoneNumber, String email, String password, String dateOfBirth, UUID id, ArrayList<Child> children, int campDuration, ArrayList<String> campDates) {
         super(firstName, lastName, phoneNumber, email, password, dateOfBirth, id);
         this.children = children;
         this.campDuration = campDuration;

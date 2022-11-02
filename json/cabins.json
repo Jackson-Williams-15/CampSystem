@@ -8,7 +8,7 @@
         "maxAge":10,
         "schedules":[
             {
-                "day":"MONDAY",
+                "day":"Monday",
                 "activities":[
                     {
                         "type":"PHYSICAL",

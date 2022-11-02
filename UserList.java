@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class UserList
 {
-    private ArrayList<User> users;
+    private static ArrayList<User> users;
     private static UserList userList;
 
     /**
@@ -43,6 +43,15 @@ public class UserList
         for(User user : users)
         {
             if(user.getUUID() == UUID) return user;
+        }
+        return null;
+    }
+
+    public static StaffUser getStaffUser(UUID UUID)
+    {
+        for(int i = 0; i < users.size(); i++)
+        {
+            if(users.get(i) instanceof StaffUser && users.get(i).getUUID() == UUID) return (StaffUser)users.get(i);
         }
         return null;
     }
