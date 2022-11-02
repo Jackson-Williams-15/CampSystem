@@ -35,7 +35,13 @@ public class DataReader extends DataConstants {
                 
                 if(type.equals("GuardianUser")) {
                     int campDuration = ((Long)personJSON.get(USER_CAMP_DURATION)).intValue();
-                    String campDates = (String)personJSON.get(USER_CAMP_DATES);
+                    JSONArray campDatesJSON = (JSONArray)personJSON.get(USER_CAMP_DATES);
+                    ArrayList<String> campDates = new ArrayList<String>();
+                    for(int j = 0; j < campDatesJSON.size(); j++) {
+                        JSONObject campDateJSON = (JSONObject)campDatesJSON.get(j);
+                        String campDate = campDateJSON.toString();
+                        campDates.add(campDate);
+                    }
 
                     JSONArray childrenJSON = (JSONArray)personJSON.get(USER_CHILDREN);
                     ArrayList<Child> children = new ArrayList<Child>();
@@ -113,8 +119,14 @@ public class DataReader extends DataConstants {
 				String lastName = (String)personJSON.get(CHILD_LAST_NAME);
                 String dateOfBirth = (String)personJSON.get(CHILD_DOB);
                 UUID id = UUID.fromString((String)personJSON.get(CHILD_ID));
-                Contact doctor = (Contact)personJSON.get(CHILD_DOCTOR);
-                
+
+                JSONObject doctorJSON = (JSONObject)personJSON.get(CHILD_DOCTOR);
+                String doctorFirstName = (String)doctorJSON.get(CONTACT_FIRST_NAME);
+                String doctorLastName = (String)doctorJSON.get(CONTACT_LAST_NAME);
+                int doctorPhoneNumber = ((Long)doctorJSON.get(CONTACT_PHONE_NUMBER)).intValue();
+                String doctorEmail = (String)doctorJSON.get(CONTACT_EMAIL);
+                Contact doctor = new Contact(doctorFirstName, doctorLastName, doctorPhoneNumber, doctorEmail);
+
                 JSONArray emergencyContactsJSON = (JSONArray)personJSON.get(CHILD_CONTACTS);
                 ArrayList<Contact> emergencyContacts = new ArrayList<Contact>();
                 for(int j = 0; j < emergencyContactsJSON.size(); j++) {
