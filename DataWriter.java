@@ -37,7 +37,7 @@ public class DataWriter extends DataConstants {
         userDetails.put(USER_CONTACT, user.getContact());
 		userDetails.put(USER_DOB, user.getDateOfBirth());
 		userDetails.put(USER_PASSWORD, user.getPassword().toString());
-        
+
 		JSONObject userDetailsJSON = new JSONObject(userDetails);
         return userDetailsJSON;
 	}
@@ -129,7 +129,7 @@ public class DataWriter extends DataConstants {
 
     }
     public static JSONObject getAllChildJSON(Child child) {
-		JSONObject childDetails = new JSONObject();
+		HashMap<String, Object> childDetails = new HashMap<String, Object>();
 		childDetails.put(CHILD_ID, child.getUUID().toString());
 		childDetails.put(CHILD_FIRST_NAME, child.getFirstName());
 		childDetails.put(CHILD_LAST_NAME, child.getLastName());
@@ -163,7 +163,7 @@ public class DataWriter extends DataConstants {
 
 			JSONObject contactDetailsJSON = new JSONObject(contactDetails);
 
-			JSONMeds.add(contactDetailsJSON);
+			JSONContact.add(contactDetailsJSON);
 		}
 		childDetails.put(CHILD_CONTACTS, JSONContact);
 
@@ -193,10 +193,24 @@ public class DataWriter extends DataConstants {
 }
     }
     public static JSONObject getAllCampJSON(Camp camp) {
-		JSONObject campDetails = new JSONObject();
+		HashMap<String, Object> campDetails = new HashMap<String, Object>();
 		campDetails.put(CAMP_NAME, camp.getName());
-        //campDetails.put(CAMP_UUID, camp.getUUID()); Should be able to be removed
-        return campDetails;
+
+		JSONArray JSONSession = new JSONArray();
+		for(int i = 0; i < camp.getSessions().size(); i++) {
+			HashMap<String, Object> sessionDetails = new HashMap<String, Object>();
+			Session session = camp.getSessions().get(i);
+			sessionDetails.put(CAMP_SESSION_THEME, session.getTheme());
+			sessionDetails.put(SESSION_CABIN, session.getCabins());
+
+			JSONObject sessionDetailsJSON = new JSONObject(sessionDetails);
+
+			JSONSession.add(sessionDetailsJSON);
+		}
+		campDetails.put(CAMP_SESSIONS, JSONSession);
+		JSONObject campDetailsJSON = new JSONObject(campDetails);
+
+        return campDetailsJSON;
 	}
 
 }
