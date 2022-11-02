@@ -74,16 +74,17 @@ public class CampDriver {
                         registerChild();
                     }
                     else if(gChoice == 1){
-                        System.out.println("Holder View Camp dates");
+                        sessionSetUp();
                     }
                     else if(gChoice == 2){
-                        System.out.println("Holder View Camp Duration");
+                        System.out.println("");
                     }
                     else if(gChoice == 3){
-
+                        
                     }
                     else if(gChoice == 4){
                         run = false;
+                        System.exit(0);
                     }
                 
                     break;
@@ -105,6 +106,7 @@ public class CampDriver {
                     }
                     else if(cChoice == 4){
                         run = false;
+                        System.exit(0);
                     }
                     break;
                 case 2:
@@ -128,6 +130,7 @@ public class CampDriver {
                     }
                     else if(dChoice == 4){
                         run = false;
+                        System.exit(0);
                     }
             }
             }
