@@ -32,12 +32,12 @@ public class CampDriver {
 
         counselorOptions[0] = "View Schedule";
         counselorOptions[1] = "Check Allergies";
-        counselorOptions[2] = "Logout";
+        counselorOptions[2] = "Null";
         counselorOptions[3] = "Logout";
 
         directorOptions[0] = "View User Profiles";
         directorOptions[1] = "Print Schedules";
-        directorOptions[2] = "Logout";
+        directorOptions[2] = "Null";
         directorOptions[3] = "Logout";
 
     }
@@ -118,7 +118,8 @@ public class CampDriver {
     //Keep All Guardian Methods together
     public void registerChild(){
         registerChild = new ArrayList<String>();
-
+        System.out.println("Type the name of your child you wish to register.");
+        System.out.println("When you are finished Type: 'Done'");
         while(in.hasNextLine()){
             String input = in.nextLine();
 
@@ -127,6 +128,7 @@ public class CampDriver {
             }
             registerChild.add(input);    
         }
+        System.out.println(registerChild);
     }
 
     public void viewDates(){
