@@ -4,7 +4,7 @@ public class User {
     protected String firstName;
     protected String lastName;
     protected String email;
-    protected Date dateOfBirth;
+    protected String dateOfBirth;
     protected int phone;
     protected String password;
     protected Contact contact;
@@ -20,7 +20,7 @@ public class User {
      * @param dateOfBirth The user's DOB
      * @param thisUUID The user's UUID
      */
-    public User(String firstName, String lastName, int number, String email, String password, Date dateOfBirth, UUID thisUUID){
+    public User(String firstName, String lastName, int number, String email, String password, String dateOfBirth, UUID thisUUID){
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = number;
@@ -39,7 +39,7 @@ public class User {
      * @param password The user's password
      * @param dateOfBirth The user's DOB
      */
-    public User(String firstName, String lastName, int number, String email, String password, Date dateOfBirth){
+    public User(String firstName, String lastName, int number, String email, String password, String dateOfBirth){
         this(firstName, lastName, number, email, password, dateOfBirth, UUID.randomUUID());
     }
 
@@ -67,7 +67,7 @@ public class User {
         return this.contact;
     }
 
-    public Date getDateOfBirth(){
+    public String getDateOfBirth(){
         return this.dateOfBirth;
     }
 

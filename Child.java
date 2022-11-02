@@ -5,14 +5,14 @@ import java.util.UUID;
 public class Child{
     private String firstName;
     private String lastName;
-    private Date birthdate;
+    private String birthdate;
     private ArrayList<String> allergies;
     private Contact doctor;
     private ArrayList<Contact> emergencyContacts;
     private ArrayList<Medication> medications;
     private UUID thisUUID;
 
-    public Child(String firstName, String lastName, Date dateOfBirth, UUID UUID)
+    public Child(String firstName, String lastName, String dateOfBirth, UUID UUID)
     {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -20,7 +20,7 @@ public class Child{
         this.thisUUID = UUID;
     }
 
-    public Child(String firstName, String lastName, Date dateOfBirth, UUID UUID, ArrayList<String> allergies, Contact doctor, ArrayList<Contact> emergencyContacts, ArrayList<Medication> medications) {
+    public Child(String firstName, String lastName, String dateOfBirth, UUID UUID, ArrayList<String> allergies, Contact doctor, ArrayList<Contact> emergencyContacts, ArrayList<Medication> medications) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthdate = dateOfBirth;
@@ -31,7 +31,7 @@ public class Child{
         this.medications = medications;
     }
 
-    public Child(String firstName, String lastName, Date birthdate){
+    public Child(String firstName, String lastName, String birthdate){
         this(firstName, lastName, birthdate, UUID.randomUUID());
     }
 
@@ -59,7 +59,7 @@ public class Child{
     public String getLastName(){
         return this.lastName;
     }
-    public Date getBirth(){
+    public String getBirth(){
         return this.birthdate;
     }
     public ArrayList<String> getAllergies(){

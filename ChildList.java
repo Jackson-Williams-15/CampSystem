@@ -18,7 +18,7 @@ public class ChildList
         return childList;
     }
 
-    public void addChild(String firstName, String lastName, Date birthdate)
+    public void addChild(String firstName, String lastName, String birthdate)
     {
         childList.children.add(new Child(firstName, lastName, birthdate));
     }

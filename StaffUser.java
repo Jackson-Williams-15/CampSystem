@@ -9,7 +9,7 @@ public class StaffUser extends User{
     private ArrayList<Medication> medication;
     private Schedule schedule;
 
-    public StaffUser(String firstName, String lastName, int number, String email, String password, Date dateOfBirth, UUID id, Contact doctor, ArrayList<Contact> emergencyContacts, ArrayList<Medication> medication, ArrayList<String> allergies) {
+    public StaffUser(String firstName, String lastName, int number, String email, String password, String dateOfBirth, UUID id, Contact doctor, ArrayList<Contact> emergencyContacts, ArrayList<Medication> medication, ArrayList<String> allergies) {
         super(firstName, lastName, number, email, password, dateOfBirth, id);
         this.doctor = doctor;
         this.emergencyContacts = emergencyContacts;
