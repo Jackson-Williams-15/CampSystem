@@ -1,7 +1,6 @@
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.UUID;
-import java.util.Date;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -36,7 +35,7 @@ public class DataReader extends DataConstants {
                 
                 if(type.equals("GuardianUser")) {
                     int campDuration = ((Long)personJSON.get(USER_CAMP_DURATION)).intValue();
-                    Date campDates = (Date)personJSON.get(USER_CAMP_DATES);
+                    String campDates = (String)personJSON.get(USER_CAMP_DATES);
 
                     JSONArray childrenJSON = (JSONArray)personJSON.get(USER_CHILDREN);
                     ArrayList<Child> children = new ArrayList<Child>();
@@ -120,7 +119,6 @@ public class DataReader extends DataConstants {
                 ArrayList<Contact> emergencyContacts = new ArrayList<Contact>();
                 for(int j = 0; j < emergencyContactsJSON.size(); j++) {
                     JSONObject emergencyContactJSON = (JSONObject)emergencyContactsJSON.get(j);
-                    //string name string int string
                     String contactFirstName = (String)emergencyContactJSON.get("firstName");
                     String contactLastName = (String)emergencyContactJSON.get("lastName");
                     int contactPhoneNumber = ((Long)emergencyContactJSON.get("phoneNumber")).intValue();
