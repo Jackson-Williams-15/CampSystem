@@ -79,6 +79,19 @@ public class DataWriter extends DataConstants {
 			cabinSchedules.add(schedule);
 		}
 
+		JSONArray JSONSchedule = new JSONArray();
+		
+		  for(int i = 0; i < cabinSchedules.size(); i++) {
+			HashMap<String, Object> scheduleDetails = new HashMap<String, Object>();
+			Schedule schedule = cabinSchedules.get(i);
+			scheduleDetails.put(CABIN_SCHEDULE, schedule.getActivities());
+			scheduleDetails.put(CABIN_DAY, schedule.getDay());
+			JSONObject scheduleDetailsJSON = new JSONObject();
+			JSONSchedule.add(scheduleDetailsJSON);
+		}
+		cabinDetails.put(CABIN_SCHEDULE, JSONSchedule);
+
+/** 
 		JSONArray JSONActivity = new JSONArray();
 
 		for(int i = 0; i < cabin.getActivity().size(); i++) {
@@ -93,22 +106,8 @@ public class DataWriter extends DataConstants {
 			JSONActivity.add(activityDetailsJSON);
 		}
 		cabinDetails.put(CABIN_ACTIVITIES, JSONActivity);
-
-		JSONArray JSONSchedule = new JSONArray();
-
-		//NEED TO TURN SCHEDULE INTO ARRAYLIST
-		/**
-		 * for(int i = 0; i < cabin.getSchedule().length; i++) {
-			HashMap<String, Object> scheduleDetails = new HashMap<String, Object>();
-			Schedule schedule = cabin.getSchedule().;
-			scheduleDetails.put(CABIN_SCHEDULE, schedule.getActivities());
-			scheduleDetails.put(CABIN_DAY, schedule.getDay());
-			JSONObject scheduleDetailsJSON = new JSONObject();
-			JSONSchedule.add(scheduleDetailsJSON);
-		}
-		cabinDetails.put(CABIN_SCHEDULE, JSONSchedule);
-		**/
-
+		*/
+		
 		JSONObject cabinDetailsJSON = new JSONObject(cabinDetails);
 
         return cabinDetailsJSON;
