@@ -23,7 +23,8 @@
         "medication":[
             {
                 "type":"Allergy Medicine",
-                "dose":"1 spray in each nostril once a day"
+                "dose":"1 spray in each nostril",
+                "time":"Once a day"
             }
         ]
     }
