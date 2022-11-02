@@ -85,7 +85,6 @@ public class CampDriver {
                     }
                     else if(gChoice == 4){
                         run = false;
-                        System.exit(0);
                     }
                 
                     break;
@@ -107,7 +106,6 @@ public class CampDriver {
                     }
                     else if(cChoice == 4){
                         run = false;
-                        System.exit(0);
                     }
                     break;
                 case 2:
@@ -131,8 +129,14 @@ public class CampDriver {
                     }
                     else if(dChoice == 4){
                         run = false;
-                        System.exit(0);
                     }
+                    break;
+                case 3:
+                    System.out.println("Hello");
+                    break;
+                case 4:
+                    run = false;
+                    break;
                 }
             }
 

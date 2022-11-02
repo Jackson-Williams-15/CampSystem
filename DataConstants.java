@@ -2,7 +2,7 @@ public class DataConstants {
     /**
      * User Constants 
      */
-    protected static final String USER_FILE_NAME = "json/users.json";
+    protected static final String USER_FILE_NAME = "./json/users.json";
     protected static final String USER_ID = "UUID";
     protected static final String USER_FIRST_NAME = "firstName";
     protected static final String USER_LAST_NAME = "lastName";
@@ -19,7 +19,7 @@ public class DataConstants {
 /**
  * Cabin Constants
  */
-    protected static final String CABIN_FILE_NAME = "json/cabins.json";
+    protected static final String CABIN_FILE_NAME = "./json/cabins.json";
     protected static final String CABIN_ID = "UUID";
     protected static final String CABIN_NAME = "name";
     protected static final String CABIN_MIN_AGE = "minAge";
@@ -36,7 +36,7 @@ public class DataConstants {
 /**
  * Child Constants
  */
-    protected static final String CHILD_FILE_NAME = "json/cabins.json";
+    protected static final String CHILD_FILE_NAME = "./json/cabins.json";
     protected static final String CHILD_ID = "UUID";
     protected static final String CHILD_FIRST_NAME = "firstName";
     protected static final String CHILD_LAST_NAME = "lastName";
@@ -55,7 +55,7 @@ public class DataConstants {
     /**
      * Camp Constants
      */
-    protected static final String CAMP_FILE_NAME = "json/camp.json";
+    protected static final String CAMP_FILE_NAME = "./json/camp.json";
     protected static final String CAMP_UUID = "UUID";
     protected static final String CAMP_NAME = "name";
     protected static final String CAMP_SESSIONS = "sessions";
