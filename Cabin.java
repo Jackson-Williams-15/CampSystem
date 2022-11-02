@@ -12,7 +12,6 @@ public class Cabin {
     private int maxAge;
     private Schedule[] schedule;
     private UUID thisUUID;
-    private ArrayList<Activity> activity;
 
     /**
      * Constructor for Cabin class
@@ -102,15 +101,6 @@ public class Cabin {
     public int getMaxAge()
     {
         return this.maxAge;
-    }
-
-    /**
-     * get statement that returns activity
-     * @return this.activity
-     */
-
-    public ArrayList<Activity> getActivity(){
-        return this.activity;
     }
 
     /**
