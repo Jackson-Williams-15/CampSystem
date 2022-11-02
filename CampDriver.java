@@ -66,69 +66,83 @@ public class CampDriver {
             switch(choice){
                 case 0:
                     userPass();
-                    System.out.println("What would You like to do?");
-                    for(int i = 0; i < guardianOptions.length; i++){
-                        System.out.println((i+1) + ". " + guardianOptions[i]);
-                    }
-                    int gChoice = getNum();
-                    if(gChoice == 0){
-                        registerChild();
-                    }
-                    else if(gChoice == 1){
-                        viewSchedule();
-                    }
-                    else if(gChoice == 2){
-                        System.out.println("");
-                    }
-                    else if(gChoice == 3){
+                    int gChoice = -1;
+                    while(gChoice != 3)
+                    {
+                        System.out.println("What would You like to do?");
+                        for(int i = 0; i < guardianOptions.length; i++){
+                            System.out.println((i+1) + ". " + guardianOptions[i]);
+                        }
+                        gChoice = getNum();
+                        if(gChoice == 0){
+                            registerChild();
+                        }
+                        else if(gChoice == 1){
+                            sessionSetUp();
+                        }
+                        else if(gChoice == 2){
+                            System.out.println("");
+                        }
+                        else if(gChoice == 3){
                         
+                        }
+                        else if(gChoice == 4){
+                            run = false;
+                            gChoice = 3;
+                        }
                     }
-                    else if(gChoice == 4){
-                        run = false;
-                    }
-                
                     break;
                 case 1:
                     userPass();
-                    System.out.println("What would you like to do?");
-                    for(int i = 0; i < counselorOptions.length; i++){
-                        System.out.println((i+1) + ". " + counselorOptions[i]);
-                    }
-                    int cChoice = getNum();
-                    if(cChoice == 0){
-                        System.out.println("Holder View Schedule");
-                    }
-                    else if(cChoice == 1){
-                        System.out.println("Holder Check allergies");
-                    }
-                    else if(cChoice == 3){
-                        viewSchedule();
-                    }
-                    else if(cChoice == 4){
-                        run = false;
+                    int cChoice = -1;
+                    while(cChoice != 3)
+                    {
+                        System.out.println("What would you like to do?");
+                        for(int i = 0; i < counselorOptions.length; i++){
+                            System.out.println((i+1) + ". " + counselorOptions[i]);
+                        }
+                        cChoice = getNum();
+                        if(cChoice == 0){
+                            System.out.println("Holder View Schedule");
+                        }
+                        else if(cChoice == 1){
+                            System.out.println("Holder Check allergies");
+                        }
+                        else if(cChoice == 3){
+                            
+                        }
+                        else if(cChoice == 4){
+                            run = false;
+                            cChoice =3;
+                        }
                     }
                     break;
                 case 2:
                     userPass();
-                    System.out.println("What would you like to do?");
-                    for(int i = 0; i < directorOptions.length; i++){
-                        System.out.println((i+1) + ". " + directorOptions[i]);
-                    }
-                    int dChoice = getNum();
-                    if(dChoice == 0){
-                        System.out.println("Holder Director");
-                    }
-                    else if(dChoice == 1){
-                        System.out.println("Holder Session");
-                    }
-                    else if(dChoice == 2){
+                    int dChoice = -1;
+                    while(dChoice != 3)
+                    {
+                        System.out.println("What would you like to do?");
+                        for(int i = 0; i < directorOptions.length; i++){
+                            System.out.println((i+1) + ". " + directorOptions[i]);
+                        }
+                        dChoice = getNum();
+                        if(dChoice == 0){
+                            System.out.println("Holder Director");
+                        }
+                        else if(dChoice == 1){
+                            System.out.println("Holder Session");
+                        }
+                        else if(dChoice == 2){
                         sessionSetUp();
-                    }
-                    else if(dChoice == 3){
+                        }
+                        else if(dChoice == 3){
                         
-                    }
-                    else if(dChoice == 4){
-                        run = false;
+                        }
+                        else if(dChoice == 4){
+                            run = false;
+                            dChoice = 3;
+                        }
                     }
                     break;
                 case 3:
@@ -140,11 +154,11 @@ public class CampDriver {
                 }
             }
 
-            childList.saveChildren();
+            /*childList.saveChildren();
             userList.saveUser();
             cabinList.saveCabin();
             campList.addCamp(camp);
-            campList.saveCamp();
+            campList.saveCamp();*/
         }
     
     //Allows User input on passwords and usernames
@@ -162,7 +176,7 @@ public class CampDriver {
     }
     //Keep All Counselor Methods Together
     public void viewSchedule(){
-        System.out.println(session);
+        
     }
 
     //Keep All Guardian Methods together
