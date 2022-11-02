@@ -11,10 +11,11 @@ public class CampDriver {
     private String[] directorOptions = new String[5];
     private ArrayList<String> session;
     private ArrayList<String> registerChild;
-    /*private ChildList childList = ChildList.getInstance();
+    private ChildList childList = ChildList.getInstance();
     private UserList userList = UserList.getInstance();
     private CabinList cabinList = CabinList.getInstance();
-    private Camp camp = DataReader.getCamps().get(0);*/
+    private Camp camp = DataReader.getCamp();
+    private CampList campList = CampList.getInstance();
 
 
 //Constructor adding in arrays of possible options between users
@@ -132,8 +133,14 @@ public class CampDriver {
                         run = false;
                         System.exit(0);
                     }
+                }
             }
-            }
+
+            childList.saveChildren();
+            userList.saveUser();
+            cabinList.saveCabin();
+            campList.addCamp(camp);
+            campList.saveCamp();
         }
     
     //Allows User input on passwords and usernames
@@ -265,8 +272,7 @@ public class CampDriver {
     public static void main(String[] args){
         CampDriver driver = new CampDriver();
         driver.runDriver();
-        //Children, Users, Cabins, Camp
-        //childList.saveChildren
+        //childList.saveChildren();
 
     }
 

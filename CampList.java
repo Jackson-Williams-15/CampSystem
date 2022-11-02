@@ -6,7 +6,7 @@ public class CampList {
 
     private CampList()
     {
-        camps = DataReader.getCamps();
+        camps = new ArrayList<Camp>();
     }
 
     public static CampList getInstance()
@@ -15,9 +15,9 @@ public class CampList {
         return campList;
     }
 
-    public void addCamp(String name)
+    public void addCamp(Camp camp)
     {
-        campList.camps.add(new Camp(name));
+        campList.camps.add(camp);
     }
 
     public ArrayList<Camp> getCamps()
