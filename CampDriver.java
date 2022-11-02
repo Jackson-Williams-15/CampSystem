@@ -5,10 +5,10 @@ import java.util.UUID;
 
 public class CampDriver {
     private Scanner in;
-    private String[] userOptions = new String[4];
-    private String[] guardianOptions = new String[4];
-    private String[] counselorOptions = new String[4];
-    private String[] directorOptions = new String[4];
+    private String[] userOptions = new String[5];
+    private String[] guardianOptions = new String[5];
+    private String[] counselorOptions = new String[5];
+    private String[] directorOptions = new String[5];
     private ArrayList<String> session;
     private ArrayList<String> registerChild;
     /*private ChildList childList = ChildList.getInstance();
@@ -23,35 +23,44 @@ public class CampDriver {
         userOptions[0] = "Log in as parent";
         userOptions[1] = "Log in as Counselor";
         userOptions[2] = "Log in as Director";
-        userOptions[3] = "Logout";
+        userOptions[3] = "Display Menu";
+        directorOptions[4] = "Logout";
 
         guardianOptions[0] = "Register Child";
         guardianOptions[1] = "View Camp Dates";
         guardianOptions[2] = "View Camp Duration";
-        guardianOptions[3] = "Logout";
+        guardianOptions[3] = "Display Menu";
+        directorOptions[4] = "Logout";
 
         counselorOptions[0] = "View Schedule";
         counselorOptions[1] = "Check Allergies";
         counselorOptions[2] = "Null";
-        counselorOptions[3] = "Logout";
+        counselorOptions[3] = "Display Menu";
+        directorOptions[4] = "Logout";
 
         directorOptions[0] = "View User Profiles";
         directorOptions[1] = "Print Schedules";
         directorOptions[2] = "Create Schedule";
-        directorOptions[3] = "Logout";
+        directorOptions[3] = "Display Menu";
+        directorOptions[4] = "Logout";
+        
 
     }
     //Code to run the driver that takes in all possible choices of user input
     //The values gChoice dChoice and cChoice relates to counselor director and guardian users
     //The system.out.println Holders are simply temporary print statements i added
-
+    
+    //Confused on How to reset options on 
 
     public void runDriver(){
         clear();
         System.out.println("Welcome to our Camp!");
         displayMenu();
             int choice = getNum();
+            boolean run = true;
 
+        while(run){
+            
             switch(choice){
                 case 0:
                     userPass();
@@ -69,6 +78,13 @@ public class CampDriver {
                     else if(gChoice == 2){
                         System.out.println("Holder View Camp Duration");
                     }
+                    else if(gChoice == 3){
+                        displayMenu();
+                    }
+                    else if(gChoice == 4){
+                        run = false;
+                    }
+                
                     break;
                 case 1:
                     userPass();
@@ -82,6 +98,12 @@ public class CampDriver {
                     }
                     else if(cChoice == 1){
                         System.out.println("Holder Check allergies");
+                    }
+                    else if(cChoice == 3){
+                        displayMenu();
+                    }
+                    else if(cChoice == 4){
+                        run = false;
                     }
                     break;
                 case 2:
@@ -100,7 +122,14 @@ public class CampDriver {
                     else if(dChoice == 2){
                         sessionSetUp();
                     }
+                    else if(dChoice == 3){
+                        displayMenu();
+                    }
+                    else if(dChoice == 4){
+                        
+                    }
 
+            }
             }
     }
     //Allows User input on passwords and usernames
@@ -140,12 +169,6 @@ public class CampDriver {
     public void viewDates(){
         
     }
-
-
-    
-
-
-
     //Keep all Director Methods together
     //Create Sessions for Director
     
@@ -200,8 +223,6 @@ public class CampDriver {
             int index = (int)(Math.random() * session.size());
         }
     }
-
-
     //Gets the number inputed by the user
     private int getNum(){
         int num;
@@ -214,12 +235,12 @@ public class CampDriver {
 		}
         clear();
 
-        if (num < 0 || num > 4) {
+        if (num < 0 || num > 5) {
 			System.out.println("Oh no! You have chosen an invalid input.\n");
 			return -1;
 		}
         if(num == 4){
-            System.exit(0);
+            displayMenu();;
         }
         return num;
     }
@@ -236,15 +257,11 @@ public class CampDriver {
     private void clear() {
 		System.out.print("\033[H\033[2J"); 
 	}
-
-
     //Tests Program
     public static void main(String[] args){
         CampDriver driver = new CampDriver();
         driver.runDriver();
         //Children, Users, Cabins, Camp
-        
-        
         //childList.saveChildren
 
     }
