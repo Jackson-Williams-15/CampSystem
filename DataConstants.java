@@ -45,7 +45,13 @@ public class DataConstants {
     protected static final String CHILD_MEDS = "medication";
     protected static final String CHILD_DOCTOR = "doctor";
     protected static final String CHILD_CONTACTS = "emergencyContacts";
-
+    protected static final String MED_TYPE = "type";
+    protected static final String MED_DOSE = "dose";
+    protected static final String MED_TIME = "time";
+    protected static final String CONTACT_FIRST_NAME = "firstName";
+    protected static final String CONTACT_LAST_NAME = "lastName";
+    protected static final String CONTACT_EMAIL = "email";
+    protected static final String  CONTACT_PHONE_NUMBER = "phoneNumber";
     /**
      * Camp Constants
      */
