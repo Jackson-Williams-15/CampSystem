@@ -60,7 +60,6 @@ public class CampDriver {
             boolean run = true;
 
         while(run){
-            
             switch(choice){
                 case 0:
                     userPass();
@@ -84,7 +83,6 @@ public class CampDriver {
                     else if(gChoice == 4){
                         run = false;
                     }
-                
                     break;
                 case 1:
                     userPass();
@@ -128,7 +126,6 @@ public class CampDriver {
                     else if(dChoice == 4){
                         
                     }
-
             }
             }
     }
