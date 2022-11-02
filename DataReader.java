@@ -20,7 +20,6 @@ public class DataReader extends DataConstants {
         try {
 
             FileReader reader = new FileReader(USER_FILE_NAME);
-            JSONParser parser = new JSONParser();
             JSONArray peopleJSON = (JSONArray)new JSONParser().parse(reader);
             ArrayList<Child> childrenList = getChildren();
 
@@ -107,7 +106,6 @@ public class DataReader extends DataConstants {
         try {
 
             FileReader reader = new FileReader(CHILD_FILE_NAME);
-            JSONParser parser = new JSONParser();
             JSONArray peopleJSON = (JSONArray)new JSONParser().parse(reader);
 
             for(int i = 0; i < peopleJSON.size(); i++) {
@@ -168,14 +166,23 @@ public class DataReader extends DataConstants {
         try {
 
             FileReader reader = new FileReader(CABIN_FILE_NAME);
-            JSONParser parser = new JSONParser();
             JSONArray cabinsJSON = (JSONArray)new JSONParser().parse(reader);
+            ArrayList<Child> childrenList = getChildren();
 
             for(int i = 0; i < cabinsJSON.size(); i++) {
                 JSONObject cabinJSON = (JSONObject)cabinsJSON.get(i);
                 String name = (String)cabinJSON.get(CABIN_NAME);
 				UUID id = UUID.fromString((String)cabinJSON.get(CABIN_ID));
-                ArrayList<Child> camperGroup = (ArrayList<Child>)cabinJSON.get(CABIN_CAMP_GROUP);
+
+                JSONArray childrenJSON = (JSONArray)cabinJSON.get(CABIN_CAMP_GROUP);
+                ArrayList<Child> camperGroup = new ArrayList<Child>();
+                for(int j = 0; j<childrenList.size(); j++) {
+                    UUID childUUID = (UUID)childrenJSON.get(j);
+                    if(childrenList.get(j).getUUID() == childUUID) {
+                        camperGroup.add(ChildList.getChild(childUUID));
+                        break;
+                    }
+                }
 
                 UUID staffUUID = UUID.fromString((String)cabinJSON.get(CABIN_STAFF_USER));
                 StaffUser staffUser = UserList.getStaffUser(staffUUID);
