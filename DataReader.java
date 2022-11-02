@@ -58,7 +58,12 @@ public class DataReader extends DataConstants {
                     users.add(new DirectorUser(firstName, lastName, phoneNumber, email, password, dateOfBirth, id));
                 }
                 else if(type.equals("StaffUser")) {
-                    Contact doctor = (Contact)personJSON.get(USER_DOCTOR);
+                    JSONObject doctorJSON = (JSONObject)personJSON.get(USER_DOCTOR);
+                    String doctorFirstName = (String)doctorJSON.get(CONTACT_FIRST_NAME);
+                    String doctorLastName = (String)doctorJSON.get(CONTACT_LAST_NAME);
+                    int doctorPhoneNumber = ((Long)doctorJSON.get(CONTACT_PHONE_NUMBER)).intValue();
+                    String doctorEmail = (String)doctorJSON.get(CONTACT_EMAIL);
+                    Contact doctor = new Contact(doctorFirstName, doctorLastName, doctorPhoneNumber, doctorEmail);
 
                     JSONArray emergencyContactsJSON = (JSONArray)personJSON.get(USER_CONTACT);
                     ArrayList<Contact> emergencyContacts = new ArrayList<Contact>();
