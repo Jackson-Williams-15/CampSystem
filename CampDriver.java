@@ -9,12 +9,12 @@ public class CampDriver {
     private String[] guardianOptions = new String[4];
     private String[] counselorOptions = new String[4];
     private String[] directorOptions = new String[4];
-    private ArrayList<Session> session;
+    private ArrayList<String> session;
     private ArrayList<String> registerChild;
-    private ChildList childList = ChildList.getInstance();
+    /*private ChildList childList = ChildList.getInstance();
     private UserList userList = UserList.getInstance();
     private CabinList cabinList = CabinList.getInstance();
-    private Camp camp = DataReader.getCamps().get(0);
+    private Camp camp = DataReader.getCamps().get(0);*/
 
 
 //Constructor adding in arrays of possible options between users
@@ -32,18 +32,19 @@ public class CampDriver {
 
         counselorOptions[0] = "View Schedule";
         counselorOptions[1] = "Check Allergies";
-        counselorOptions[2] = "Logout";
+        counselorOptions[2] = "Null";
         counselorOptions[3] = "Logout";
 
         directorOptions[0] = "View User Profiles";
-        directorOptions[1] = "Create Schedule";
-        directorOptions[2] = "Logout";
+        directorOptions[1] = "Print Schedules";
+        directorOptions[2] = "Create Schedule";
         directorOptions[3] = "Logout";
 
     }
     //Code to run the driver that takes in all possible choices of user input
     //The values gChoice dChoice and cChoice relates to counselor director and guardian users
     //The system.out.println Holders are simply temporary print statements i added
+
 
     public void runDriver(){
         clear();
@@ -94,29 +95,37 @@ public class CampDriver {
                         System.out.println("Holder Director");
                     }
                     else if(dChoice == 1){
-                        sessionSetUp();
-                        
+                        System.out.println("Holder Session");
                     }
+                    else if(dChoice == 2){
+                        sessionSetUp();
+                    }
+
             }
     }
     //Allows User input on passwords and usernames
     public void userPass(){
         String userName;
-        String password;
+        String passWord;
 
-        System.out.println("Enter UserName: ");
+        System.out.println("Enter Email: ");
         userName = in.nextLine();
-        System.out.println("UserName is:" + userName);
-        System.out.println("Enter Password: ");
-        password = in.nextLine();
-        System.out.println("Password is: " + password);
+        System.out.println("Email is: " + userName);
+        System.out.println("Enter PassWord: ");
+        passWord = in.nextLine();
+        System.out.println("Password is: " + passWord);
         clear();
+    }
+    //Keep All Counselor Methods Together
+    public void viewSchedule(){
+        
     }
 
     //Keep All Guardian Methods together
     public void registerChild(){
         registerChild = new ArrayList<String>();
-
+        System.out.println("Type the name of your child you wish to register.");
+        System.out.println("When you are finished Type: 'Done'");
         while(in.hasNextLine()){
             String input = in.nextLine();
 
@@ -125,15 +134,37 @@ public class CampDriver {
             }
             registerChild.add(input);    
         }
+        System.out.println(registerChild);
     }
+
+    public void viewDates(){
+        
+    }
+
 
     
 
-   
+
+
     //Keep all Director Methods together
     //Create Sessions for Director
-
+    
     public void sessionSetUp(){
+        session = new ArrayList<String>();
+        System.out.println("Type the sessions you wish to Register.");
+        System.out.println("When you are finished Type: 'Done'");
+        while(in.hasNextLine()){
+            String input = in.nextLine();
+
+            if(input.equalsIgnoreCase("Done")){
+                break;
+            }
+            session.add(input);    
+        }
+        System.out.println(session);
+        
+    }
+    /*public void sessionSetUp(){
         session = camp.getSessions();
         
         System.out.println("Enter the theme for the session. Type 'Done' if you wish to cancel.");
@@ -160,7 +191,7 @@ public class CampDriver {
         }
         System.out.println(session);
     }
-
+*/
     //Confused on how to take in session arraylist and randomly assign them to differen cabins.
     //Used to assign the sessions inputed by director user to random cabins
     public void cabinSchedule(){

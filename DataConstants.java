@@ -27,6 +27,10 @@ public class DataConstants {
     protected static final String CABIN_STAFF_USER = "staffUUID";
     protected static final String CABIN_CAMP_GROUP = "children";
     protected static final String CABIN_DAY = "day";
+    protected static final String ACTIVITY_TYPE = "type";
+    protected static final String ACTIVITY_NAME = "name";
+    protected static final String ACTIVITY_TIME = "time";
+    protected static final String ACTIVITY_DESCRIPTION = "description";
     protected static final String CABIN_ACTIVITIES = "activities";
     protected static final String CABIN_SCHEDULE = "schedules";
 /**

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -6,6 +7,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 public class DataWriter extends DataConstants {
+
     public static void saveUsers(){
         UserList user = UserList.getInstance();
 		ArrayList<User> users = user.getUsers();
@@ -42,17 +44,17 @@ public class DataWriter extends DataConstants {
 	public static void saveCabins(){
         CabinList cabin = CabinList.getInstance();
 		ArrayList<Cabin> cabins = cabin.getCabins();
-		JSONArray jsonUser = new JSONArray();
+		JSONArray jsonCabin = new JSONArray();
 		
 		//creating all the cabin json objects
 		for(int i=0; i< cabins.size(); i++) {
-			jsonUser.add(getAllCabinsJSON(cabins.get(i)));
+			jsonCabin.add(getAllCabinsJSON(cabins.get(i)));
 		}
 
   //Write cabin JSON file
   try (FileWriter file = new FileWriter(CABIN_FILE_NAME)) {
  
-    file.write(jsonUser.toJSONString());
+    file.write(jsonCabin.toJSONString());
     file.flush();
 
 } catch (IOException e) {
@@ -69,28 +71,59 @@ public class DataWriter extends DataConstants {
         cabinDetails.put(CABIN_CAMP_GROUP, cabin.getCamperGroup());
 		cabinDetails.put(CABIN_SCHEDULE, cabin.getSchedule());
         
-        return cabinDetails;
+		JSONArray JSONActivity = new JSONArray();
+
+		for(int i = 0; i < cabin.getActivity().size(); i++) {
+			HashMap<String, Object> activityDetails = new HashMap<String, Object>();
+			Activity activity = cabin.getActivity().get(i);
+			activityDetails.put(ACTIVITY_NAME, activity.getName());
+			activityDetails.put(ACTIVITY_TYPE, activity.getType());
+			activityDetails.put(ACTIVITY_TIME, activity.getTime());
+			activityDetails.put(ACTIVITY_DESCRIPTION, activity.getDescription());
+			JSONObject activityDetailsJSON = new JSONObject(activityDetails);
+
+			JSONActivity.add(activityDetailsJSON);
+		}
+		cabinDetails.put(CABIN_ACTIVITIES, JSONActivity);
+
+		JSONArray JSONSchedule = new JSONArray();
+
+		//NEED TO TURN SCHEDULE INTO ARRAYLIST
+		for(int i = 0; i < cabin.getSchedule().size(); i++) {
+			HashMap<String, Object> scheduleDetails = new HashMap<String, Object>();
+			Schedule schedule = cabin.getSchedule().get(i);
+			scheduleDetails.put(CABIN_SCHEDULE, schedule.getActivities());
+			scheduleDetails.put(CABIN_DAY, schedule.getDay());
+			JSONObject scheduleDetailsJSON = new JSONObject();
+			JSONSchedule.add(scheduleDetailsJSON);
+		}
+		cabinDetails.put(CABIN_SCHEDULE, JSONSchedule);
+
+		JSONObject cabinDetailsJSON = new JSONObject(cabinDetails);
+
+        return cabinDetailsJSON;
 	}
 
 	public static void saveChild(){
         ChildList child = ChildList.getInstance();
 		ArrayList<Child> children = child.getChildren();
-		JSONArray jsonUser = new JSONArray();
+		JSONArray jsonChild = new JSONArray();
 		
 		//creating the child json objects
 		for(int i=0; i< children.size(); i++) {
-			jsonUser.add(getAllChildJSON(children.get(i)));
+			jsonChild.add(getAllChildJSON(children.get(i)));
 		}
 
   //Write child JSON file
   try (FileWriter file = new FileWriter(CHILD_FILE_NAME)) {
  
-    file.write(jsonUser.toJSONString());
+    file.write(jsonChild.toJSONString());
     file.flush();
 
 } catch (IOException e) {
     e.printStackTrace();
-}
+} 
+// MAKE GETTER FOR CONTACT AND MEDS. CREATE DOC CLASS WITH GETTERS
     }
     public static JSONObject getAllChildJSON(Child child) {
 		JSONObject childDetails = new JSONObject();
@@ -99,8 +132,8 @@ public class DataWriter extends DataConstants {
 		childDetails.put(CHILD_LAST_NAME, child.getLastName());
 		childDetails.put(CHILD_DOB, child.getBirth());
 		childDetails.put(CHILD_ALLERGIES, child.getAllergies());
-        childDetails.put(CHILD_MEDS, child.getMeds());
-		childDetails.put(CHILD_DOCTOR, child.getContact());
+        //childDetails.put(CHILD_MEDS, child.getMeds());
+		//childDetails.put(CHILD_DOCTOR, child.getContact());
         
         return childDetails;
 	}
@@ -108,17 +141,17 @@ public class DataWriter extends DataConstants {
 	public static void saveCamp(){
         CampList camp = CampList.getInstance();
 		ArrayList<Camp> camps = camp.getCamps();
-		JSONArray jsonUser = new JSONArray();
+		JSONArray jsonCamp = new JSONArray();
 		
 		//creating Camp the json objects
 		for(int i=0; i< camps.size(); i++) {
-			jsonUser.add(getAllCampJSON(camps.get(i)));
+			jsonCamp.add(getAllCampJSON(camps.get(i)));
 		}
 
   //Write Camp JSON file
   try (FileWriter file = new FileWriter(CAMP_FILE_NAME)) {
  
-    file.write(jsonUser.toJSONString());
+    file.write(jsonCamp.toJSONString());
     file.flush();
 
 } catch (IOException e) {
