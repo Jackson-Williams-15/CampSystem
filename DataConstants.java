@@ -36,7 +36,7 @@ public class DataConstants {
 /**
  * Child Constants
  */
-    protected static final String CHILD_FILE_NAME = "./json/cabins.json";
+    protected static final String CHILD_FILE_NAME = "./json/child.json";
     protected static final String CHILD_ID = "UUID";
     protected static final String CHILD_FIRST_NAME = "firstName";
     protected static final String CHILD_LAST_NAME = "lastName";
@@ -51,7 +51,7 @@ public class DataConstants {
     protected static final String CONTACT_FIRST_NAME = "firstName";
     protected static final String CONTACT_LAST_NAME = "lastName";
     protected static final String CONTACT_EMAIL = "email";
-    protected static final String  CONTACT_PHONE_NUMBER = "phoneNumber";
+    protected static final String CONTACT_PHONE_NUMBER = "phoneNumber";
     /**
      * Camp Constants
      */
