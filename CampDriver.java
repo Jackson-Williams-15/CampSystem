@@ -74,19 +74,18 @@ public class CampDriver {
                         registerChild();
                     }
                     else if(gChoice == 1){
-                        gViewSchedule();
+                        System.out.println("Holder View Camp dates");
                     }
                     else if(gChoice == 2){
-                        System.out.println("Camp Congaree is a Camp that inspires the your by giving them activities in both the physical and mental standpoint");
-                        System.out.println("Our Camp will run through the dates of 5/29 - 8/12");
+                        System.out.println("Holder View Camp Duration");
                     }
                     else if(gChoice == 3){
 
                     }
                     else if(gChoice == 4){
                         run = false;
-                        System.exit(0);
                     }
+                
                     break;
                 case 1:
                     userPass();
@@ -96,7 +95,7 @@ public class CampDriver {
                     }
                     int cChoice = getNum();
                     if(cChoice == 0){
-                        viewSchedule();
+                        System.out.println("Holder View Schedule");
                     }
                     else if(cChoice == 1){
                         System.out.println("Holder Check allergies");
@@ -106,7 +105,6 @@ public class CampDriver {
                     }
                     else if(cChoice == 4){
                         run = false;
-                        System.exit(0);
                     }
                     break;
                 case 2:
@@ -130,14 +128,21 @@ public class CampDriver {
                     }
                     else if(dChoice == 4){
                         run = false;
-                        System.exit(0);
                     }
+<<<<<<< HEAD
             }
+=======
+                    break;
+                case 3: 
+                    System.out.println("Hello");
+                    break;
+                case 4: 
+                    run = false;
+                    break;
+>>>>>>> 9643c2f4aae25cf20351e537a269e41dbb2c241b
             }
         }
-    
-
-
+    }
     //Allows User input on passwords and usernames
     public void userPass(){
         String userName;
@@ -153,8 +158,7 @@ public class CampDriver {
     }
     //Keep All Counselor Methods Together
     public void viewSchedule(){
-        System.out.println(session);
-
+        
     }
 
     //Keep All Guardian Methods together
@@ -173,16 +177,15 @@ public class CampDriver {
         System.out.println(registerChild);
     }
 
-    public void gViewSchedule(){
-        System.out.println(session);
-
+    public void viewDates(){
+        
     }
     //Keep all Director Methods together
     //Create Sessions for Director
     
     public void sessionSetUp(){
         session = new ArrayList<String>();
-        System.out.println("Type the sessions you wish to Register and the Date/");
+        System.out.println("Type the sessions you wish to Register.");
         System.out.println("When you are finished Type: 'Done'");
         while(in.hasNextLine()){
             String input = in.nextLine();
@@ -265,7 +268,6 @@ public class CampDriver {
     private void clear() {
 		System.out.print("\033[H\033[2J"); 
 	}
-
     //Tests Program
     public static void main(String[] args){
         CampDriver driver = new CampDriver();
@@ -274,7 +276,5 @@ public class CampDriver {
         //childList.saveChildren
 
     }
+
 }
-
-
-

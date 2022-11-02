@@ -29,7 +29,7 @@ public class DataWriter extends DataConstants {
 }
     }
     public static JSONObject getAllUserJSON(User user) {
-		JSONObject userDetails = new JSONObject();
+		HashMap<String, Object> userDetails = new HashMap<String, Object>();
 		userDetails.put(USER_ID, user.getUUID().toString());
 		userDetails.put(USER_FIRST_NAME, user.getFirstName().toString());
 		userDetails.put(USER_LAST_NAME, user.getLastName().toString());
@@ -37,8 +37,9 @@ public class DataWriter extends DataConstants {
         userDetails.put(USER_CONTACT, user.getContact());
 		userDetails.put(USER_DOB, user.getDateOfBirth());
 		userDetails.put(USER_PASSWORD, user.getPassword().toString());
-        
-        return userDetails;
+
+		JSONObject userDetailsJSON = new JSONObject(userDetails);
+        return userDetailsJSON;
 	}
 
 	public static void saveCabins(){
@@ -62,7 +63,7 @@ public class DataWriter extends DataConstants {
 }
     }
     public static JSONObject getAllCabinsJSON(Cabin cabin) {
-		JSONObject cabinDetails = new JSONObject();
+		HashMap<String, Object> cabinDetails = new HashMap<String, Object>();
 		cabinDetails.put(CABIN_ID, cabin.getUUID().toString());
 		cabinDetails.put(CABIN_NAME, cabin.getName());
 		cabinDetails.put(CABIN_MIN_AGE, cabin.getMinAge());
@@ -89,15 +90,17 @@ public class DataWriter extends DataConstants {
 		JSONArray JSONSchedule = new JSONArray();
 
 		//NEED TO TURN SCHEDULE INTO ARRAYLIST
-		for(int i = 0; i < cabin.getSchedule().size(); i++) {
+		/**
+		 * for(int i = 0; i < cabin.getSchedule().length; i++) {
 			HashMap<String, Object> scheduleDetails = new HashMap<String, Object>();
-			Schedule schedule = cabin.getSchedule().get(i);
+			Schedule schedule = cabin.getSchedule().;
 			scheduleDetails.put(CABIN_SCHEDULE, schedule.getActivities());
 			scheduleDetails.put(CABIN_DAY, schedule.getDay());
 			JSONObject scheduleDetailsJSON = new JSONObject();
 			JSONSchedule.add(scheduleDetailsJSON);
 		}
 		cabinDetails.put(CABIN_SCHEDULE, JSONSchedule);
+		**/
 
 		JSONObject cabinDetailsJSON = new JSONObject(cabinDetails);
 
@@ -123,20 +126,51 @@ public class DataWriter extends DataConstants {
 } catch (IOException e) {
     e.printStackTrace();
 } 
-// MAKE GETTER FOR CONTACT AND MEDS. CREATE DOC CLASS WITH GETTERS
+
     }
     public static JSONObject getAllChildJSON(Child child) {
-		JSONObject childDetails = new JSONObject();
+		HashMap<String, Object> childDetails = new HashMap<String, Object>();
 		childDetails.put(CHILD_ID, child.getUUID().toString());
 		childDetails.put(CHILD_FIRST_NAME, child.getFirstName());
 		childDetails.put(CHILD_LAST_NAME, child.getLastName());
 		childDetails.put(CHILD_DOB, child.getBirth());
 		childDetails.put(CHILD_ALLERGIES, child.getAllergies());
-        //childDetails.put(CHILD_MEDS, child.getMeds());
-		//childDetails.put(CHILD_DOCTOR, child.getContact());
+        childDetails.put(CHILD_MEDS, child.getMeds());
+		childDetails.put(CHILD_DOCTOR, child.getContact());
         
-        return childDetails;
-	}
+		JSONArray JSONMeds = new JSONArray();
+
+		for(int i = 0; i < child.getMeds().size(); i++) {
+			HashMap<String, Object> medicationDetails = new HashMap<String, Object>();
+			Medication medication = child.getMeds().get(i);
+			medicationDetails.put(MED_TYPE, medication.getType());
+			medicationDetails.put(MED_DOSE, medication.getDose());
+			medicationDetails.put(MED_TIME, medication.getTime());
+			JSONObject medicationDetailsJSON = new JSONObject(medicationDetails);
+
+			JSONMeds.add(medicationDetailsJSON);
+		}
+		childDetails.put(CHILD_MEDS, JSONMeds);
+
+		JSONArray JSONContact = new JSONArray();
+		for(int i = 0; i < child.getContact().size(); i++) {
+			HashMap<String, Object> contactDetails = new HashMap<String, Object>();
+			Contact contact = child.getContact().get(i);
+			contactDetails.put(CONTACT_FIRST_NAME, contact.getFirstName());
+			contactDetails.put(CONTACT_LAST_NAME, contact.getLastName());
+			contactDetails.put(CONTACT_EMAIL, contact.getEmail());
+			contactDetails.put(CONTACT_PHONE_NUMBER, contact.getPhoneNumber());
+
+			JSONObject contactDetailsJSON = new JSONObject(contactDetails);
+
+			JSONContact.add(contactDetailsJSON);
+		}
+		childDetails.put(CHILD_CONTACTS, JSONContact);
+
+		JSONObject childDetailsJSON = new JSONObject(childDetails);
+        return childDetailsJSON;
+	}	
+		
 
 	public static void saveCamp(){
         CampList camp = CampList.getInstance();
@@ -159,10 +193,24 @@ public class DataWriter extends DataConstants {
 }
     }
     public static JSONObject getAllCampJSON(Camp camp) {
-		JSONObject campDetails = new JSONObject();
+		HashMap<String, Object> campDetails = new HashMap<String, Object>();
 		campDetails.put(CAMP_NAME, camp.getName());
-        //campDetails.put(CAMP_UUID, camp.getUUID()); Should be able to be removed
-        return campDetails;
+
+		JSONArray JSONSession = new JSONArray();
+		for(int i = 0; i < camp.getSessions().size(); i++) {
+			HashMap<String, Object> sessionDetails = new HashMap<String, Object>();
+			Session session = camp.getSessions().get(i);
+			sessionDetails.put(CAMP_SESSION_THEME, session.getTheme());
+			sessionDetails.put(SESSION_CABIN, session.getCabins());
+
+			JSONObject sessionDetailsJSON = new JSONObject(sessionDetails);
+
+			JSONSession.add(sessionDetailsJSON);
+		}
+		campDetails.put(CAMP_SESSIONS, JSONSession);
+		JSONObject campDetailsJSON = new JSONObject(campDetails);
+
+        return campDetailsJSON;
 	}
 
 }
