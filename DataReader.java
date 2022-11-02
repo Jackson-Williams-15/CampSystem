@@ -76,7 +76,8 @@ public class DataReader extends DataConstants {
                         String contactEmail = (String)emergencyContactJSON.get(CONTACT_EMAIL);
                         emergencyContacts.add(new Contact(contactFirstName, contactLastName, contactPhoneNumber, contactEmail));
                     }
-                    JSONArray medicationsJSON = (JSONArray)personJSON.get(CHILD_MEDS);
+
+                    JSONArray medicationsJSON = (JSONArray)personJSON.get(USER_MEDS);
                     ArrayList<Medication> medications = new ArrayList<Medication>();
                     for(int j = 0; j < medicationsJSON.size(); j++) {
                         JSONObject medicationJSON = (JSONObject)medicationsJSON.get(j);
@@ -85,7 +86,7 @@ public class DataReader extends DataConstants {
                         String medTime = (String)medicationJSON.get(MED_TIME);
                         medications.add(new Medication(medType, medDose, medTime));
                     }
-                    JSONArray allergiesJSON = (JSONArray)personJSON.get(CHILD_ALLERGIES);
+                    JSONArray allergiesJSON = (JSONArray)personJSON.get(USER_ALLERGIES);
                     ArrayList<String> allergies = new ArrayList<String>();
                     for(int j = 0; j < allergiesJSON.size(); j++) {
                         String allergy = allergiesJSON.get(j).toString();
@@ -202,11 +203,12 @@ public class DataReader extends DataConstants {
                 int maxAge = ((Long)cabinJSON.get(CABIN_MAX_AGE)).intValue();
 
                 //arraylist activities, day enum
-                JSONArray scheduleJSON = (JSONArray)cabinJSON.get(CABIN_SCHEDULE);
+                JSONArray schedulesJSON = (JSONArray)cabinJSON.get(CABIN_SCHEDULE);
                 Schedule[] schedule = new Schedule[7];
-                for(int j = 0; j < scheduleJSON.size(); j++) {
-                    Day day = (Day)cabinJSON.get(CABIN_DAY);
-                    JSONArray activitiesJSON = (JSONArray)cabinJSON.get(CABIN_ACTIVITIES);
+                for(int j = 0; j < schedulesJSON.size(); j++) {
+                    JSONObject scheduleJSON = (JSONObject)schedulesJSON.get(j);
+                    Day day = (Day)scheduleJSON.get(CABIN_DAY);
+                    JSONArray activitiesJSON = (JSONArray)scheduleJSON.get(CABIN_ACTIVITIES);
                     ArrayList<Activity> activities = new ArrayList<Activity>();
                     for(int k=0; k < activitiesJSON.size(); k++) {
                         JSONObject activityJSON = (JSONObject)activitiesJSON.get(k);
