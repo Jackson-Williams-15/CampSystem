@@ -18,6 +18,78 @@
                         "packingList":[]
                     }
                 ]
+            },
+            {
+                "day":"Tuesday",
+                "activities":[
+                    {
+                        "type":"PHYSICAL",
+                        "name":"Hiking",
+                        "time":"2:35 PM",
+                        "description":"Go hiking down the easy trail",
+                        "packingList":[]
+                    }
+                ]
+            },
+            {
+                "day":"Wednesday",
+                "activities":[
+                    {
+                        "type":"PHYSICAL",
+                        "name":"Hiking",
+                        "time":"2:35 PM",
+                        "description":"Go hiking down the easy trail",
+                        "packingList":[]
+                    }
+                ]
+            },
+            {
+                "day":"Thursday",
+                "activities":[
+                    {
+                        "type":"PHYSICAL",
+                        "name":"Hiking",
+                        "time":"2:35 PM",
+                        "description":"Go hiking down the easy trail",
+                        "packingList":[]
+                    }
+                ]
+            },
+            {
+                "day":"Friday",
+                "activities":[
+                    {
+                        "type":"PHYSICAL",
+                        "name":"Hiking",
+                        "time":"2:35 PM",
+                        "description":"Go hiking down the easy trail",
+                        "packingList":[]
+                    }
+                ]
+            },
+            {
+                "day":"Saturday",
+                "activities":[
+                    {
+                        "type":"PHYSICAL",
+                        "name":"Hiking",
+                        "time":"2:35 PM",
+                        "description":"Go hiking down the easy trail",
+                        "packingList":[]
+                    }
+                ]
+            },
+            {
+                "day":"Sunday",
+                "activities":[
+                    {
+                        "type":"PHYSICAL",
+                        "name":"Hiking",
+                        "time":"2:35 PM",
+                        "description":"Go hiking down the easy trail",
+                        "packingList":[]
+                    }
+                ]
             }
         ]
     }
