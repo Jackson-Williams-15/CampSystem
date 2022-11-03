@@ -24,7 +24,7 @@ public class CampDriver {
         userOptions[0] = "Log in as parent";
         userOptions[1] = "Log in as Counselor";
         userOptions[2] = "Log in as Director";
-        userOptions[3] = "Hello";
+        userOptions[3] = "Print Camp Name";
         userOptions[4] = "Quit";
 
         guardianOptions[0] = "Register Child";
@@ -39,8 +39,8 @@ public class CampDriver {
         counselorOptions[3] = "Logout";
         counselorOptions[4] = "Quit";
 
-        directorOptions[0] = "View User Profiles";
-        directorOptions[1] = "Print Schedules";
+        directorOptions[0] = "Show Cabin Schedule";
+        directorOptions[1] = "Print Cabin Schedule";
         directorOptions[2] = "Create Schedule";
         directorOptions[3] = "Logout";
         directorOptions[4] = "Quit";
@@ -61,6 +61,7 @@ public class CampDriver {
 
         while(run){
             displayMenu();
+
             choice = getNum();
 
             switch(choice){
@@ -78,13 +79,16 @@ public class CampDriver {
                             registerChild();
                         }
                         else if(gChoice == 1){
-                            sessionSetUp();
+                            viewDates();
                         }
                         else if(gChoice == 2){
-                            System.out.println("");
+                            System.out.println("Camp Congaree is inspires the youth and creates a learning,");
+                            System.out.println("for kids who wish to engage in mental and physical activities.");
+                            System.out.println("Our cam runs from the dates: 7/01 - 8/16\n");
+
                         }
                         else if(gChoice == 3){
-                        
+
                         }
                         else if(gChoice == 4){
                             run = false;
@@ -103,7 +107,7 @@ public class CampDriver {
                         }
                         cChoice = getNum();
                         if(cChoice == 0){
-                            System.out.println("Holder View Schedule");
+                            viewSchedule();
                         }
                         else if(cChoice == 1){
                             System.out.println("Holder Check allergies");
@@ -128,10 +132,10 @@ public class CampDriver {
                         }
                         dChoice = getNum();
                         if(dChoice == 0){
-                            System.out.println("Holder Director");
+                            cabinSchedule();
                         }
                         else if(dChoice == 1){
-                            System.out.println("Holder Session");
+                            cabinSchedule();
                         }
                         else if(dChoice == 2){
                         sessionSetUp();
@@ -176,7 +180,7 @@ public class CampDriver {
     }
     //Keep All Counselor Methods Together
     public void viewSchedule(){
-        
+        System.out.println(session);
     }
 
     //Keep All Guardian Methods together
@@ -196,7 +200,10 @@ public class CampDriver {
     }
 
     public void viewDates(){
-        
+        for(int i = 0; i<session.size(); i++){
+                System.out.println("\n");
+                System.out.println(session.get(i) + " ");
+            }
     }
     //Keep all Director Methods together
     //Create Sessions for Director
@@ -213,8 +220,6 @@ public class CampDriver {
             }
             session.add(input);    
         }
-        System.out.println(session);
-        
     }
     /*public void sessionSetUp(){
         session = camp.getSessions();
@@ -249,8 +254,12 @@ public class CampDriver {
     public void cabinSchedule(){
         Random rand = new Random();
         for(int i =0; i<session.size();i++){
-            int index = (int)(Math.random() * session.size());
+            int index = (int)(Math.random()*session.size());
+            System.out.println("Cabin 2: " + session.get(index));
+            System.out.println("Cabin 5: " + session.get(index));
+            
         }
+        
     }
     //Gets the number inputed by the user
     private int getNum(){
