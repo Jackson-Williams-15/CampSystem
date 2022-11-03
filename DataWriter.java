@@ -90,11 +90,10 @@ public class DataWriter extends DataConstants {
 			JSONSchedule.add(scheduleDetailsJSON);
 		}
 		cabinDetails.put(CABIN_SCHEDULE, JSONSchedule);
-
 /** 
 		JSONArray JSONActivity = new JSONArray();
-
-		for(int i = 0; i < cabin.getActivity().size(); i++) {
+		ArrayList<Activity> cabinActivities = new ArrayList<Activity>();
+		for(int i = 0; i < cabinActivities.getActivities().size(); i++) {
 			HashMap<String, Object> activityDetails = new HashMap<String, Object>();
 			Activity activity = cabin.getActivity().get(i);
 			activityDetails.put(ACTIVITY_NAME, activity.getName());
