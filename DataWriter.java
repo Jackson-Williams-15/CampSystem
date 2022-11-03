@@ -8,17 +8,17 @@ import org.json.simple.JSONObject;
 
 public class DataWriter extends DataConstants {
 
+	/**
+	 * gets list of users and writes it to JSON file
+	 */
     public static void saveUsers(){
         UserList user = UserList.getInstance();
 		ArrayList<User> users = user.getUsers();
 		JSONArray jsonUser = new JSONArray();
 		
-		//creating all the user json objects
 		for(int i=0; i< users.size(); i++) {
 			jsonUser.add(getAllUserJSON(users.get(i)));
 		}
-
-  //Write user JSON file
   try (FileWriter file = new FileWriter(USER_FILE_NAME)) {
  
     file.write(jsonUser.toJSONString());
@@ -28,6 +28,12 @@ public class DataWriter extends DataConstants {
     e.printStackTrace();
 }
     }
+
+	/**
+	 * Makes user a JSON object
+	 * @param user the user being made into a JSON Object
+	 * @return returns a JSON object representation of the user
+	 */
     public static JSONObject getAllUserJSON(User user) {
 		HashMap<String, Object> userDetails = new HashMap<String, Object>();
 		userDetails.put(USER_ID, user.getUUID().toString());
@@ -42,17 +48,18 @@ public class DataWriter extends DataConstants {
         return userDetailsJSON;
 	}
 
+	/**
+	 * gets list of cabins and writes it to JSON file
+	 */
 	public static void saveCabins(){
         CabinList cabin = CabinList.getInstance();
 		ArrayList<Cabin> cabins = cabin.getCabins();
 		JSONArray jsonCabin = new JSONArray();
 		
-		//creating all the cabin json objects
 		for(int i=0; i< cabins.size(); i++) {
 			jsonCabin.add(getAllCabinsJSON(cabins.get(i)));
 		}
 
-  //Write cabin JSON file
   try (FileWriter file = new FileWriter(CABIN_FILE_NAME)) {
  
     file.write(jsonCabin.toJSONString());
@@ -62,6 +69,12 @@ public class DataWriter extends DataConstants {
     e.printStackTrace();
 }
     }
+
+	/**
+	 * Makes cabins a JSON object
+	 * @param cabin the cabin being made into a JSON Object
+	 * @return returns a JSON object representation of the cabin
+	 */
     public static JSONObject getAllCabinsJSON(Cabin cabin) {
 		HashMap<String, Object> cabinDetails = new HashMap<String, Object>();
 		cabinDetails.put(CABIN_ID, cabin.getUUID().toString());
@@ -72,6 +85,9 @@ public class DataWriter extends DataConstants {
         cabinDetails.put(CABIN_CAMP_GROUP, cabin.getCamperGroup());
 		cabinDetails.put(CABIN_SCHEDULE, cabin.getSchedule());
         
+		/**
+		 * converts array of schedules into arraylist to save schedules in cabin
+		 */
 		Schedule [] schedules = cabin.getSchedule();
 		ArrayList<Schedule> cabinSchedules = new ArrayList<Schedule>();
 		for(Schedule schedule : schedules)
@@ -90,9 +106,9 @@ public class DataWriter extends DataConstants {
 			JSONSchedule.add(scheduleDetailsJSON);
 		}
 		cabinDetails.put(CABIN_SCHEDULE, JSONSchedule);
-/** 
+
 		JSONArray JSONActivity = new JSONArray();
-		ArrayList<Activity> cabinActivities = new ArrayList<Activity>();
+		/** 
 		for(int i = 0; i < cabinActivities.getActivities().size(); i++) {
 			HashMap<String, Object> activityDetails = new HashMap<String, Object>();
 			Activity activity = cabin.getActivity().get(i);
@@ -112,17 +128,18 @@ public class DataWriter extends DataConstants {
         return cabinDetailsJSON;
 	}
 
+	/**
+	 * gets list of children and writes it to JSON file
+	 */
 	public static void saveChild(){
         ChildList child = ChildList.getInstance();
 		ArrayList<Child> children = child.getChildren();
 		JSONArray jsonChild = new JSONArray();
 		
-		//creating the child json objects
 		for(int i=0; i< children.size(); i++) {
 			jsonChild.add(getAllChildJSON(children.get(i)));
 		}
 
-  //Write child JSON file
   try (FileWriter file = new FileWriter(CHILD_FILE_NAME)) {
  
     file.write(jsonChild.toJSONString());
@@ -133,6 +150,12 @@ public class DataWriter extends DataConstants {
 } 
 
     }
+
+	/**
+	 * Makes children a JSON object
+	 * @param child the child being made into a JSON Object
+	 * @return returns a JSON object representation of the child
+	 */
     public static JSONObject getAllChildJSON(Child child) {
 		HashMap<String, Object> childDetails = new HashMap<String, Object>();
 		childDetails.put(CHILD_ID, child.getUUID().toString());
@@ -176,18 +199,18 @@ public class DataWriter extends DataConstants {
         return childDetailsJSON;
 	}	
 		
-
+/**
+	 * gets list of camps and writes it to JSON file
+	 */
 	public static void saveCamp(){
         CampList camp = CampList.getInstance();
 		ArrayList<Camp> camps = camp.getCamps();
 		JSONArray jsonCamp = new JSONArray();
 		
-		//creating Camp the json objects
 		for(int i=0; i< camps.size(); i++) {
 			jsonCamp.add(getAllCampJSON(camps.get(i)));
 		}
 
-  //Write Camp JSON file
   try (FileWriter file = new FileWriter(CAMP_FILE_NAME)) {
  
     file.write(jsonCamp.toJSONString());
@@ -197,6 +220,12 @@ public class DataWriter extends DataConstants {
     e.printStackTrace();
 }
     }
+
+	/**
+	 * Makes camp a JSON object
+	 * @param camp the camp being made into a JSON Object
+	 * @return returns a JSON object representation of the camp
+	 */
     public static JSONObject getAllCampJSON(Camp camp) {
 		HashMap<String, Object> campDetails = new HashMap<String, Object>();
 		campDetails.put(CAMP_NAME, camp.getName());
