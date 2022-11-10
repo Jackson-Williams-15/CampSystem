@@ -36,9 +36,24 @@ public class ChildListTest
     }
 
     @Test
-    public void testGetChild()
+    public void testGetReadChild()
     {
         Child gottenChild = childList.getChild(UUID.fromString("e9bcbd0a-6338-4bdd-b4fb-82d1b104fd48"));
         assertNotNull(gottenChild);
+    }
+
+    @Test
+    public void testAddChild()
+    {
+        int childListSize = childList.getChildren().size();
+        childList.addChild("Test", "Child", "1/1/1990");
+        assertEquals(childListSize+1, childList.getChildren().size());
+    }
+
+    @Test
+    public void testGetExistingChild()
+    {
+        Child testChild = childList.getChildren().get(0);
+        assertEquals(testChild, childList.getChild(testChild.getUUID()));
     }
 }

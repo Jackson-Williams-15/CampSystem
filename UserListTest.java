@@ -38,7 +38,7 @@ public class UserListTest
     }
 
     @Test
-    public void testGetUser()
+    public void testGetReadUser()
     {
         assertNotNull(userList.getUser(UUID.fromString("16c7e243-f077-4246-9695-0f9662eda176")));
     }
@@ -50,7 +50,7 @@ public class UserListTest
     }
 
     @Test
-    public void testUserListManipulation() //We don't have proper getters to test each method one at a time, so we have to try all at once
+    public void testUserListManipulation()
     {
         User testUser = new User("Test", "User", 0, "null", "null", "null");
         userList.addUser(testUser);

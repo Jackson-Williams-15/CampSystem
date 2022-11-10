@@ -47,9 +47,24 @@ public class CabinListTest
     }
 
     @Test
-    public void testGetCabin()
+    public void testGetReadCabin()
     {
         Cabin gottenCabin = cabinList.getCabin(UUID.fromString("dd30acc7-6e51-4174-9fd0-4f345915fbe8"));
         assertNotNull(gottenCabin);
+    }
+
+    @Test
+    public void testAddCabin()
+    {
+        int cabinListSize = cabinList.getCabins().size();
+        cabinList.addCabin("Test");
+        assertEquals(cabinListSize+1, cabinList.getCabins().size());
+    }
+
+    @Test
+    public void testGetExistingCabin()
+    {
+        Cabin cabinToGet = cabinList.getCabins().get(0);
+        assertEquals(cabinToGet, cabinList.getCabin(cabinToGet.getUUID()));
     }
 }
