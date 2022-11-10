@@ -38,6 +38,6 @@ public class ActivityTest
     @Test
     public void testToString()
     {
-
+        assertEquals("Testing\n1:00 PM\nnull\n", testActivity.toString());
     }
 }
