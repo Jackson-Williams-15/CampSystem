@@ -29,18 +29,23 @@ public class CabinListTest
     }
     
     @Test
-    public void testInstantiation()
+    public void testGetInstance()
     {
         assertNotNull(cabinList);
     }
 
     @Test
-    public void testDataInstantiation()
+    public void testDataAfterGetInstance()
     {
         assertNotNull(cabinList.getCabins());
     }
 
-    @Ignore //Because the prior test fails, trying to run this test runs into a null pointer exception. In short, it fails
+    @Test
+    public void testListHasCabins()
+    {
+        assertNotEquals(0, cabinList.getCabins().size());
+    }
+
     @Test
     public void testGetCabin()
     {

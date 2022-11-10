@@ -29,7 +29,12 @@ public class ChildListTest
         assertNotNull(childList.getChildren());
     }
 
-    @Ignore //Because the prior test fails, trying to run this test runs into a null pointer exception. In short, it fails
+    @Test
+    public void testListHasChildren()
+    {
+        assertNotEquals(0, childList.getChildren().size());
+    }
+
     @Test
     public void testGetChild()
     {

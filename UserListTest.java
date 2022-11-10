@@ -31,7 +31,24 @@ public class UserListTest
         assertNotNull(userList.getUsers());
     }
 
-    @Ignore //We have no way to instantiate userList's users ArrayList. As such, this test errors
+    @Test
+    public void testListHasUsers()
+    {
+        assertNotEquals(0, userList.getUsers().size());
+    }
+
+    @Test
+    public void testGetUser()
+    {
+        assertNotNull(userList.getUser(UUID.fromString("16c7e243-f077-4246-9695-0f9662eda176")));
+    }
+
+    @Test
+    public void testGetStaffUser()
+    {
+        assertNotNull(userList.getStaffUser(UUID.fromString("fa7cdb87-0440-4c51-bf70-f390eb99d99e")));
+    }
+
     @Test
     public void testUserListManipulation() //We don't have proper getters to test each method one at a time, so we have to try all at once
     {
