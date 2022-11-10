@@ -67,4 +67,12 @@ public class CabinListTest
         Cabin cabinToGet = cabinList.getCabins().get(0);
         assertEquals(cabinToGet, cabinList.getCabin(cabinToGet.getUUID()));
     }
+
+    @Test
+    public void testAddNull()
+    {
+        int cabinListSize = cabinList.getCabins().size();
+        cabinList.addCabin(null);
+        assertNotEquals(cabinListSize+1, cabinList.getCabins().size());
+    }
 }

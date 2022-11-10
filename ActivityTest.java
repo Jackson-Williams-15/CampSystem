@@ -78,7 +78,7 @@ public class ActivityTest
     }
 
     @Test
-    public void testConstructGoodTime()
+    public void testConstructGoodTime() //This is meant to demonstrate that the regex can correctly identify valid times
     {
         assertTrue(testActivity == null || testActivity.getTime().matches("((1[0-2])|[1-9]):[0-5][0-9]\s((AM)|(PM))"));
     }

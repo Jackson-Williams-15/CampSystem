@@ -56,4 +56,12 @@ public class ChildListTest
         Child testChild = childList.getChildren().get(0);
         assertEquals(testChild, childList.getChild(testChild.getUUID()));
     }
+
+    @Test
+    public void testAddNull()
+    {
+        int childListSize = childList.getChildren().size();
+        childList.addChild(null, null, null);
+        assertNotEquals(childListSize+1, childList.getChildren().size());
+    }
 }
