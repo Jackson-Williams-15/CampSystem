@@ -17,7 +17,6 @@ public class CampDriver {
     private Camp camp = DataReader.getCamp();
     private CampList campList = CampList.getInstance();
 
-
 //Constructor adding in arrays of possible options between users
     public CampDriver(){
         in = new Scanner(System.in);
@@ -44,15 +43,9 @@ public class CampDriver {
         directorOptions[2] = "Create Schedule";
         directorOptions[3] = "Logout";
         directorOptions[4] = "Quit";
-        
-
     }
     //Code to run the driver that takes in all possible choices of user input
     //The values gChoice dChoice and cChoice relates to counselor director and guardian users
-    //The system.out.println Holders are simply temporary print statements i added
-    
-    //Confused on How to reset options on 
-
     public void runDriver(){
         clear();
         System.out.println("Welcome to our Camp!");
