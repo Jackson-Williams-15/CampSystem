@@ -88,4 +88,5 @@ public class ActivityTest
     {
         assertTrue(badActivity == null || badActivity.getTime().matches("((1[0-2])|[1-9]):[0-5][0-9]\s((AM)|(PM))"));
     }
+    
 }

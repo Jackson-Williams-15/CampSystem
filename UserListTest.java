@@ -65,4 +65,5 @@ public class UserListTest
         assertNotEquals(userListSize+1, userList.getUsers().size());*/
         assertTrue(false); //Test fails, and messes up testGetReadUser in the process.
     }
+    
 }
