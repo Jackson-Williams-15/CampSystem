@@ -32,7 +32,14 @@ public class CampListTest
         campList.addCamp(testCamp);
         assertEquals(listSize+1, campList.getCamps().size());
     }
-    
+    @Test
+    public void testAddCamp2()
+    {
+        int listSize = campList.getCamps().size();
+        campList.addCamp(testCamp);
+        assertNotEquals(listSize+1, campList.getCamps().size());
+    }
+
     @Test
     public void testAddCampData()
     {

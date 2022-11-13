@@ -15,6 +15,8 @@ public class UserList
         users = DataReader.getAllUsers();
     }
 
+    
+
     /**
      * Constructs the UserList for the program
      * @return The singleton form of the UserList

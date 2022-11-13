@@ -11,6 +11,12 @@ public class ChildList
     {
         children = DataReader.getChildren();
     }
+    public boolean aChild(String name, String lastName,String birthdate){
+        Child child = new Child(name, lastName, birthdate);
+        children.add(child);
+        return true;
+        
+    }
 
     public static ChildList getInstance()
     {

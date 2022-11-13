@@ -15,8 +15,15 @@ public class UserListTest
     @BeforeClass
     public static void oneTimeSetup()
     {
+        UserList.getInstance().addUser(null);
         childList = ChildList.getInstance();
         userList = UserList.getInstance();
+    }
+    @Test
+    public void TestTest(){
+        User testUser = new User("Test", "User", 0, "null", "null", "null");
+        userList.addUser(testUser);
+        assertEquals(testUser, userList.getUser(testUser.getUUID()));
     }
 
     @Test
@@ -48,6 +55,10 @@ public class UserListTest
     {
         assertNotNull(userList.getStaffUser(UUID.fromString("fa7cdb87-0440-4c51-bf70-f390eb99d99e")));
     }
+    @Test
+    public void getUser(){
+        assertNotNull(userList.getUser(UUID.fromString("fa7cdb87-0440-4c51-bf70-f390eb99d99e")));
+    }
 
     @Test
     public void testUserListManipulation()
@@ -56,7 +67,7 @@ public class UserListTest
         userList.addUser(testUser);
         assertEquals(testUser, userList.getUser(testUser.getUUID()));
     }
-    
+
 
     @Test
     public void testAddNull()
@@ -66,5 +77,6 @@ public class UserListTest
         assertNotEquals(userListSize+1, userList.getUsers().size());*/
         assertTrue(false); //Test fails, and messes up testGetReadUser in the process.
     }
+    
 
 }

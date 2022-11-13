@@ -6,15 +6,59 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.UUID;
 
 import org.junit.*;
+import org.junit.jupiter.api.BeforeEach;
 
 public class ChildListTest
 {
     private static ChildList childList;
 
+    @BeforeEach
+    public void setUp()
+    {
+        ChildList.getInstance().aChild("Cam", "Wash", "1/10/2021");
+    }
+
     @BeforeClass
     public static void oneTimeSetup()
     {
         childList = ChildList.getInstance();
+    }
+    @Test
+    public void testAddValid(){
+        boolean test = ChildList.getInstance().aChild("Cam", "Wash", "1/20/2021");
+        assertTrue(test);
+    }
+    
+    @Test 
+    public void testAddNullFirstName(){
+        boolean test = ChildList.getInstance().aChild(null, "Wash","1/20/2021");
+        assertFalse(test);
+    }
+    @Test
+    public void testAddNullLastName(){
+        boolean test = ChildList.getInstance().aChild("Cam", null, "1/20/2021");
+        assertFalse(test);
+    }
+    @Test
+    public void testAddNullBirthDate(){
+        boolean test = ChildList.getInstance().aChild("Cam", "Wash", null);
+        assertFalse(test);
+    }
+    @Test
+    public void testEmptyFirstName(){
+        boolean test = ChildList.getInstance().aChild("", "Wash", "1/20/2021");
+        assertFalse(test);
+    }
+
+    @Test
+    public void testEmptyLastName(){
+        boolean test = ChildList.getInstance().aChild("Cam", "", "1/10/2021");
+        assertFalse(test);
+    }
+    @Test
+    public void testEmptyBirthDate(){
+        boolean test = ChildList.getInstance().aChild("Cam", "Wash", "");
+        assertFalse(test);
     }
 
     @Test
