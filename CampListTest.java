@@ -40,10 +40,4 @@ public class CampListTest
         assertEquals(testCamp, campList.getCamps().get(0));
     }
 
-    @Test
-    public void saveCamp()
-    {
-        DataWriter.saveCamp();
-    }
-
 }

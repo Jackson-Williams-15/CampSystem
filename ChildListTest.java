@@ -37,7 +37,7 @@ public class ChildListTest
     
     @Test 
     public void testListHasChild(){
-        assertEquals(1, childList.getChildren().size());
+        assertNotNull(childList.getChildren().get(0));
     }
 
     @Test
