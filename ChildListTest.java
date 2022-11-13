@@ -9,6 +9,7 @@ import org.junit.*;
 
 public class ChildListTest
 {
+    private ChildList childList2 = ChildList.getInstance();
     private static ChildList childList;
 
     @BeforeClass
@@ -34,7 +35,12 @@ public class ChildListTest
     {
         assertNotEquals(0, childList.getChildren().size());
     }
-    
+
+    @Test
+    public void testHasChild(){
+        
+    }   
+
 
     @Test
     public void testGetReadChild()

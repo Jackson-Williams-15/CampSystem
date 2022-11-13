@@ -59,6 +59,7 @@ public class UserList
     public ArrayList<User> getUsers(){
         return users;
     }
+    
     /**
      * Calls the DataWriter to save all users
      */
