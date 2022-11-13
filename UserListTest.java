@@ -6,11 +6,19 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.UUID;
 
 import org.junit.*;
+import org.junit.jupiter.api.BeforeEach;
 
 public class UserListTest
 {
     private static ChildList childList;
     private static UserList userList;
+
+    @BeforeEach
+    public void setup(){
+        UserList.getInstance().addU("c1", "w1", 
+        838, "Wall@gmail.com", "Love", "1/20/2021");
+
+    }
 
     @BeforeClass
     public static void oneTimeSetup()
@@ -19,6 +27,51 @@ public class UserListTest
         childList = ChildList.getInstance();
         userList = UserList.getInstance();
     }
+
+    @Test
+    public void TestAdd(){
+        boolean test = UserList.getInstance().addU("c1", "w1", 
+        838, "Wall@gmail.com", "Love", "1/20/2021");
+        assertTrue(test);
+    }
+    @Test
+    public void testAddNullFirstName(){
+        boolean test = UserList.getInstance().addU(null, "w1", 
+        838, "Wall@gmail.com", "Love", "1/20/2021");
+        assertFalse(test);
+    }
+    @Test
+    public void testAddNullLastName(){
+        boolean test = UserList.getInstance().addU("c1", null, 
+        838, "Wall@gmail.com", "Love", "1/20/2021");
+        assertFalse(test);
+    }
+    @Test
+    public void testAddNullNumber(){
+        boolean test = UserList.getInstance().addU("c1", "w1", 
+        813, "Wall@gmail.com", "Love", "1/20/2021");
+        assertFalse(test);
+    }
+    @Test
+    public void testAddNullEmail(){
+        boolean test = UserList.getInstance().addU("c1", "w1", 
+        838, null, "Love", "1/20/2021");
+        assertFalse(test);
+    }
+    @Test
+    public void testAddNullPassword(){
+        boolean test = UserList.getInstance().addU("c1", "w1", 
+        838, "Wall@gmail.com", null, "1/20/2021");
+        assertFalse(test);
+    }
+    @Test
+    public void testAddNullBirthday(){
+        boolean test = UserList.getInstance().addU("c1", "w1", 
+        838, "Wall@gmail.com", "Love", null);
+        assertFalse(test);
+    }
+
+
     @Test
     public void TestTest(){
         User testUser = new User("Test", "User", 0, "null", "null", "null");

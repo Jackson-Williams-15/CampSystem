@@ -15,6 +15,13 @@ public class UserList
         users = DataReader.getAllUsers();
     }
 
+    public boolean addU(String firstName, String lastName, int number, String email, 
+    String password, String dateOfBirth){
+        User user = new User(firstName, lastName, number, email, password, dateOfBirth);
+        users.add(user);
+        return true;
+        
+    }
     
 
     /**
