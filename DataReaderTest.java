@@ -131,139 +131,142 @@ public class DataReaderTest {
         sessions.add(new Session("Hawaiian", campCabins));
         Camp camp = new Camp("Camp Congaree", sessions);
         campList.addCamp(camp);
+    }
 
-        @After
-        public void tearDown() {
-
-        }
-
-        //test getAllUsers
-        @Test
-        public void testGetAllUsersSize() {
-            assertEquals(4, userList.getAllUsers().size());
-        }
-        @Test
-         public void testGetZeroUsers() {
-            UserList.getInstance().getAllUsers().clear();
-            DataWriter.saveUsers();
-            assertEquals(0, userList.getAllUsers().size());
-         }
-         @Test
-         public void testGetNullUser() {
-            UserList.getInstance().getAllUsers().clear();
-            User nullUser = null;
-            userList.addUser(nullUser);
-            assertEquals(0, userList.getAllUsers().size());
-         }
-
-         public void testGetEmptyUser() {
-            UserList.getInstance().getAllUsers().clear();
-            User empty = new User("","",0,"","","");
-            userList.addUser(empty);
-            assertEquals(1, userList.geUsers().size());
-         }
-         
-         @Test
-         public void testGetUserFirstName() {
-            assertEquals("Jake", userList.getAllUsers().get(0).getFirstName());
-         }
-
-         public void testGetUserPhoneNumber() {
-            assertEquals(1234567890, userList.getAllUsers().get(0).getPhone());
-         }
-
-         public void testGetStaffUserAllergy() {
-            assertEquals("shellfish", userList.getAllUsers().get(3).getAllAllergies().get(0));
-         }
-
-        //test getChildren
-        @Test
-        public void testGetChildrenSize() {
-            assertEquals(2, childList.getChildren().size());
-        }
-        @Test
-        public void testGetZeroChildren() {
-            ChildList.getInstance().getChildren().clear();
-            DataWriter.saveChildren();
-            assertEquals(0, ChildList.getChildren().size());
-        }
-        @Test
-        public void testGetNullChildren() {
-            ChildList.getInstance().getChildren().clear();
-            Child nullChild = null;
-            childList.addUser(nullChild);
-            assertEquals(0, childList.getChildren().size());
-        }
-        @Test
-        public void testGetEmptyChild() {
-            ChildList.getInstance().getChildren().clear();
-            Child empty = new Child("","","");
-            childList.addChild(empty);
-            assertEquals(1, childList.getChildren().size());
-        }
-        @Test
-        public void testGetChildLastName() {
-            assertEquals("Doe", childList.getChildren().get(0).getLastName());
-        }
-        @Test
-        public void testGetChildAllergiesSize() {
-            assertEquals(3, childList.getChildren().get(0).getAllergies().size());
-        }
-        @Test
-        public void testGetChildDoctorName() {
-            assertEquals("Doctor", childList.getChildren().get(0).getDoctor().getFirstName());
-        }
-        @Test
-        public void testGetChildMedicationDose() {
-            assertEquals("one tablet", childList.getChildren().get(0).getMeds().get(0).getDose());
-        }
-
-        //test getCabins
-        @Test
-        public void testGetCabinsSize() {
-            assertEquals(1, cabinList.getCabins().size());
-        }
-        @Test
-        public void testGetZeroCabins() {
-            CabinList.getInstance().getCabins().clear();
-            DataWriter.saveCabins();
-            assertEquals(0, CabinList.getCabins().size());
-        }
-        @Test
-        public void testGetNullCabins() {
-            CabinList.getInstance().getCabins().clear();
-            Cabin nullCabin = null;
-            cabinList.addCabin(nullCabin);
-            assertEquals(0, cabinList.getCabins().size());
-        }
-        @Test
-        public void testGetEmptyCabin() {
-            CabinList.getInstance().getCabins().clear();
-            Cabin empty = new Cabin("");
-            cabinList.addCabin(empty);
-            assertEquals(1, cabinList.getCabins().size());
-        }
-        @Test
-        public void testGetCabinCounselor() {
-            assertEquals("Andrew", cabinList.getCabins().get(0).getCounselor().getFirstName());
-        }
-        @Test
-        public void testGetCabinScheduleActivity() {
-            assertEquals("painting", cabinList.getCabins().get(0).getSchedule()[0].getActivity().get(0).getName());
-        }
-
-        //test getCamp
-        @Test
-        public void testGetNullCamp() {
-            CampList.getInstance().getCamp().clear();
-            Camp nullCamp = null;
-            campList.addCamp(nullCamp);
-            assertEquals(0, campList.getCamps().size());
-        }
-        @Test
-        public void testGetEmptyCamp() {
-
-        }
+    @After
+    public void tearDown() {
 
     }
+
+    //test getAllUsers
+    @Test
+    public void testGetAllUsersSize() {
+        assertEquals(4, userList.getUsers().size());
+    }
+    @Test
+    public void testGetZeroUsers() {
+        UserList.getInstance().getUsers().clear();
+        DataWriter.saveUsers();
+        assertEquals(0, userList.getUsers().size());
+    }
+    @Test
+    public void testGetNullUser() {
+        UserList.getInstance().getUsers().clear();
+        User nullUser = null;
+        userList.addUser(nullUser);
+        assertEquals(0, userList.getUsers().size());
+    }
+    @Test
+    public void testGetEmptyUser() {
+        UserList.getInstance().getUsers().clear();
+        User empty = new User("","",0,"","","");
+        userList.addUser(empty);
+        assertEquals(1, userList.getUsers().size());
+    }
+    
+    @Test
+    public void testGetUserFirstName() {
+        assertEquals("Jake", userList.getUsers().get(0).getFirstName());
+    }
+    @Test
+    public void testGetUserPhoneNumber() {
+        assertEquals(1234567890, userList.getUsers().get(0).getPhone());
+    }
+    /*
+    @Test
+    public void testGetStaffUserAllergy() {
+    
+        assertEquals("shellfish", userList.getUsers().get(3).getAllAllergies().get(0));
+    }
+    */
+
+    //test getChildren
+    @Test
+    public void testGetChildrenSize() {
+        assertEquals(2, childList.getChildren().size());
+    }
+    @Test
+    public void testGetZeroChildren() {
+        ChildList.getInstance().getChildren().clear();
+        DataWriter.saveChildren();
+        assertEquals(0, ChildList.getChildren().size());
+    }
+    @Test
+    public void testGetNullChildren() {
+        ChildList.getInstance().getChildren().clear();
+        Child nullChild = null;
+        childList.addUser(nullChild);
+        assertEquals(0, childList.getChildren().size());
+    }
+    @Test
+    public void testGetEmptyChild() {
+        ChildList.getInstance().getChildren().clear();
+        Child empty = new Child("","","");
+        childList.addChild(empty);
+        assertEquals(1, childList.getChildren().size());
+    }
+    @Test
+    public void testGetChildLastName() {
+        assertEquals("Doe", childList.getChildren().get(0).getLastName());
+    }
+    @Test
+    public void testGetChildAllergiesSize() {
+        assertEquals(3, childList.getChildren().get(0).getAllergies().size());
+    }
+    @Test
+    public void testGetChildDoctorName() {
+        assertEquals("Doctor", childList.getChildren().get(0).getDoctor().getFirstName());
+    }
+    @Test
+    public void testGetChildMedicationDose() {
+        assertEquals("one tablet", childList.getChildren().get(0).getMeds().get(0).getDose());
+    }
+
+    //test getCabins
+    @Test
+    public void testGetCabinsSize() {
+        assertEquals(1, cabinList.getCabins().size());
+    }
+    @Test
+    public void testGetZeroCabins() {
+        CabinList.getInstance().getCabins().clear();
+        DataWriter.saveCabins();
+        assertEquals(0, CabinList.getCabins().size());
+    }
+    @Test
+    public void testGetNullCabins() {
+        CabinList.getInstance().getCabins().clear();
+        Cabin nullCabin = null;
+        cabinList.addCabin(nullCabin);
+        assertEquals(0, cabinList.getCabins().size());
+    }
+    @Test
+    public void testGetEmptyCabin() {
+        CabinList.getInstance().getCabins().clear();
+        Cabin empty = new Cabin("");
+        cabinList.addCabin(empty);
+        assertEquals(1, cabinList.getCabins().size());
+    }
+    @Test
+    public void testGetCabinCounselor() {
+        assertEquals("Andrew", cabinList.getCabins().get(0).getCounselor().getFirstName());
+    }
+    @Test
+    public void testGetCabinScheduleActivity() {
+        assertEquals("painting", cabinList.getCabins().get(0).getSchedule()[0].getActivity().get(0).getName());
+    }
+
+    //test getCamp
+    @Test
+    public void testGetNullCamp() {
+        CampList.getInstance().getCamp().clear();
+        Camp nullCamp = null;
+        campList.addCamp(nullCamp);
+        assertEquals(0, campList.getCamps().size());
+    }
+    @Test
+    public void testGetEmptyCamp() {
+
+    }
+
 }
