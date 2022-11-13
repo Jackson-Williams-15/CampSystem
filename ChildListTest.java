@@ -34,6 +34,7 @@ public class ChildListTest
     {
         assertNotEquals(0, childList.getChildren().size());
     }
+    
 
     @Test
     public void testGetReadChild()
@@ -49,6 +50,7 @@ public class ChildListTest
         childList.addChild("Test", "Child", "1/1/1990");
         assertEquals(childListSize+1, childList.getChildren().size());
     }
+    
 
     @Test
     public void testGetExistingChild()
@@ -64,4 +66,10 @@ public class ChildListTest
         childList.addChild(null, null, null);
         assertNotEquals(childListSize+1, childList.getChildren().size());
     }
+    @Test
+    public void saveChildren()
+    {
+        DataWriter.saveChild();
+    }
+
 }
