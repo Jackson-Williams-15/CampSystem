@@ -1,3 +1,31 @@
-[{"birthday":"12\/12\/2012","allergies":["seasonal"],"doctor":Name: Emmet Brown
-Email: EmmBrown@outlook.com Phone: 821345258
-,"firstName":"Jane","lastName":"Doe","medication":[{"dose":"1 spray in each nostril","time":"Once a day","type":"Allergy Medicine"}],"emergencyContacts":[{"firstName":"John","lastName":"Doe","phoneNumber":706272580,"email":"johndoe@gmail.com"}],"UUID":"e9bcbd0a-6338-4bdd-b4fb-82d1b104fd48"}]
+[
+    {
+        "UUID":"e9bcbd0a-6338-4bdd-b4fb-82d1b104fd48",
+        "firstName":"Jane",
+        "lastName":"Doe",
+        "birthday":"12/12/2012",
+        "age":9,
+        "allergies":["seasonal"],
+        "doctor":{
+                "firstName":"Emmet",
+                "lastName":"Brown",
+                "email":"EmmBrown@outlook.com",
+                "phoneNumber":18001214442
+            },
+        "emergencyContacts":[
+            {
+                "firstName":"John",
+                "lastName":"Doe",
+                "email":"johndoe@gmail.com",
+                "phoneNumber":5001239876
+            }
+        ],
+        "medication":[
+            {
+                "type":"Allergy Medicine",
+                "dose":"1 spray in each nostril",
+                "time":"Once a day"
+            }
+        ]
+    }
+]

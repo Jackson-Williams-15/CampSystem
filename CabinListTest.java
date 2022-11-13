@@ -75,9 +75,5 @@ public class CabinListTest
         cabinList.addCabin(null);
         assertNotEquals(cabinListSize+1, cabinList.getCabins().size());
     }
-    @Test 
-    public void saveCabin()
-    {
-        DataWriter.saveCabins();
-    }
+
 }
