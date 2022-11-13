@@ -56,6 +56,7 @@ public class UserListTest
         userList.addUser(testUser);
         assertEquals(testUser, userList.getUser(testUser.getUUID()));
     }
+    
 
     @Test
     public void testAddNull()
