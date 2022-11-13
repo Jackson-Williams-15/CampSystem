@@ -15,10 +15,12 @@ public class DataWriter extends DataConstants {
         UserList user = UserList.getInstance();
 		ArrayList<User> users = user.getUsers();
 		JSONArray jsonUser = new JSONArray();
-		
+		 
+		// creates jsonObject
 		for(int i=0; i< users.size(); i++) {
 			jsonUser.add(getAllUserJSON(users.get(i)));
 		}
+		// write json file
   try (FileWriter file = new FileWriter(USER_FILE_NAME)) {
  
     file.write(jsonUser.toJSONString());
