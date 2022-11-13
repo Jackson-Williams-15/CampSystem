@@ -36,10 +36,6 @@ public class UserListTest
     {
         assertNotEquals(0, userList.getUsers().size());
     }
-    @Test
-    public void testaddUser(){
-        
-    }
 
     @Test
     public void testGetReadUser()
@@ -70,5 +66,4 @@ public class UserListTest
         assertTrue(false); //Test fails, and messes up testGetReadUser in the process.
     }
 
-    
 }

@@ -1,1 +1,96 @@
-[{"maxAge":10,"children":[],"minAge":8,"schedules":[{},{},{},{},{},{},{}],"name":"Brown Bear","UUID":"dd30acc7-6e51-4174-9fd0-4f345915fbe8","staffUUID":null}]
+[
+    {
+        "UUID":"dd30acc7-6e51-4174-9fd0-4f345915fbe8",
+        "staffUUID":"fa7cdb87-0440-4c51-bf70-f390eb99d99e",
+        "children":["e9bcbd0a-6338-4bdd-b4fb-82d1b104fd48"],
+        "name":"Brown Bear",
+        "minAge":8,
+        "maxAge":10,
+        "schedules":[
+            {
+                "day":"Monday",
+                "activities":[
+                    {
+                        "type":"PHYSICAL",
+                        "name":"Hiking",
+                        "time":"2:35 PM",
+                        "description":"Go hiking down the easy trail",
+                        "packingList":[]
+                    }
+                ]
+            },
+            {
+                "day":"Tuesday",
+                "activities":[
+                    {
+                        "type":"PHYSICAL",
+                        "name":"Hiking",
+                        "time":"2:35 PM",
+                        "description":"Go hiking down the easy trail",
+                        "packingList":[]
+                    }
+                ]
+            },
+            {
+                "day":"Wednesday",
+                "activities":[
+                    {
+                        "type":"PHYSICAL",
+                        "name":"Hiking",
+                        "time":"2:35 PM",
+                        "description":"Go hiking down the easy trail",
+                        "packingList":[]
+                    }
+                ]
+            },
+            {
+                "day":"Thursday",
+                "activities":[
+                    {
+                        "type":"PHYSICAL",
+                        "name":"Hiking",
+                        "time":"2:35 PM",
+                        "description":"Go hiking down the easy trail",
+                        "packingList":[]
+                    }
+                ]
+            },
+            {
+                "day":"Friday",
+                "activities":[
+                    {
+                        "type":"PHYSICAL",
+                        "name":"Hiking",
+                        "time":"2:35 PM",
+                        "description":"Go hiking down the easy trail",
+                        "packingList":[]
+                    }
+                ]
+            },
+            {
+                "day":"Saturday",
+                "activities":[
+                    {
+                        "type":"PHYSICAL",
+                        "name":"Hiking",
+                        "time":"2:35 PM",
+                        "description":"Go hiking down the easy trail",
+                        "packingList":[]
+                    }
+                ]
+            },
+            {
+                "day":"Sunday",
+                "activities":[
+                    {
+                        "type":"PHYSICAL",
+                        "name":"Hiking",
+                        "time":"2:35 PM",
+                        "description":"Go hiking down the easy trail",
+                        "packingList":[]
+                    }
+                ]
+            }
+        ]
+    }
+]

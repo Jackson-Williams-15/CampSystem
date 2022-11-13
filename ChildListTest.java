@@ -34,13 +34,7 @@ public class ChildListTest
     public void testListHasChildren()
     {
         assertNotEquals(0, childList.getChildren().size());
-    }
-
-    @Test
-    public void testHasChild(){
-        
     }   
-
 
     @Test
     public void testGetReadChild()
@@ -71,11 +65,6 @@ public class ChildListTest
         int childListSize = childList.getChildren().size();
         childList.addChild(null, null, null);
         assertNotEquals(childListSize+1, childList.getChildren().size());
-    }
-    @Test
-    public void saveChildren()
-    {
-        DataWriter.saveChild();
     }
 
 }
