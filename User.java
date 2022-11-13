@@ -87,4 +87,8 @@ public class User {
         "Birthday: " + this.dateOfBirth.toString() + "\n" +
         "Password: " + this.password + " UUID: " + this.thisUUID;
     }
+
+    public static User getInstance() {
+        return null;
+    }
 }

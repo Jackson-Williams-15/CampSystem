@@ -33,10 +33,18 @@ public class CampListTest
         assertEquals(listSize+1, campList.getCamps().size());
     }
 
+
     @Test
     public void testAddCampData()
     {
         campList.addCamp(testCamp);
         assertEquals(testCamp, campList.getCamps().get(0));
     }
+
+    @Test
+    public void saveCamp()
+    {
+        DataWriter.saveCamp();
+    }
+
 }
