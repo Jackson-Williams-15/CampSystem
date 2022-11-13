@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.UUID;
 
 import org.junit.*;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.condition.DisabledIf;
 
 public class CabinListTest
@@ -13,7 +14,7 @@ public class CabinListTest
     private static ChildList childList;
     private static UserList userList;
     private static CabinList cabinList;
-
+    
     @BeforeClass
     public static void oneTimeSetup()
     {

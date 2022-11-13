@@ -14,6 +14,7 @@ public class GuardianUser extends User {
         this.campDates = campDates;
     }
     
+    
     public void addChild(Child child){
         this.children.add(child);
     }

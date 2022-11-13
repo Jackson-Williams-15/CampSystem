@@ -70,8 +70,36 @@ public class UserListTest
         838, "Wall@gmail.com", "Love", null);
         assertFalse(test);
     }
-
-
+    @Test
+    public void testEmptyFirstName(){
+        boolean test = UserList.getInstance().addU("", "w1", 
+        838, "Wall@gmail.com", "Love", "1/20/2021");
+        assertFalse(test);
+    }
+    @Test
+    public void testEmptyLastName(){
+        boolean test = UserList.getInstance().addU("c1", "", 
+        838, "Wall@gmail.com", "Love", "1/20/2021");
+        assertFalse(test);
+    }
+    @Test
+    public void testEmptyEmail(){
+        boolean test = UserList.getInstance().addU("c1", "w1", 
+        838, "", "Love", "1/20/2021");
+        assertFalse(test);
+    }
+    @Test
+    public void testEmptyPassWord(){
+        boolean test = UserList.getInstance().addU("c1", "w1", 
+        838, "Wall@gmail.com", "", "1/20/2021");
+        assertFalse(test);
+    }
+    @Test
+    public void testEmptyDateOfBirth(){
+        boolean test = UserList.getInstance().addU("c1", "w1", 
+        838, "Wall@gmail.com", "Love", "");
+        assertFalse(test);
+    }
     @Test
     public void TestTest(){
         User testUser = new User("Test", "User", 0, "null", "null", "null");

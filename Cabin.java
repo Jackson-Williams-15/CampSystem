@@ -25,6 +25,7 @@ public class Cabin {
         this.thisUUID = UUID;
     }
 
+
     /**
      * 
      */
