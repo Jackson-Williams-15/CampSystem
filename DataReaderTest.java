@@ -26,7 +26,7 @@ public class DataReaderTest {
         janeContacts.add(new Contact("John", "Doe", 1876674230, "johnd@gmail.com"));
         janeContacts.add(new Contact("Florence", "Doe", 1877654923, "flo@gmail.com"));
         Child jane = new Child("Jane", "Doe", "1/1/2010", janeID, janeAllergies, janeDoctor, janeContacts, janeMedications);
-        childList.addChild(jane);
+        childList.addChild("Jane", "Doe", "1/1/2010");
 
         Contact tomDoctor = new Contact("Doctor", "Smith", 1871234210, "dsmith@gmail.com");
         ArrayList<String> tomAllergies = new ArrayList<String>();
@@ -39,7 +39,7 @@ public class DataReaderTest {
         tomContacts.add(new Contact("Paul", "McDonald", 1876543210, "pmcdonald@gmail.com"));
         tomContacts.add(new Contact("Mary", "McDonald", 1356478965, "marym@gmail.com"));
         Child tom = new Child("Tom", "McDonald", "1/1/2011", tomID, tomAllergies, tomDoctor, tomContacts, tomMedications);
-        childList.addChild(tom);
+        childList.addChild("Tom", "McDonald", "1/1/2011");
 
         userList.getUsers().clear();
         UUID jakeID = UUID.randomUUID();
@@ -182,21 +182,19 @@ public class DataReaderTest {
     @Test
     public void testGetZeroChildren() {
         ChildList.getInstance().getChildren().clear();
-        DataWriter.saveChildren();
-        assertEquals(0, ChildList.getChildren().size());
+        DataWriter.saveChild();
+        assertEquals(0, childList.getChildren().size());
     }
     @Test
     public void testGetNullChildren() {
         ChildList.getInstance().getChildren().clear();
-        Child nullChild = null;
-        childList.addUser(nullChild);
+        childList.addChild(null, null, null);
         assertEquals(0, childList.getChildren().size());
     }
     @Test
     public void testGetEmptyChild() {
         ChildList.getInstance().getChildren().clear();
-        Child empty = new Child("","","");
-        childList.addChild(empty);
+        childList.addChild("","","");
         assertEquals(1, childList.getChildren().size());
     }
     @Test
@@ -225,20 +223,18 @@ public class DataReaderTest {
     public void testGetZeroCabins() {
         CabinList.getInstance().getCabins().clear();
         DataWriter.saveCabins();
-        assertEquals(0, CabinList.getCabins().size());
+        assertEquals(0, cabinList.getCabins().size());
     }
     @Test
     public void testGetNullCabins() {
         CabinList.getInstance().getCabins().clear();
-        Cabin nullCabin = null;
-        cabinList.addCabin(nullCabin);
+        cabinList.addCabin(null);
         assertEquals(0, cabinList.getCabins().size());
     }
     @Test
     public void testGetEmptyCabin() {
         CabinList.getInstance().getCabins().clear();
-        Cabin empty = new Cabin("");
-        cabinList.addCabin(empty);
+        cabinList.addCabin("");
         assertEquals(1, cabinList.getCabins().size());
     }
     @Test
