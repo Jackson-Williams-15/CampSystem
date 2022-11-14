@@ -129,6 +129,8 @@ public class DataReaderTest {
         campCabins.add(tigers);
         ArrayList<Session> sessions = new ArrayList<Session>();
         sessions.add(new Session("Hawaiian", campCabins));
+        sessions.add(new Session("Rockstars", campCabins));
+        sessions.add(new Session("Willy Wonka", campCabins));
         Camp camp = new Camp("Camp Congaree", sessions);
         campList.addCamp(camp);
     }
@@ -203,7 +205,11 @@ public class DataReaderTest {
     }
     @Test
     public void testGetChildAllergiesSize() {
-        assertEquals(3, childList.getChildren().get(0).getAllergies().size());
+        assertEquals(3, childList.getChildren().get(1).getAllergies().size());
+    }
+    @Test
+    public void testGetChildAllergy() {
+        assertEquals("pollen", childList.getChildren().get(0).getAllergies().get(0));
     }
     @Test
     public void testGetChildDoctorName() {
@@ -242,21 +248,39 @@ public class DataReaderTest {
         assertEquals("Andrew", cabinList.getCabins().get(0).getCounselor().getFirstName());
     }
     @Test
+    public void testGetCabinScheduleActivitySize() {
+        Schedule[] testSchedule = cabinList.getCabins().get(0).getSchedule();
+        assertEquals(3, testSchedule[0].getActivities().size());
+    }
+    @Test
     public void testGetCabinScheduleActivity() {
-        assertEquals("painting", cabinList.getCabins().get(0).getSchedule()[0].getActivity().get(0).getName());
+        assertEquals("painting", cabinList.getCabins().get(0).getSchedule());
     }
 
     //test getCamp
     @Test
+    public void testGetZeroCamps() {
+        CampList.getInstance().getCamps().clear();
+        DataWriter.saveCamp();
+        assertEquals(0, campList.getCamps().size());
+    }
+    @Test
     public void testGetNullCamp() {
-        CampList.getInstance().getCamp().clear();
+        CampList.getInstance().getCamps().clear();
         Camp nullCamp = null;
         campList.addCamp(nullCamp);
         assertEquals(0, campList.getCamps().size());
     }
     @Test
     public void testGetEmptyCamp() {
-
+        CampList.getInstance().getCamps().clear();
+        Camp empty = new Camp("");
+        campList.addCamp(empty);
+        assertEquals(1, campList.getCamps().size());
+    }
+    @Test
+    public void testGetCampName() {
+        assertEquals("Camp Congaree", campList.getCamps().get(0).getName());
     }
 
 }
