@@ -1,1 +1,57 @@
-[{"firstName":"John","lastName":"Doe","password":"12345","phoneNumber":706272580,"emergencyContacts":null,"dateOfBirth":"1\/1\/1990","UUID":"16c7e243-f077-4246-9695-0f9662eda176"},{"firstName":"Steve","lastName":"Mann","password":"12345","phoneNumber":-26534619,"emergencyContacts":null,"dateOfBirth":"3\/6\/1989","UUID":"844b56f6-8ffa-443a-beb9-c80918378636"},{"firstName":"Jimmy","lastName":"T","password":"12345","phoneNumber":1531430329,"emergencyContacts":null,"dateOfBirth":"3\/21\/2003","UUID":"fa7cdb87-0440-4c51-bf70-f390eb99d99e"}]
+[
+    {
+        "UUID":"16c7e243-f077-4246-9695-0f9662eda176",
+        "firstName":"John",
+        "lastName":"Doe",
+        "email":"johndoe@gmail.com",
+        "phoneNumber":5001239876,
+        "dateOfBirth":"1/1/1990",
+        "password":"12345",
+        "type":"GuardianUser",
+        "children":["e9bcbd0a-6338-4bdd-b4fb-82d1b104fd48"],
+        "campDuration":7,
+        "campDates":["10/24/2022"]
+    },
+    {
+        "UUID":"844b56f6-8ffa-443a-beb9-c80918378636",
+        "firstName":"Steve",
+        "lastName":"Mann",
+        "email":"smann@business.org",
+        "phoneNumber":4268432677,
+        "dateOfBirth":"3/6/1989",
+        "password":"12345",
+        "type":"DirectorUser"
+    },
+    {
+        "UUID":"fa7cdb87-0440-4c51-bf70-f390eb99d99e",
+        "firstName":"Jimmy",
+        "lastName":"T",
+        "email":"jimmyt@warioware.inc",
+        "phoneNumber":5826397625,
+        "dateOfBirth":"3/21/2003",
+        "password":"12345",
+        "type":"StaffUser",
+        "emergencyContacts":[
+            {
+                "firstName":"Emmet",
+                "lastName":"Brown",
+                "email":"EmmBrown@outlook.com",
+                "phoneNumber":18001214442
+            }
+        ],
+        "doctor":{
+            "firtsName":"Tim",
+            "lastName":"Crygor",
+            "email":"drcrygor@diamond.biz",
+            "phoneNumber":18006976268
+        },
+        "allergies":[],
+        "medications":[
+            {
+                "type":"Physical Exercise",
+                "dose":"2 to 3 hours",
+                "time":"Daily"
+            }
+        ]
+    }
+]
