@@ -135,7 +135,8 @@ public class DataReaderTest {
 
     @After
     public void tearDown() {
-
+        UserList.getInstance().getUsers().clear();
+        DataWriter.saveUsers();
     }
 
     //test getAllUsers
@@ -172,13 +173,6 @@ public class DataReaderTest {
     public void testGetUserPhoneNumber() {
         assertEquals(1234567890, userList.getUsers().get(0).getPhone());
     }
-    /*
-    @Test
-    public void testGetStaffUserAllergy() {
-    
-        assertEquals("shellfish", userList.getUsers().get(3).getAllAllergies().get(0));
-    }
-    */
 
     //test getChildren
     @Test
