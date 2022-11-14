@@ -1,1 +1,31 @@
-[]
+[
+    {
+        "UUID":"e9bcbd0a-6338-4bdd-b4fb-82d1b104fd48",
+        "firstName":"Jane",
+        "lastName":"Doe",
+        "birthday":"12/12/2012",
+        "age":9,
+        "allergies":["seasonal"],
+        "doctor":{
+                "firstName":"Emmet",
+                "lastName":"Brown",
+                "email":"EmmBrown@outlook.com",
+                "phoneNumber":18001214442
+            },
+        "emergencyContacts":[
+            {
+                "firstName":"John",
+                "lastName":"Doe",
+                "email":"johndoe@gmail.com",
+                "phoneNumber":5001239876
+            }
+        ],
+        "medication":[
+            {
+                "type":"Allergy Medicine",
+                "dose":"1 spray in each nostril",
+                "time":"Once a day"
+            }
+        ]
+    }
+]
